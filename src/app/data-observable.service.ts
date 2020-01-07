@@ -7,6 +7,7 @@ import { Skills } from 'src/models/Skills';
 import { Experiences } from 'src/models/Experiences';
 import { Trainings } from 'src/models/Trainings';
 import { Certifications } from 'src/models/Certifications';
+import { Creations } from 'src/models/Creations';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,7 @@ export class DataObservableService {
   private experiences$: BehaviorSubject<Experiences> = new BehaviorSubject<Experiences>(undefined);
   private trainings$: BehaviorSubject<Trainings> = new BehaviorSubject<Trainings>(undefined);
   private certifications$: BehaviorSubject<Certifications> = new BehaviorSubject<Certifications>(undefined);
+  private creations$: BehaviorSubject<Creations> = new BehaviorSubject<Creations>(undefined);
   constructor() {}
 
   setPresentation(interests: string, description: string, qualifications: string): void {
@@ -63,6 +65,12 @@ export class DataObservableService {
     this.certifications$.next(certifications);
   }
 
+  setCreations(introduction: string): void {
+    let creations = new Creations();
+    creations.introduction = introduction;
+    this.creations$.next(creations);
+  }
+
   SubscribeToPresentation(): Observable<Presentation> {
     return this.presentation$.asObservable();
   }
@@ -85,6 +93,10 @@ export class DataObservableService {
 
   SubscribeToCertifications(): Observable<Certifications> {
     return this.certifications$.asObservable();
+  }
+
+  SubscribeToCreations(): Observable<Creations> {
+    return this.creations$.asObservable();
   }
 
 }

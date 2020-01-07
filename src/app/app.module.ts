@@ -14,6 +14,7 @@ import { SkillsComponent } from './skills/skills.component';
 import { ExperiencesComponent } from './experiences/experiences.component';
 import { TrainingComponent } from './training/training.component';
 import { CertificationComponent } from './certification/certification.component';
+import { CreationComponent } from './creation/creation.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CertificationComponent } from './certification/certification.component'
     SkillsComponent,
     ExperiencesComponent,
     TrainingComponent,
-    CertificationComponent
+    CertificationComponent,
+    CreationComponent
   ],
   imports: [
     BrowserModule,
