@@ -15,18 +15,17 @@ export class PresentationComponent implements OnInit {
   private eventsSubscription: Subscription;
 
   @Input() clickEvent: Observable<void>;
-  description: string;
-  qualifications: string;
-  interests: string;
+  presentation: Presentation;
   constructor(
     private dataObservableService: DataObservableService
   ) { }
 
   ngOnInit() {
+    this.presentation = new Presentation();
     this.presentation$ = this.dataObservableService.SubscribeToPresentation();
     this.fillInputs();
     this.eventsSubscription = this.clickEvent.subscribe(() => {
-      this.dataObservableService.setPresentation(this.interests, this.description, this.qualifications);
+      this.dataObservableService.setPresentation(this.presentation.interests, this.presentation.description, this.presentation.qualifications);
     });
   }
 
@@ -39,13 +38,13 @@ export class PresentationComponent implements OnInit {
       tap(data => {
         if (data !== undefined) {
           if (data.description !== undefined) {
-            this.description = data.description;
+            this.presentation.description = data.description;
           }
           if (data.qualifications !== undefined) {
-            this.qualifications = data.qualifications;
+            this.presentation.qualifications = data.qualifications;
           }
           if (data.interests !== undefined) {
-            this.interests = data.interests;
+            this.presentation.interests = data.interests;
           }
         }
       })

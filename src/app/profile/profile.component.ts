@@ -13,17 +13,17 @@ export class ProfileComponent implements OnInit {
   private profile$: Observable<Profile>;
   private eventsSubscription: Subscription;
   @Input() clickEvent: Observable<void>;
-  firstName: string;
-  lastName: string;
+  profile: Profile;
   constructor(
     private dataObservableService: DataObservableService
   ) { }
 
   ngOnInit() {
+    this.profile = new Profile();
     this.profile$ = this.dataObservableService.SubscribeToProfile();
     this.fillInputs();
     this.eventsSubscription = this.clickEvent.subscribe(() => {
-      this.dataObservableService.setProfile(this.lastName, this.firstName);
+      this.dataObservableService.setProfile(this.profile.lastName, this.profile.firstName);
     });
   }
 
@@ -36,10 +36,10 @@ export class ProfileComponent implements OnInit {
       tap(data => {
         if (data !== undefined) {
           if (data.firstName !== undefined) {
-            this.firstName = data.firstName;
+            this.profile.firstName = data.firstName;
           }
           if (data.lastName !== undefined) {
-            this.lastName = data.lastName;
+            this.profile.lastName = data.lastName;
           }
         }
       })

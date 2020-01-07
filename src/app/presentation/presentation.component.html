@@ -1,15 +1,14 @@
 <form class="ui form">
     <div class="field">
         <label>Description</label>
-        <textarea [(ngModel)]="description" name="description" placeholder="Décrivez vous"></textarea>
+        <textarea [(ngModel)]="presentation.description" name="description" placeholder="Décrivez vous"></textarea>
     </div>
     <div class="field">
         <label>Qualifications</label>
-        <textarea [(ngModel)]="qualifications" name="qualifications" placeholder="Quelles sont vos qualifications ?"></textarea>
+        <textarea [(ngModel)]="presentation.qualifications" name="qualifications" placeholder="Quelles sont vos qualifications ?"></textarea>
     </div>
     <div class="field">
         <label>Centres d'intérêts</label>
-        <textarea [(ngModel)]="interests" name="interests" placeholder="Donnez nous vos centres d'intérêts"></textarea>
+        <textarea [(ngModel)]="presentation.interests" name="interests" placeholder="Donnez nous vos centres d'intérêts"></textarea>
     </div>
-    <p></p>
 </form>

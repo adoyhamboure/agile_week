@@ -1,5 +1,6 @@
 <app-profile [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 0"></app-profile>
 <app-presentation [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 1" ></app-presentation>
+<app-skills [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 2"></app-skills>
 
 <button (click)="previousComponent()" *ngIf="appSelector !== 0" class="ui right labeled icon button">
     <i class="left arrow icon"></i>
