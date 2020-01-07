@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-editor',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditorComponent implements OnInit {
   private appSelector: number;
+  clickEvent: Subject<void> = new Subject<void>();
   constructor() { }
 
   ngOnInit() {
@@ -15,6 +17,7 @@ export class EditorComponent implements OnInit {
 
   nextComponent(): void{
     this.appSelector++;
+    this.clickEvent.next();
   }
 
   previousComponent(): void{
