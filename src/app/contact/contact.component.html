@@ -1,1 +1,10 @@
-<p>contact works!</p>
+<form class="ui form">
+    <div class="field">
+        <label>Téléphone</label>
+        <input [(ngModel)]="contacts.phone" type="text" [ngModelOptions]="{standalone: true}" placeholder="Téléphone">
+    </div>
+    <div class="field">
+        <label>E-Mail</label>
+        <input [(ngModel)]="contacts.mail" type="text" [ngModelOptions]="{standalone: true}" placeholder="E-Mail">
+    </div>
+</form>

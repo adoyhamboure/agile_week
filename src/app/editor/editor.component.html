@@ -6,6 +6,7 @@
 <app-certification [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 5"></app-certification>
 <app-creation [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 6"></app-creation>
 <app-reference [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 7"></app-reference>
+<app-contact [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 8"></app-contact>
 
 <button (click)="previousComponent()" *ngIf="appSelector !== 0" class="ui right labeled icon button">
     <i class="left arrow icon"></i>
