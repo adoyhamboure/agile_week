@@ -23,4 +23,8 @@ export class EditorComponent implements OnInit {
   previousComponent(): void{
     this.appSelector--;
   }
+
+  setAppSelector(num: number): void {
+    this.appSelector = num;
+  }
 }

@@ -1,3 +1,69 @@
+<div class="ui steps">
+  <div (click)="setAppSelector(0)" class="link step">
+    <i class="address book icon"></i>
+    <div class="content">
+      <div class="title">Profil</div>
+      <div class="description">Définissez votre profil </div>
+    </div>
+  </div>
+  <div (click)="setAppSelector(1)" class="link step">
+    <i class="info circle icon"></i>
+    <div class="content">
+      <div class="title">Description</div>
+      <div class="description">Dites nous en plus sur vous</div>
+    </div>
+  </div>
+  <div (click)="setAppSelector(2)" class="link step">
+    <i class="edit icon"></i>
+    <div class="content">
+      <div class="title">Compétences</div>
+      <div class="description">Mettez en avant vos compétences</div>
+    </div>
+  </div>
+  <div (click)="setAppSelector(3)" class="link step">
+    <i class="list icon"></i>
+    <div class="content">
+      <div class="title">Expériences</div>
+      <div class="description">Montrez nous toute votre expérience</div>
+    </div>
+  </div>
+  <div (click)="setAppSelector(4)" class="link step">
+    <i class="bookmark icon"></i>
+    <div class="content">
+      <div class="title">Formations</div>
+      <div class="description">Quelles sont vos formations ?</div>
+    </div>
+  </div>
+  <div (click)="setAppSelector(5)" class="link step">
+    <i class="clipboard outline icon"></i>
+    <div class="content">
+      <div class="title">Certifications</div>
+      <div class="description">Avez-vous des certifications ?</div>
+    </div>
+  </div>
+  <div (click)="setAppSelector(6)" class="link step">
+    <i class="clipboard outline icon"></i>
+    <div class="content">
+      <div class="title">Créations</div>
+      <div class="description">Avez-vous des certifications ?</div>
+    </div>
+  </div>
+  <div (click)="setAppSelector(7)" class="link step">
+    <i class="comment icon"></i>
+    <div class="content">
+      <div class="title">Commentaires</div>
+      <div class="description">Que disent vos anciens collègues sur vous ?</div>
+    </div>
+  </div>
+  <div (click)="setAppSelector(8)" class="link step">
+    <i class="address book icon"></i>
+    <div class="content">
+      <div class="title">Contacts</div>
+      <div class="description">N'oubliez pas de renseigner vos coordonnées</div>
+    </div>
+  </div>
+</div>
+
 <app-profile [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 0"></app-profile>
 <app-presentation [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 1" ></app-presentation>
 <app-skills [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 2"></app-skills>
