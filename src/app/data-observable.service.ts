@@ -5,6 +5,7 @@ import { tap } from 'rxjs/operators';
 import { Profile } from 'src/models/Profile';
 import { Skills } from 'src/models/Skills';
 import { Experiences } from 'src/models/Experiences';
+import { Trainings } from 'src/models/Trainings';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class DataObservableService {
   private profile$: BehaviorSubject<Profile> = new BehaviorSubject<Profile>(undefined);
   private skills$: BehaviorSubject<Skills> = new BehaviorSubject<Skills>(undefined);
   private experiences$: BehaviorSubject<Experiences> = new BehaviorSubject<Experiences>(undefined);
+  private trainings$: BehaviorSubject<Trainings> = new BehaviorSubject<Trainings>(undefined);
   constructor() {}
 
   setPresentation(interests: string, description: string, qualifications: string): void {
@@ -45,6 +47,13 @@ export class DataObservableService {
     this.experiences$.next(experiences);
   }
 
+  setTrainings(introduction: string, trainingsArray: any): void {
+    let trainings = new Trainings();
+    trainings.introduction = introduction;
+    trainings.trainingsArray = trainingsArray;
+    this.trainings$.next(trainings);
+  }
+
   SubscribeToPresentation(): Observable<Presentation> {
     return this.presentation$.asObservable();
   }
@@ -59,6 +68,10 @@ export class DataObservableService {
 
   SubscribeToExperiences(): Observable<Experiences> {
     return this.experiences$.asObservable();
+  }
+
+  SubscribeToTrainings(): Observable<Trainings> {
+    return this.trainings$.asObservable();
   }
 
 }

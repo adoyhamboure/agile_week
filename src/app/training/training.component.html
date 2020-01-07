@@ -1,0 +1,53 @@
+<form class="ui form">
+    <div class="field">
+        <label>Introduction à la partie formations</label>
+        <textarea [(ngModel)]="trainings.introduction" name="description"
+            placeholder="Décrivez vos formations et comment vous les avez obtenues (court paragraphe)"></textarea>
+    </div>
+    <div *ngFor="let t of trainings.trainingsArray">
+        <div class="ui card">
+            <div class="content">
+                <div class="field">
+                    <label>Titre de la formation</label>
+                    <input [(ngModel)]="t.label" type="text" [ngModelOptions]="{standalone: true}"
+                        placeholder="Titre de la formation">
+                </div>
+                <div class="field">
+                    <label>Date de début</label>
+                    <div class="ui left icon input">
+                        <i class="calendar icon"></i>
+                        <input suiDatepicker [ngModelOptions]="{standalone: true}" [(ngModel)]=" t.period.startDate"
+                            [pickerMode]="mode" [pickerFirstDayOfWeek]="firstDayOfWeek"
+                            [pickerUseNativeOnMobile]="false">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Date de fin</label>
+                    <div class="ui left icon input">
+                        <i class="calendar icon"></i>
+                        <input suiDatepicker [ngModelOptions]="{standalone: true}" [(ngModel)]=" t.period.endDate"
+                            [pickerMode]="mode" [pickerFirstDayOfWeek]="firstDayOfWeek"
+                            [pickerUseNativeOnMobile]="false">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Nom de l'école</label>
+                    <input [(ngModel)]="t.school" type="text" [ngModelOptions]="{standalone: true}"
+                        placeholder="Nom de l'école">
+                </div>
+                <div class="field">
+                    <label>Description de la formation</label>
+                    <input [(ngModel)]="t.description" type="text" [ngModelOptions]="{standalone: true}"
+                        placeholder="Description de la formation">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <button *ngIf="trainings.trainingsArray.length > 2" (click)="removeTraining()" class="ui icon button">
+        <i class="minus icon"></i>
+    </button>
+    <button *ngIf="trainings.trainingsArray.length < 5" (click)="addTraining()" class="ui icon button">
+        <i class="plus icon"></i>
+    </button>
+</form>

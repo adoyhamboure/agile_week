@@ -12,6 +12,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { SkillsComponent } from './skills/skills.component';
 import { ExperiencesComponent } from './experiences/experiences.component';
+import { TrainingComponent } from './training/training.component';
+import { CertificationComponent } from './certification/certification.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ExperiencesComponent } from './experiences/experiences.component';
     PresentationComponent,
     ProfileComponent,
     SkillsComponent,
-    ExperiencesComponent
+    ExperiencesComponent,
+    TrainingComponent,
+    CertificationComponent
   ],
   imports: [
     BrowserModule,
