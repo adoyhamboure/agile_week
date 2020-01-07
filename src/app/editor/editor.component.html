@@ -1,0 +1,12 @@
+<app-profile *ngIf="appSelector === 0"></app-profile>
+<app-presentation *ngIf="appSelector === 1" ></app-presentation>
+
+<button (click)="previousComponent()" *ngIf="appSelector !== 0" class="ui right labeled icon button">
+    <i class="left arrow icon"></i>
+    Précédent
+  </button>
+
+<button (click)="nextComponent()" class="ui labeled icon button">
+    <i class="right arrow icon"></i>
+    Suivant
+  </button>
