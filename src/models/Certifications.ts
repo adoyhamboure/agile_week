@@ -1,11 +1,12 @@
 export class Certifications {
-    certificationsIntroduction: string;
-    certificationsgArray: {
+    introduction: string;
+    certificationsArray: {
         period: {
             startDate: Date;
             endDate: Date;
         },
         label: string;
         company: string;
-    };
+        description: string;
+    }[];
 }

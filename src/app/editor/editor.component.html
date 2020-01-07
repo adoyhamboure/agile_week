@@ -3,6 +3,7 @@
 <app-skills [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 2"></app-skills>
 <app-experiences [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 3"></app-experiences>
 <app-training [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 4"></app-training>
+<app-certification [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 5"></app-certification>
 
 <button (click)="previousComponent()" *ngIf="appSelector !== 0" class="ui right labeled icon button">
     <i class="left arrow icon"></i>
