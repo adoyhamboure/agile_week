@@ -1,4 +1,4 @@
 export class Profile{
-    lastname: string;
-    name: string;
+    lastName: string;
+    firstName: string;
 }

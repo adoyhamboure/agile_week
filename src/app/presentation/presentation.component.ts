@@ -23,10 +23,9 @@ export class PresentationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.presentation$ = this.dataObservableService.SubscribePresentation();
+    this.presentation$ = this.dataObservableService.SubscribeToPresentation();
     this.fillInputs();
     this.eventsSubscription = this.clickEvent.subscribe(() => {
-      console.log(this.interests);
       this.dataObservableService.setPresentation(this.interests, this.description, this.qualifications);
     });
   }
