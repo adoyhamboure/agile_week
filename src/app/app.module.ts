@@ -11,6 +11,7 @@ import { PresentationComponent } from './presentation/presentation.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { SkillsComponent } from './skills/skills.component';
+import { ExperiencesComponent } from './experiences/experiences.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SkillsComponent } from './skills/skills.component';
     EditorComponent,
     PresentationComponent,
     ProfileComponent,
-    SkillsComponent
+    SkillsComponent,
+    ExperiencesComponent
   ],
   imports: [
     BrowserModule,

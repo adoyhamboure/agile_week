@@ -1,0 +1,53 @@
+<form class="ui form">
+    <div class="field">
+        <label>Introduction à la partie expériences professionnelles</label>
+        <textarea [(ngModel)]="experiences.introduction" name="description"
+            placeholder="Décrivez vos expériences et comment vous les avez obtenues (court paragraphe)"></textarea>
+    </div>
+    <div *ngFor="let e of experiences.experiencesArray">
+        <div class="ui card">
+            <div class="content">
+                <div class="field">
+                    <label>Titre de l'expérience</label>
+                    <input [(ngModel)]="e.label" type="text" [ngModelOptions]="{standalone: true}"
+                        placeholder="Titre de l'expérience">
+                </div>
+                <div class="field">
+                    <label>Date de début</label>
+                    <div class="ui left icon input">
+                        <i class="calendar icon"></i>
+                        <input suiDatepicker [ngModelOptions]="{standalone: true}" [(ngModel)]=" e.period.startDate"
+                            [pickerMode]="mode" [pickerFirstDayOfWeek]="firstDayOfWeek"
+                            [pickerUseNativeOnMobile]="false">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Date de fin</label>
+                    <div class="ui left icon input">
+                        <i class="calendar icon"></i>
+                        <input suiDatepicker [ngModelOptions]="{standalone: true}" [(ngModel)]=" e.period.endDate"
+                            [pickerMode]="mode" [pickerFirstDayOfWeek]="firstDayOfWeek"
+                            [pickerUseNativeOnMobile]="false">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Nom de l'entreprise</label>
+                    <input [(ngModel)]="e.company" type="text" [ngModelOptions]="{standalone: true}"
+                        placeholder="Nom de l'entreprise">
+                </div>
+                <div class="field">
+                    <label>Description de l'expérience</label>
+                    <input [(ngModel)]="e.description" type="text" [ngModelOptions]="{standalone: true}"
+                        placeholder="Description de l'expérience">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <button *ngIf="experiences.experiencesArray.length > 2" (click)="removeExperience()" class="ui icon button">
+        <i class="minus icon"></i>
+    </button>
+    <button *ngIf="experiences.experiencesArray.length < 5" (click)="addExperience()" class="ui icon button">
+        <i class="plus icon"></i>
+    </button>
+</form>
