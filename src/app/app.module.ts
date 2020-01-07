@@ -15,6 +15,8 @@ import { ExperiencesComponent } from './experiences/experiences.component';
 import { TrainingComponent } from './training/training.component';
 import { CertificationComponent } from './certification/certification.component';
 import { CreationComponent } from './creation/creation.component';
+import { ReferenceComponent } from './reference/reference.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { CreationComponent } from './creation/creation.component';
     ExperiencesComponent,
     TrainingComponent,
     CertificationComponent,
-    CreationComponent
+    CreationComponent,
+    ReferenceComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

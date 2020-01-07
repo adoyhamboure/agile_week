@@ -14,8 +14,8 @@ export class ExperiencesComponent implements OnInit {
   private eventsSubscription: Subscription;
   private experiences$: Observable<Experiences>;
   @Input() clickEvent: Observable<void>;
-  experiences: Experiences
-  mode: DatepickerMode
+  experiences: Experiences;
+  mode: DatepickerMode;
   constructor(
     private dataObservableService: DataObservableService
   ) { }
