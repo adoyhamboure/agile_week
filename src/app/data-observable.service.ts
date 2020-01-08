@@ -70,9 +70,10 @@ export class DataObservableService {
     this.certifications$.next(certifications);
   }
 
-  setCreations(introduction: string): void {
+  setCreations(introduction: string, imageList: any): void {
     let creations = new Creations();
     creations.introduction = introduction;
+    creations.imageList = imageList;
     this.creations$.next(creations);
   }
 

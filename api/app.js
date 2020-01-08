@@ -57,6 +57,6 @@ app.post('/multipleFiles', upload.array('files'), (req, res, next) => {
     return next(error)
   }
   res.send({
-    status: 'ok'
+    files
   });
 })

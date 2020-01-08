@@ -17,9 +17,9 @@ export class FileUploaderService {
     );
   }
 
-  uploadMultipleFiles(formData){
+  uploadMultipleFiles(formData, callback){
     this.http.post<any>(environment.apiUrl+'multipleFiles', formData).subscribe(
-      (res) => console.log(res),
+      (res) => callback(res),
       (err) => console.log(err)
     );
   }
