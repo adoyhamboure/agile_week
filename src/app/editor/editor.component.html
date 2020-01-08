@@ -1,85 +1,55 @@
-<div class="ui steps">
-  <div (click)="setAppSelector(0)" class="link step">
-    <i class="address book icon"></i>
-    <div class="content">
-      <div class="title">Profil</div>
-      <div class="description">Définissez votre profil </div>
-    </div>
+<div class="edit-container">
+  <div class="edit-content">
+  <app-profile [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 0"></app-profile>
+  <app-presentation [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 1" ></app-presentation>
+  <app-skills [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 2"></app-skills>
+  <app-experiences [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 3"></app-experiences>
+  <app-training [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 4"></app-training>
+  <app-certification [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 5"></app-certification>
+  <app-creation [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 6"></app-creation>
+  <app-reference [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 7"></app-reference>
+  <app-contact [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 8"></app-contact>
+
+  <div class="btn-group">
+    <span (click)="previousComponent()" *ngIf="appSelector !== 0" class="btn-previous">
+      <i class="angle left icon"></i>
+    </span>
+
+    <span (click)="nextComponent()" class="btn-next" onclick="setActiveStep(document.getElementsByClassName('active'))">
+      <i class="angle right icon"></i>
+    </span>
   </div>
-  <div (click)="setAppSelector(1)" class="link step">
-    <i class="info circle icon"></i>
-    <div class="content">
-      <div class="title">Description</div>
-      <div class="description">Dites nous en plus sur vous</div>
+  
+</div>
+
+  <div class="ui steps">
+    <div (click)="setAppSelector(0)" class="link step-item active" onclick="setActiveStep('step-1')" id="step-1">
     </div>
-  </div>
-  <div (click)="setAppSelector(2)" class="link step">
-    <i class="edit icon"></i>
-    <div class="content">
-      <div class="title">Compétences</div>
-      <div class="description">Mettez en avant vos compétences</div>
+
+    <div (click)="setAppSelector(1)" class="link step-item" onclick="setActiveStep('step-2')" id="step-2">
     </div>
-  </div>
-  <div (click)="setAppSelector(3)" class="link step">
-    <i class="list icon"></i>
-    <div class="content">
-      <div class="title">Expériences</div>
-      <div class="description">Montrez nous toute votre expérience</div>
+
+    <div (click)="setAppSelector(2)" class="link step-item" onclick="setActiveStep('step-3')" id="step-3">
     </div>
-  </div>
-  <div (click)="setAppSelector(4)" class="link step">
-    <i class="bookmark icon"></i>
-    <div class="content">
-      <div class="title">Formations</div>
-      <div class="description">Quelles sont vos formations ?</div>
+
+    <div (click)="setAppSelector(3)" class="link step-item" onclick="setActiveStep('step-4')" id="step-4">
     </div>
-  </div>
-  <div (click)="setAppSelector(5)" class="link step">
-    <i class="clipboard outline icon"></i>
-    <div class="content">
-      <div class="title">Certifications</div>
-      <div class="description">Avez-vous des certifications ?</div>
+
+    <div (click)="setAppSelector(4)" class="link step-item" onclick="setActiveStep('step-5')" id="step-5">
     </div>
-  </div>
-  <div (click)="setAppSelector(6)" class="link step">
-    <i class="clipboard outline icon"></i>
-    <div class="content">
-      <div class="title">Créations</div>
-      <div class="description">Avez-vous des certifications ?</div>
+
+    <div (click)="setAppSelector(5)" class="link step-item" onclick="setActiveStep('step-6')" id="step-6">
     </div>
-  </div>
-  <div (click)="setAppSelector(7)" class="link step">
-    <i class="comment icon"></i>
-    <div class="content">
-      <div class="title">Commentaires</div>
-      <div class="description">Que disent vos anciens collègues sur vous ?</div>
+
+    <div (click)="setAppSelector(6)" class="link step-item" onclick="setActiveStep('step-7')" id="step-7">
     </div>
-  </div>
-  <div (click)="setAppSelector(8)" class="link step">
-    <i class="address book icon"></i>
-    <div class="content">
-      <div class="title">Contacts</div>
-      <div class="description">N'oubliez pas de renseigner vos coordonnées</div>
+
+    <div (click)="setAppSelector(7)" class="link step-item" onclick="setActiveStep('step-8')" id="step-8">
     </div>
+
+    <div (click)="setAppSelector(8)" class="link step-item" onclick="setActiveStep('step-9')" id="step-9">
+    </div>
+
   </div>
 </div>
 
-<app-profile [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 0"></app-profile>
-<app-presentation [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 1" ></app-presentation>
-<app-skills [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 2"></app-skills>
-<app-experiences [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 3"></app-experiences>
-<app-training [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 4"></app-training>
-<app-certification [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 5"></app-certification>
-<app-creation [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 6"></app-creation>
-<app-reference [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 7"></app-reference>
-<app-contact [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 8"></app-contact>
-
-<button (click)="previousComponent()" *ngIf="appSelector !== 0" class="ui right labeled icon button">
-    <i class="left arrow icon"></i>
-    Précédent
-  </button>
-
-<button (click)="nextComponent()" class="ui labeled icon button">
-    <i class="right arrow icon"></i>
-    Suivant
-  </button>

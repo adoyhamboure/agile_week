@@ -1,33 +1,36 @@
-<form class="ui form">
-    <div class="field">
-        <label>Introduction à la partie compétences</label>
-        <textarea [(ngModel)]="skills.introduction" name="description"
-            placeholder="Décrivez vos compétences et comment vous les avez obtenues (court paragraphe)"></textarea>
-    </div>
-    <div *ngFor="let s of skills.skillsArray">
-        <div class="ui grid">
-            <div class="field two wide column">
-                <label>Titre de la compétence</label>
-                <input [(ngModel)]="s.label" type="text" [ngModelOptions]="{standalone: true}"
-                    placeholder="Titre de la compétence">
-            </div>
-            <div *ngIf="s.label !== undefined && s.label !== '' " class="field two wide column">
-                <label>Niveau de la compétence</label>
-                <select [(ngModel)]="s.value" class="ui fluid search dropdown" [ngModelOptions]="{standalone: true}"
-                    placeholder="Choose">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
+<form class="ui form skills">
+    <div class="modal"> 
+        <div class="title"><h1>COMPETENCES</h1></div>
+        <div class="field">
+            <label>INTRODUCTION A LA PARTIE COMPETENCES</label>
+            <textarea [(ngModel)]="skills.introduction" name="description"
+                placeholder="Décrivez vos compétences et comment vous les avez obtenues (court paragraphe)" class="text"></textarea>
+        </div>
+        <div *ngFor="let s of skills.skillsArray" class="masterGrid">
+            <div class="ui grid">
+                <div class="field two wide column">
+                    <label>TITRE DE LA COMPETENCE</label>
+                    <input [(ngModel)]="s.label" type="text" [ngModelOptions]="{standalone: true}"
+                        placeholder="Titre de la compétence" class="inputskills">
+                </div>
+                <div *ngIf="s.label !== undefined && s.label !== '' " class="field two wide column">
+                    <label>NIVEAU DE LA COMPETENCE</label>
+                    <select [(ngModel)]="s.value" class="ui fluid search dropdown" [ngModelOptions]="{standalone: true}"
+                        placeholder="Choose">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
             </div>
         </div>
+        <button *ngIf="skills.skillsArray.length > 6" (click)="removeSkill()" class="ui icon button">
+            <i class="minus icon"></i>
+        </button>
+        <button *ngIf="skills.skillsArray.length < 8 && skills.skillsArray[5].label != undefined && skills.skillsArray[5].value != undefined" (click)="addSkill()" class="ui icon button">
+            <i class="plus icon"></i>
+        </button>
     </div>
-    <button *ngIf="skills.skillsArray.length > 6" (click)="removeSkill()" class="ui icon button">
-        <i class="minus icon"></i>
-    </button>
-    <button *ngIf="skills.skillsArray.length < 8 && skills.skillsArray[5].label != undefined && skills.skillsArray[5].value != undefined" (click)="addSkill()" class="ui icon button">
-        <i class="plus icon"></i>
-    </button>
 </form>

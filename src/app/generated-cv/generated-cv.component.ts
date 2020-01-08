@@ -26,11 +26,15 @@ export class GeneratedCvComponent implements OnInit {
   references$: Observable<References>;
   skills$: Observable<Skills>;
   trainings$: Observable<Trainings>;
+  colorBackground: string;
+  colorTitle: string;
   constructor(
     private dataObservableService: DataObservableService
   ) { }
 
   ngOnInit() {
+    this.colorBackground = '#D9D9D9';
+    this.colorTitle = '#F3F3F3'
     this.initObservables();
   }
 

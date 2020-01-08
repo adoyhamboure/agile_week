@@ -1,1 +1,38 @@
-<button [routerLink]="['/editor']" routerLinkActive="router-link-active" >OUI</button>
+<header>
+    <h1>easy&nbsp;cv</h1>
+    <nav>
+        <div class="nav-mobile">
+            <span class="nav-item"><i class="fas fa-bars"></i></span>
+        </div>
+        <div class="nav-desktop">
+            <span class="nav-item">À propos</span>
+            <span class="nav-item">Documentation</span>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="main-container">
+        <h2>Créez votre site CV</h2>
+        <p>Grâce à notre outil gratuit de création de CV au format HTML, faire un site professionnel pour postuler à votre emploi de rêve devient une étape simple et rapide. Remplissez vos informations en 3 minutes et personnalisez le modèle généré en quelques clics.</p>
+        <button class="btn-submit" [routerLink]="['/editor']">Commencer</button>
+    </div>
+    
+</main>
+
+<div class="bg-container-mobile">
+    <div class="bg-top">
+        <img src="../../assets/img/bg_top_mobile.svg" alt="">
+    </div>
+    <div class="bg-bottom">
+        <img src="../../assets/img/bg_bottom_mobile.svg" alt="">
+    </div>
+</div>
+<div class="bg-container-desktop">
+    <div class="bg-left">
+        <img src="../../assets/img/bg_left.svg" alt="">
+    </div>
+    <div class="bg-right">
+        <img src="../../assets/img/bg_right.svg" alt="">
+    </div>
+</div>

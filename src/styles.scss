@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face{
+    font-family: "Roboto";
+    src: url("../src/assets/font/Roboto/Roboto-Regular.ttf");
+    font-family: "Abril Fatface";
+    src: url("../src/assets/font/Abril_Fatface/AbrilFatface-Regular.ttf");
+}
+body,h2{
+    font-family: "Roboto", sans-serif !important;
+}
+h1{
+    font-family: "Abril Fatface",cursive;
+}
