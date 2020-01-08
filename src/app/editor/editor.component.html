@@ -11,13 +11,13 @@
   <app-contact [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 8"></app-contact>
 
   <div class="btn-group">
-    <button (click)="previousComponent()" *ngIf="appSelector !== 0" class="ui right labeled icon button btnPrecedent">
+    <span (click)="previousComponent()" *ngIf="appSelector !== 0" class="btn-previous">
       <i class="angle left icon"></i>
-    </button>
+    </span>
 
-    <button (click)="nextComponent()" class="ui labeled icon button btnSuivant" onclick="setActiveStep(document.getElementsByClassName('active'))">
+    <span (click)="nextComponent()" class="btn-next" onclick="setActiveStep(document.getElementsByClassName('active'))">
       <i class="angle right icon"></i>
-    </button>
+    </span>
   </div>
   
 </div>
