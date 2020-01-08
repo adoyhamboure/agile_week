@@ -16,4 +16,67 @@
         </div>
     </div>
 </div>
-<div class="body" [style.background]="colorBackground"></div>
+<div class="body" [style.background]="colorBackground">
+    <div class="body-content">
+        <div class="rubrique">
+            <label>{{(profile$ | async)?.firstName}} {{(profile$ | async)?.lastName}}</label>
+            <label>{{(contacts$ | async)?.phone}} {{(contact$ | async)?.mail}}</label>
+            <img src="{{(profile$ | async)?.imageUrl}}" alt="profilePicture">
+        </div>
+        <div class="rubrique">
+            <h2>Presentation</h2>
+            <p>{{(presentation$ | async)?.description}}</p>
+            <div class="meta">Qualifications</div>
+            <p>{{(presentation$ | async)?.qualifications}}</p>
+            <div class="meta">Centres d'intérêts</div>
+            <p>{{(presentation$ | async)?.interests}}</p>
+        </div>
+        <div class="rubrique">
+            <h2>Compétences</h2>
+            <p>{{(skills$ | async)?.introduction}}</p>
+            <div *ngFor="let s of (skills$ | async)?.skillsArray">
+                <label>{{s.label}}</label>
+                <p>VALEUR (faire une barre ici) : {{s.value}}</p>
+            </div>
+        </div>
+        <div class="rubrique">
+            <h2>Expériences</h2>
+            <p>{{(experiences$ | async)?.introduction}}</p>
+            <div *ngFor="let e of (experiences$ | async)?.experiencesArray">
+                <label>{{e.period.startDate}} - {{e.period.endDate}}</label>
+                <h3>{{e.label}}</h3>
+                <h4>{{e.company}}</h4>
+                <p>{{e.description}}</p>
+            </div>
+        </div>
+        <div class="rubrique">
+            <h2>Formations</h2>
+            <p>{{(trainings$ | async)?.introduction}}</p>
+            <div *ngFor="let t of (trainings$ | async)?.trainingsArray">
+                <label>{{t.period.startDate}} - {{t.period.endDate}}</label>
+                <h3>{{t.label}}</h3>
+                <h4>{{t.school}}</h4>
+                <p>{{t.description}}</p>
+            </div>
+            <hr>
+            <h2>Certifications</h2>
+            <p>{{(certifications$ | async)?.introduction}}</p>
+            <div *ngFor="let c of (certifications$ | async)?.certificationsArray">
+                <label>{{c.period.startDate}} - {{c.period.endDate}}</label>
+                <h3>{{c.label}}</h3>
+                <h4>{{c.company}}</h4>
+                <p>{{c.description}}</p>
+            </div>
+        </div>
+        <div class="rubrique">
+            <h2>Réalisations</h2>
+            <p>{{(creations$ | async)?.introduction}}</p>
+            <div *ngFor="let e of (experiences$ | async)?.experiencesArray">
+                <label>{{e.period.startDate}} - {{e.period.endDate}}</label>
+                <h3>{{e.label}}</h3>
+                <h4>{{e.company}}</h4>
+                <p>{{e.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
