@@ -124,6 +124,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "agile-week"
+    }
+  },
+  "defaultProject": "agile-week",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
