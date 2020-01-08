@@ -3,6 +3,8 @@ import { Subscription, Observable } from 'rxjs';
 import { DataObservableService } from '../data-observable.service';
 import { Profile } from 'src/models/Profile';
 import { tap } from 'rxjs/operators';
+import { FileUploaderService } from '../file-uploader.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-profile',
@@ -15,6 +17,7 @@ export class ProfileComponent implements OnInit {
   @Input() clickEvent: Observable<void>;
   profile: Profile;
   constructor(
+    private fileUploaderService: FileUploaderService,
     private dataObservableService: DataObservableService
   ) { }
 
@@ -23,7 +26,7 @@ export class ProfileComponent implements OnInit {
     this.profile$ = this.dataObservableService.SubscribeToProfile();
     this.fillInputs();
     this.eventsSubscription = this.clickEvent.subscribe(() => {
-      this.dataObservableService.setProfile(this.profile.lastName, this.profile.firstName);
+      this.dataObservableService.setProfile(this.profile.lastName, this.profile.firstName, this.profile.imageUrl);
     });
   }
 
@@ -41,9 +44,21 @@ export class ProfileComponent implements OnInit {
           if (data.lastName !== undefined) {
             this.profile.lastName = data.lastName;
           }
+          if (data.imageUrl !== undefined) {
+            this.profile.imageUrl = data.imageUrl;
+          }
         }
       })
     ).subscribe();
+  }
+
+  uploadImage(event) {
+    const file = event.target.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+    this.fileUploaderService.uploadFile(formData, (e) => {
+      this.profile.imageUrl = environment.apiUrl+e.path;
+    }) 
   }
 
 }
