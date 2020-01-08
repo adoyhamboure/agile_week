@@ -10,16 +10,23 @@
 .edit-content {
     height: 80vh;
     width: 100%;
-    max-width: 650px;
-    padding: 20px;
-    margin: 20px;
-    //@extend: pink;
-    border-radius: 10px;
+    max-width: 750px;
     position: relative;
-    //overflow: auto;
-    //-webkit-box-shadow: 0px 0px 16px -4px rgba(125,125,125,1);
-    //-moz-box-shadow: 0px 0px 16px -4px rgba(125,125,125,1);
-    //box-shadow: 0px 0px 16px -4px rgba(125,125,125,1);
+
+    .edit-item {
+        height: 80vh;
+        width: 100%;
+        max-width: 650px;
+        margin: auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-box-shadow: 0px 0px 16px -4px rgba(125,125,125,1);
+        -moz-box-shadow: 0px 0px 16px -4px rgba(125,125,125,1);
+        box-shadow: 0px 0px 16px -4px rgba(125,125,125,1);
+    }
 
     .btn-group{
         position: absolute;

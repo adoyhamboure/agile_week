@@ -1,14 +1,17 @@
 <div class="edit-container">
   <div class="edit-content">
-  <app-profile [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 0"></app-profile>
-  <app-presentation [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 1" ></app-presentation>
-  <app-skills [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 2"></app-skills>
-  <app-experiences [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 3"></app-experiences>
-  <app-training [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 4"></app-training>
-  <app-certification [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 5"></app-certification>
-  <app-creation [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 6"></app-creation>
-  <app-reference [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 7"></app-reference>
-  <app-contact [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 8"></app-contact>
+    <div class="edit-item">
+      <app-profile [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 0"></app-profile>
+      <app-presentation [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 1" ></app-presentation>
+      <app-skills [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 2"></app-skills>
+      <app-experiences [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 3"></app-experiences>
+      <app-training [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 4"></app-training>
+      <app-certification [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 5"></app-certification>
+      <app-creation [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 6"></app-creation>
+      <app-reference [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 7"></app-reference>
+      <app-contact [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 8"></app-contact>
+    </div>
+  
 
   <div class="btn-group">
     <span (click)="previousComponent()" *ngIf="appSelector !== 0" class="btn-previous">
