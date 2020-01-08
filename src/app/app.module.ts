@@ -19,6 +19,8 @@ import { CertificationComponent } from './certification/certification.component'
 import { CreationComponent } from './creation/creation.component';
 import { ReferenceComponent } from './reference/reference.component';
 import { ContactComponent } from './contact/contact.component';
+import { GeneratedCvComponent } from './generated-cv/generated-cv.component';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { ContactComponent } from './contact/contact.component';
     CertificationComponent,
     CreationComponent,
     ReferenceComponent,
-    ContactComponent
+    ContactComponent,
+    GeneratedCvComponent
   ],
   imports: [
     BrowserModule,
