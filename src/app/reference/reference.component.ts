@@ -7,7 +7,7 @@ import { tap } from 'rxjs/operators';
 @Component({
   selector: 'app-reference',
   templateUrl: './reference.component.html',
-  styleUrls: ['./reference.component.sass']
+  styleUrls: ['./reference.component.scss']
 })
 export class ReferenceComponent implements OnInit {
   private eventsSubscription: Subscription;

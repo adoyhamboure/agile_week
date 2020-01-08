@@ -7,7 +7,7 @@ import { tap } from 'rxjs/operators';
 @Component({
   selector: 'app-presentation',
   templateUrl: './presentation.component.html',
-  styleUrls: ['./presentation.component.sass']
+  styleUrls: ['./presentation.component.scss']
 })
 export class PresentationComponent implements OnInit {
 

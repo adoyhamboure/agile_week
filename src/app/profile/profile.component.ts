@@ -7,7 +7,7 @@ import { tap } from 'rxjs/operators';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.sass']
+  styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
   private profile$: Observable<Profile>;

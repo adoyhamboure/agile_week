@@ -8,7 +8,7 @@ import { tap } from 'rxjs/operators';
 @Component({
   selector: 'app-training',
   templateUrl: './training.component.html',
-  styleUrls: ['./training.component.sass']
+  styleUrls: ['./training.component.scss']
 })
 export class TrainingComponent implements OnInit {
   private trainings$: Observable<Trainings>;

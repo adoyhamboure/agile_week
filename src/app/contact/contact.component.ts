@@ -7,7 +7,7 @@ import { tap } from 'rxjs/operators';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.sass']
+  styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
   private eventsSubscription: Subscription;

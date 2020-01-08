@@ -8,7 +8,7 @@ import { Certifications } from 'src/models/Certifications';
 @Component({
   selector: 'app-certification',
   templateUrl: './certification.component.html',
-  styleUrls: ['./certification.component.sass']
+  styleUrls: ['./certification.component.scss']
 })
 export class CertificationComponent implements OnInit {
   private certifications$: Observable<Certifications>;

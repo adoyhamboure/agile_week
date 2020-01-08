@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.sass']
+  styleUrls: ['./editor.component.scss']
 })
 export class EditorComponent implements OnInit {
   private appSelector: number;
