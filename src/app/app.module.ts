@@ -19,7 +19,6 @@ import { CertificationComponent } from './certification/certification.component'
 import { CreationComponent } from './creation/creation.component';
 import { ReferenceComponent } from './reference/reference.component';
 import { ContactComponent } from './contact/contact.component';
-import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -34,8 +33,7 @@ import { TestComponent } from './test/test.component';
     CertificationComponent,
     CreationComponent,
     ReferenceComponent,
-    ContactComponent,
-    TestComponent
+    ContactComponent
   ],
   imports: [
     BrowserModule,

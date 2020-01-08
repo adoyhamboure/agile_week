@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "cd api && node app.js && cd .. && ng serve",
+    "start": "(cd api && npm start) & ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "cd api && npm install"
   },
   "private": true,
   "dependencies": {
