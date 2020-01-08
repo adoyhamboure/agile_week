@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +20,7 @@ import { CreationComponent } from './creation/creation.component';
 import { ReferenceComponent } from './reference/reference.component';
 import { ContactComponent } from './contact/contact.component';
 import { GeneratedCvComponent } from './generated-cv/generated-cv.component';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +42,9 @@ import { GeneratedCvComponent } from './generated-cv/generated-cv.component';
     BrowserModule,
     AppRoutingModule,
     SuiModule,
-    FormsModule
+    FormsModule,
+    HttpModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
