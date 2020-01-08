@@ -27,7 +27,7 @@
     <button *ngIf="skills.skillsArray.length > 6" (click)="removeSkill()" class="ui icon button">
         <i class="minus icon"></i>
     </button>
-    <button *ngIf="skills.skillsArray.length < 8" (click)="addSkill()" class="ui icon button">
+    <button *ngIf="skills.skillsArray.length < 8 && skills.skillsArray[5].label != undefined && skills.skillsArray[5].value != undefined" (click)="addSkill()" class="ui icon button">
         <i class="plus icon"></i>
     </button>
 </form>
