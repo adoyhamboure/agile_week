@@ -71,7 +71,12 @@
         <div class="rubrique">
             <h2 [style.color]="colorTitle">Réalisations</h2>
             <p>{{(creations$ | async)?.introduction}}</p>
-            <p>AJOUTER CREATIONS ICI</p>
+            <div *ngFor="let image of (creations$ | async)?.imageList; let i = index" class="creation-list">
+                <video *ngIf="image.type.split('/')[0] === 'video'" width="320" height="240" controls>
+                    <source [src]="image.url" type="video/mp4">
+                </video>
+                <img *ngIf="image.type.split('/')[0] === 'image'" class="creation" [src]="image.url" alt="">
+            </div>
         </div>
         <div class="rubrique">
             <h2 [style.color]="colorTitle">Références</h2>
