@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +19,7 @@ import { CertificationComponent } from './certification/certification.component'
 import { CreationComponent } from './creation/creation.component';
 import { ReferenceComponent } from './reference/reference.component';
 import { ContactComponent } from './contact/contact.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -31,13 +34,16 @@ import { ContactComponent } from './contact/contact.component';
     CertificationComponent,
     CreationComponent,
     ReferenceComponent,
-    ContactComponent
+    ContactComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SuiModule,
-    FormsModule
+    FormsModule,
+    HttpModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
