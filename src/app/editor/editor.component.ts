@@ -25,6 +25,7 @@ export class EditorComponent implements OnInit {
   }
 
   setAppSelector(num: number): void {
+    this.clickEvent.next();
     this.appSelector = num;
   }
 }
