@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    max-width: 1440px;
+    margin: auto;
+    overflow: hidden;
+}
+
+h1 {
+    margin: 0 20px 20px 20px;
+    color: #064ACB;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 3rem;
+    line-height: 4rem;
+}
+
+nav {
+    flex-grow: 2;
+}
+
+.nav-desktop {
+    display: none;
+}
+
+.nav-mobile {
+    text-align: right;
+    padding: 0 40px;
+}
+
+.nav-item {
+    margin-left: 40px;
+    padding-top: 10px;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: #B3B3B3;
+}
+
+.main-container {
+    padding: 20px;
+    position: absolute;
+    top: calc(calc(calc(calc(100vh - 84px) - 80vw) / 2) + 84px); /* positionnement au centre de l'espace entre la nav et l'illustration du bas */
+    transform: translateY(-50%);
+}
+
+.main-container p {
+    max-width: 355px;
+    font-size: 12px;
+}
+
+.btn-submit {
+    background-color: #064ACB;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 100px;
+    cursor: pointer;
+}
+.btn-submit:hover {
+    background-color: rgba($color: #064ACB, $alpha: 0.9);
+}
+
+.bg-container-desktop {
+    z-index: -1;
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bg-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+.bg-left img {
+    height: 100%;
+    width: auto;
+}
+
+.bg-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+.bg-right img {
+    height: 100%;
+    width: auto;
+}
+
+.bg-container-mobile {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.bg-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.bg-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+@media screen and (min-width: 992px) {
+    .nav-mobile {
+        display: none;
+    }
+
+    .nav-desktop {
+        display: block;
+    }
+
+    h1 {
+        margin: 0 40px 20px 40px;
+        font-size: 4rem;
+        line-height: 4rem;
+    }
+
+    .main-container {
+        padding: 20px;
+        position: absolute;
+        top: 50%;
+        left: calc(calc(100vw - 300px) / 3);
+        transform: translate(-50%, -50%);
+    }
+
+    .main-container p {
+        font-size: 14px;
+    }
+
+    .bg-container-mobile {
+        display: none;
+    }
+
+    .bg-container-desktop {
+        display: block;
+    }
+}
