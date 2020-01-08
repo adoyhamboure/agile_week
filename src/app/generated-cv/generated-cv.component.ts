@@ -34,7 +34,7 @@ export class GeneratedCvComponent implements OnInit {
 
   ngOnInit() {
     this.colorBackground = '#D9D9D9';
-    this.colorTitle = '#F3F3F3'
+    this.colorTitle = '#434343'
     this.initObservables();
   }
 
