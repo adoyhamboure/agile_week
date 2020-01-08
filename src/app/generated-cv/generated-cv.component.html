@@ -1,3 +1,19 @@
-<div class="top">
-    
+<div class="top-container">
+    <div class="top-content">
+        <div class="pickers">
+            <input class="colorpicker" [(colorPicker)]="colorBackground" [style.background]="colorBackground" />
+            <label class="ui label pickerLabel">Fond</label>
+            <input class="colorpicker margin" [(colorPicker)]="colorTitle" [style.background]="colorTitle" />
+            <label class="ui label pickerLabel">Titre</label>
+        </div>
+        <div class="buttons">
+            <button class="ui primary button">
+                Exporter en PDF
+            </button>
+            <button class="ui primary button">
+                Exporter en format web
+            </button>
+        </div>
+    </div>
 </div>
+<div class="body" [style.background]="colorBackground"></div>

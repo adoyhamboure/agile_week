@@ -20,6 +20,7 @@ import { CreationComponent } from './creation/creation.component';
 import { ReferenceComponent } from './reference/reference.component';
 import { ContactComponent } from './contact/contact.component';
 import { GeneratedCvComponent } from './generated-cv/generated-cv.component';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { GeneratedCvComponent } from './generated-cv/generated-cv.component';
     SuiModule,
     FormsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    ColorPickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
