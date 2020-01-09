@@ -14,11 +14,11 @@
   
 
   <div class="btn-group">
-    <span (click)="previousComponent()" *ngIf="appSelector !== 0" class="btn-previous">
+    <span (click)="previousComponent()" *ngIf="appSelector !== 0" class="btn-previous" onclick="setActivePrev()">
       <i class="angle left icon"></i>
     </span>
 
-    <span (click)="nextComponent()" class="btn-next" onclick="setActiveStep(document.getElementsByClassName('active'))">
+    <span (click)="nextComponent()" class="btn-next" onclick="setActiveNext()">
       <i class="angle right icon"></i>
     </span>
   </div>
