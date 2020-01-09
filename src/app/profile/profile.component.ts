@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
     this.profile$ = this.dataObservableService.SubscribeToProfile();
     this.fillInputs();
     this.eventsSubscription = this.clickEvent.subscribe(() => {
-      this.dataObservableService.setProfile(this.profile.lastName, this.profile.firstName, this.profile.imageUrl);
+      this.dataObservableService.setProfile(this.profile.lastName, this.profile.firstName, this.profile.imageUrl, this.profile.city, this.profile.job);
     });
   }
 
@@ -46,6 +46,12 @@ export class ProfileComponent implements OnInit {
           }
           if (data.imageUrl !== undefined) {
             this.profile.imageUrl = data.imageUrl;
+          }
+          if (data.city !== undefined) {
+            this.profile.city = data.city;
+          }
+          if (data.job !== undefined) {
+            this.profile.job = data.job;
           }
         }
       })
