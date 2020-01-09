@@ -6,6 +6,8 @@
     </div>
     <div class="field">
         <div *ngFor="let image of creations.imageList; let i = index" class="creation-list">
+            <label>Intitulé de la création</label>
+            <input [(ngModel)]="image.description" type="text" [ngModelOptions]="{standalone: true}" placeholder="Description">
             <video *ngIf="image.type.split('/')[0] === 'video'" width="320" height="240" controls>
                 <source [src]="image.url" type="video/mp4">
             </video>

@@ -4,5 +4,6 @@ export class Creations {
         name: string;
         url: string;
         type: string;
+        description: string;
     }[];
 }
