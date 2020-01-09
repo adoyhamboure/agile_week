@@ -5,6 +5,14 @@
             <label class="ui label pickerLabel">Fond</label>
             <input class="colorpicker margin" [(colorPicker)]="colorTitle" [style.background]="colorTitle" />
             <label class="ui label pickerLabel">Titre</label>
+            <select [(ngModel)]="font" class="ui fluid search dropdown" [ngModelOptions]="{standalone: true}"
+            placeholder="Choisissez une police">
+            <option value="Roboto">Roboto</option>
+            <option value="'Amatic SC', cursive">Amatic SC</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
         </div>
         <div class="buttons">
             <button class="ui primary button">
@@ -23,8 +31,8 @@
             <label>{{(contacts$ | async)?.phone}} {{(contact$ | async)?.mail}}</label>
             <img src="{{(profile$ | async)?.imageUrl}}" alt="profilePicture">
         </div>
-        <div class="rubrique">
-            <h2 [style.color]="colorTitle">Presentation</h2>
+        <div [style.font-family]="font" class="rubrique">
+            <h2 [style.font-family]="font" [style.color]="colorTitle">Presentation</h2>
             <p>{{(presentation$ | async)?.description}}</p>
             <div class="meta">Qualifications</div>
             <p>{{(presentation$ | async)?.qualifications}}</p>

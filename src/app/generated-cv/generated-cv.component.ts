@@ -30,6 +30,7 @@ export class GeneratedCvComponent implements OnInit {
   trainings$: Observable<Trainings>;
   colorBackground: string;
   colorTitle: string;
+  font: string;
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private exportService: ExportService,
@@ -39,6 +40,7 @@ export class GeneratedCvComponent implements OnInit {
   ngOnInit() {
     this.colorBackground = '#D9D9D9';
     this.colorTitle = '#434343'
+    this.font = "Amatic SC', cursive'";
     this.initObservables();
     setTimeout(() => showDivs(1),1);
   }
