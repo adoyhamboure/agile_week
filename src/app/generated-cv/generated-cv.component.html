@@ -79,12 +79,18 @@
             </div>
         </div>
         <div class="rubrique">
+            
             <h2 [style.color]="colorTitle">Références</h2>
-            <div *ngFor="let c of (references$ | async)?.comments">
+            
+            <div class="mySlides" *ngFor="let c of (references$ | async)?.comments">
                 <h3>{{c.author}}</h3>
                 <h4>{{c.company}}</h4>
                 <p>{{c.value}}</p>
             </div>
+
+            <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+            <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+
         </div>
     </div>
 </div>

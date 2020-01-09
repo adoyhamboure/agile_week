@@ -56,7 +56,7 @@ app.post("/generate", (req, res) => {
   res.send(
     {
       status: 'index.html successfully generated.',
-      url: "localhost:"+port+'/export/index.html'
+      url: "http://localhost:"+port+'/export/index.html'
     }
   )
 });

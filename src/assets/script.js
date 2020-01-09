@@ -9,9 +9,9 @@ function setActiveStep(id){
     element.classList.add("active");
 }
 
-//Ajoute la class css active pour savoir sur quel page on se trouve pour le bouton suivant
-function setActiveNext(){
-    
+//Ajoute la class css active pour savoir sur quel page on se trouve
+//Remarque : n = 1 pour suivant et n = -1 pour precedent
+function setActivePastille(n){
     let activeElement;
     let allDiv = document.getElementsByTagName("div");
     for (var i = 0; i < allDiv.length; i++) {
@@ -20,20 +20,41 @@ function setActiveNext(){
             break;
         }
     }
-    activeElement.classList.remove("active");
-    activeElement.nextSibling.classList.add("active");
+    if(activeElement !== 'undefined'){
+        if(n==1){
+            activeElement.classList.remove("active");
+            let nextElement = activeElement.nextSibling;
+            if(nextElement != null){
+                nextElement.classList.add("active");
+            }
+        }
+        else if(n==-1){
+            activeElement.classList.remove("active");
+            let prevElement = activeElement.previousSibling;
+            if(prevElement != null){
+                prevElement.classList.add("active");
+            }
+        }
+    }
 }
 
-//Ajoute la class css active pour savoir sur quel page on se trouve pour le bouton precedent
-function setActivePrev(){
-    let activeElement;
-    let allDiv = document.getElementsByTagName("div");
-    for (var i = 0; i < allDiv.length; i++) {
-        if(allDiv[i].classList.contains("active")){
-            activeElement = allDiv[i];
-            break;
-        }
-    }
-    activeElement.classList.remove("active");
-    activeElement.previousSibling.classList.add("active");
+//Caroussel pour les References dans le résultat final
+var slideIndex = 1;
+//showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
 }
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";
+  //setTimeout(showDivs(slideIndex+1), 2000); // Change de div toutes les 2 seconds
+}
+//Fin caroussel

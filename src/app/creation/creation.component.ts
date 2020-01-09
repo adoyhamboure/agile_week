@@ -80,7 +80,7 @@ export class CreationComponent implements OnInit {
           }
         }
         if (index === -1) {
-          this.creations.imageList.push({url:environment.apiUrl + e.path, name: e.originalname, type: e.mimetype})
+          this.creations.imageList.push({url:environment.apiUrl + e.path, name: e.originalname, type: e.mimetype, description: undefined})
         }
       })
     }) 

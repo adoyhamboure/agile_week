@@ -1,22 +1,32 @@
 <form class="ui form">
+    <div class="title"><h1>CREATION</h1></div>
     <div class="field">
-        <label>Introduction à la partie créations</label>
+        <label>INTRODUCTION A LA PARTIE CREATION</label>
         <textarea [(ngModel)]="creations.introduction" name="description"
             placeholder="Décrivez vos globalement vos créations"></textarea>
     </div>
-    <div class="field">
-        <div *ngFor="let image of creations.imageList; let i = index" class="creation-list">
-            <video *ngIf="image.type.split('/')[0] === 'video'" width="320" height="240" controls>
-                <source [src]="image.url" type="video/mp4">
-            </video>
-            <img *ngIf="image.type.split('/')[0] === 'image'" class="creation" [src]="image.url" alt="">
-            <button class="ui icon button" (click)="removeImage(image.name)"><i class="minus icon"></i></button>
+    <div *ngFor="let image of creations.imageList; let i = index" class="creation-list">
+        <div class="ui card">
+            <div class="field">
+                <div class="media">
+                    <video *ngIf="image.type.split('/')[0] === 'video'" width="320" height="240" controls>
+                        <source [src]="image.url" type="video/mp4">
+                    </video>
+                    <img *ngIf="image.type.split('/')[0] === 'image'" class="creation" [src]="image.url" alt="">
+                </div>
+                <div class="remove">
+                    <input [(ngModel)]="image.description" type="text" [ngModelOptions]="{standalone: true}" placeholder="Légende de la création" class="text">
+                </div>
+                <div class=" minus_button">
+                    <button class="ui icon button" (click)="removeImage(image.name)"><i class="minus icon"></i></button>
+                </div>
+            </div>
         </div>
-        <div>
-            <label for="file" class="ui icon button">
-                <i class="plus icon"></i>
-            </label>
-            <input id="file" style="display:none" *ngIf="creations.imageList.length < 5" (change)="uploadImages($event)" type="file" name="images" accept="video/*|image/*" multiple/>
-        </div>
+    </div>
+    <div>
+        <label for="file" class="ui icon button">
+            <i class="plus icon"></i>
+        </label>
+        <input id="file" style="display:none" *ngIf="creations.imageList.length < 5" (change)="uploadImages($event)" type="file" name="images" accept="video/*|image/*" multiple/>
     </div>
 </form>
