@@ -42,6 +42,7 @@ export class GeneratedCvComponent implements OnInit {
     this.colorTitle = '#434343';
     this.initObservables();
     setTimeout(() => showDivs(1), 1);
+    this.font = "Roboto";
   }
 
   initObservables() {

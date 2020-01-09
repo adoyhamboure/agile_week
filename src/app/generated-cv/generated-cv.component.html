@@ -7,7 +7,7 @@
 [class.pacifico]="font=='Pacifico'"
 [class.space-mono]="font=='Space_Mono'"
 >
-  <div class="top-container">
+  <div class="top-container no-export">
     <div class="top-content ui grid container">
       <div class="pickers">
         <input
@@ -36,7 +36,7 @@
       <button class="btn-light">
         Exporter en PDF
       </button>
-      <button class="btn-full">
+      <button class="btn-full" (click)="export()">
         Exporter en format web
       </button>
     </div>
@@ -101,7 +101,7 @@
     </div>
     <div class="six wide column">
       <div id="cv-presentation" class="rubrique">
-        <div [routerLink]="['/editor/1']" routerLinkActive="router-link-active" class="edit-icon"><i class="pencil alternate icon"></i></div>
+        <div [routerLink]="['/editor/1']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Presentation</h2>
         <p>
           {{ (presentation$ | async)?.description }}
@@ -110,25 +110,23 @@
     </div>
     <div class="ten wide column">
       <div id="cv-skills" class="rubrique">
-        <div [routerLink]="['/editor/2']" routerLinkActive="router-link-active" class="edit-icon"><i class="pencil alternate icon"></i></div>
+        <div [routerLink]="['/editor/2']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Compétences</h2>
         <p>
           {{ (skills$ | async)?.introduction }}
         </p>
         <div *ngFor="let s of (skills$ | async)?.skillsArray">
           <div class="skill">
-            <span class="skill-label">{{ s.label }}</span>
-            <div class="progress">
-              <div class="progress-empty"></div>
-              <div class="progress-fill">{{ s.value }}%</div>
-            </div>
+              <sui-progress [value]="s.value" [showProgress]="false" [maximum]="5" [precision]="0" [autoSuccess]="false">
+                {{ s.label }}
+              </sui-progress>
           </div>
         </div>
       </div>
     </div>
     <div class="eight wide column">
       <div id="cv-experiences" class="rubrique">
-        <div [routerLink]="['/editor/3']" routerLinkActive="router-link-active" class="edit-icon"><i class="pencil alternate icon"></i></div>
+        <div [routerLink]="['/editor/3']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Expériences</h2>
         <p>
           {{ (experiences$ | async)?.introduction }}
@@ -152,7 +150,7 @@
     </div>
     <div class="eight wide column">
       <div id="cv-training" class="rubrique">
-        <div [routerLink]="['/editor/4']" routerLinkActive="router-link-active" class="edit-icon"><i class="pencil alternate icon"></i></div>
+        <div [routerLink]="['/editor/4']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Formations</h2>
         <div *ngFor="let t of (trainings$ | async)?.trainingsArray">
           <div class="article">
@@ -185,7 +183,7 @@
     </div>
     <div class="sixteen wide column">
       <div id="cv-creation" class="rubrique">
-        <div [routerLink]="['/editor/6']" routerLinkActive="router-link-active" class="edit-icon"><i class="pencil alternate icon"></i></div>
+        <div [routerLink]="['/editor/6']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Réalisations</h2>
         <p>{{ (creations$ | async)?.introduction }}</p>
         <div
@@ -213,7 +211,7 @@
     </div>
     <div class="sixteen wide column">
       <div id="cv-reference" class="rubrique">
-        <div [routerLink]="['/editor/7']" routerLinkActive="router-link-active" class="edit-icon"><i class="pencil alternate icon"></i></div>
+        <div [routerLink]="['/editor/7']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Références</h2>
         <div *ngFor="let c of (references$ | async)?.comments">
           <!-- <h3>{{c.author}}</h3>
