@@ -9,7 +9,7 @@
                   <img *ngIf="profile.imageUrl === undefined" class="img" src="./assets/img/placeholder.jpg" alt=""><br/> 
                   <img *ngIf="profile.imageUrl !== undefined" class="img" [src]="profile.imageUrl" alt=""><br/>
                 </div>
-                <div class="overlay"></div>
+                <div class="overlay">+</div>
               </div>
             </label>
             <input id="file" style="display:none" (change)="uploadImage($event)" type="file" name="image" accept="video/*|image/*" multiple/>
