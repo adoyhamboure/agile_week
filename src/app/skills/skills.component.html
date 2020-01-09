@@ -23,12 +23,12 @@
                     <option value="5">5</option>
                 </select>
             </div>
-            <button *ngIf="skills.skillsArray.length > 1" (click)="removeSkill(i)" class="ui icon button minus">
-                <i class="minus icon"></i>
+            <button *ngIf="skills.skillsArray.length > 1" (click)="removeSkill(i)" class="ui icon button minus remove">
+                <i class="trash icon"></i>
             </button>
         </div>
     </div>
-    <button *ngIf="skills.skillsArray.length < 8" (click)="addSkill()" class="ui icon button">
+    <button *ngIf="skills.skillsArray.length < 8" (click)="addSkill()" class="ui icon button add">
         <i class="plus icon"></i>
     </button>
 </form>
