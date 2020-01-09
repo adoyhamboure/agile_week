@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { EditorComponent } from './editor/editor.component';
 import { GeneratedCvComponent } from './generated-cv/generated-cv.component';
+import { EditOneComponentComponent } from './edit-one-component/edit-one-component.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'generated',
     component: GeneratedCvComponent
+  },
+  {
+    path: 'editor/:id',
+    component: EditOneComponentComponent
   }
 ];
 

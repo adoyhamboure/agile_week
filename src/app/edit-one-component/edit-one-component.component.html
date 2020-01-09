@@ -1,0 +1,14 @@
+<div *ngIf="appSelector != undefined">
+    <app-profile [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 0"></app-profile>
+    <app-presentation [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 1"></app-presentation>
+    <app-skills [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 2"></app-skills>
+    <app-experiences [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 3"></app-experiences>
+    <app-training [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 4"></app-training>
+    <app-certification [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 5"></app-certification>
+    <app-creation [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 6"></app-creation>
+    <app-reference [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 7"></app-reference>
+    <app-contact [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 8"></app-contact>
+</div>
+<button *ngIf="appSelector === 4" (click)="updateDatas(); updateAppSelector(5);" [routerLink]="['/editor/5']" routerLinkActive="router-link-active"  class="ui black basic button">Modifier les Certifications</button>
+<button *ngIf="appSelector === 5" (click)="updateDatas(); updateAppSelector(4);" [routerLink]="['/editor/4']" routerLinkActive="router-link-active"  class="ui black basic button">Modifier les Formations</button>
+<button (click)="updateDatas()" [routerLink]="['/generated']" routerLinkActive="router-link-active"  class="ui green basic button">Regénérer le CV</button>

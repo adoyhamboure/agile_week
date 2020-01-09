@@ -32,204 +32,202 @@
         <sui-select-option class="pacifico" value="Pacifico">Pacifico</sui-select-option>
         <sui-select-option class="space-mono" value="Space_Mono">Space Mono</sui-select-option>
       </sui-select>
-      <div class="top-buttons">
-        <button class="btn-light">
-          Exporter en PDF
-        </button>
-        <button class="btn-full">
-          Exporter en format web
-        </button>
+    <div class="top-buttons">
+      <button class="btn-light">
+        Exporter en PDF
+      </button>
+      <button class="btn-full">
+        Exporter en format web
+      </button>
+    </div>
+  </div>
+</div>
+<div class="body" [style.background]="colorBackground">
+  <div class="body-content ui stackable grid container">
+    <div class="sixteen wide column">
+      <div id="cv-header" class="rubrique">
+        <a href="#cv-profile"
+          ><h1>
+            {{ (profile$ | async)?.firstName }}
+            {{ (profile$ | async)?.lastName }}
+          </h1></a
+        >
+        <nav>
+          <!-- A faire dynamiquement -->
+          <a href="#cv-presentation">Présentation</a>
+          <a href="#cv-skills">Compétences</a>
+          <a href="#cv-experiences">Expérience</a>
+          <a href="#cv-training">Formations</a>
+          <a href="#cv-creation">Réalisations</a>
+          <a href="#cv-reference">Références</a>
+        </nav>
+      </div>
+    </div>
+    <div class="sixteen wide column">
+      <div id="cv-profile" class="rubrique">
+        <div [routerLink]="['/editor/0']" routerLinkActive="router-link-active" class="edit-icon"><i class="pencil alternate icon"></i></div>
+        <div>
+          <p>Bienvenue !</p>
+          <p>
+            {{ (profile$ | async)?.firstName }}
+            {{ (profile$ | async)?.lastName }}
+          </p>
+          <div>
+            <p><i class="home icon"></i>{{ (profile$ | async)?.city }}</p>
+            <p><i class="phone icon"></i>{{ (contacts$ | async)?.phone }}</p>
+            <p>
+              <i class="envelope icon"></i
+              ><a href="{{ (contact$ | async)?.mail }}">{{
+                (contact$ | async)?.mail
+              }}</a>
+            </p>
+          </div>
+          <div>
+            <i class="linkedin icon"></i>
+            <i class="facebook icon"></i>
+            <i class="twitter icon"></i>
+            <i class="instagram icon"></i>
+          </div>
+        </div>
+        <div>
+          <div class="profile-img">
+            <img
+              src="{{ (profile$ | async)?.imageUrl }}"
+              alt="profilePicture"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="six wide column">
+      <div id="cv-presentation" class="rubrique">
+        <div [routerLink]="['/editor/1']" routerLinkActive="router-link-active" class="edit-icon"><i class="pencil alternate icon"></i></div>
+        <h2 [style.color]="colorTitle">Presentation</h2>
+        <p>
+          {{ (presentation$ | async)?.description }}
+        </p>
+      </div>
+    </div>
+    <div class="ten wide column">
+      <div id="cv-skills" class="rubrique">
+        <div [routerLink]="['/editor/2']" routerLinkActive="router-link-active" class="edit-icon"><i class="pencil alternate icon"></i></div>
+        <h2 [style.color]="colorTitle">Compétences</h2>
+        <p>
+          {{ (skills$ | async)?.introduction }}
+        </p>
+        <div *ngFor="let s of (skills$ | async)?.skillsArray">
+          <div class="skill">
+            <span class="skill-label">{{ s.label }}</span>
+            <div class="progress">
+              <div class="progress-empty"></div>
+              <div class="progress-fill">{{ s.value }}%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="eight wide column">
+      <div id="cv-experiences" class="rubrique">
+        <div [routerLink]="['/editor/3']" routerLinkActive="router-link-active" class="edit-icon"><i class="pencil alternate icon"></i></div>
+        <h2 [style.color]="colorTitle">Expériences</h2>
+        <p>
+          {{ (experiences$ | async)?.introduction }}
+        </p>
+        <div *ngFor="let e of (experiences$ | async)?.experiencesArray">
+          <div class="article">
+            <span class="article-date"
+              >{{ e.period.startDate.getYear() }} -
+              {{ e.period.endDate.getYear() }}</span
+            ><br />
+            <span class="article-title">{{ e.label }}</span
+            ><br />
+            <span class="article-subtitle">{{ e.company }}</span
+            ><br />
+            <span class="article-text">
+              {{ e.description }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="eight wide column">
+      <div id="cv-training" class="rubrique">
+        <div [routerLink]="['/editor/4']" routerLinkActive="router-link-active" class="edit-icon"><i class="pencil alternate icon"></i></div>
+        <h2 [style.color]="colorTitle">Formations</h2>
+        <div *ngFor="let t of (trainings$ | async)?.trainingsArray">
+          <div class="article">
+            <span class="article-date"
+              >{{ t.period.startDate.getYear() }} -
+              {{ t.period.endDate.getYear() }}</span
+            ><br />
+            <span class="article-title">{{ t.label }}</span
+            ><br />
+            <span class="article-subtitle">{{ t.school }}</span>
+            <span class="article-text">
+              {{ t.description }}
+            </span>
+          </div>
+        </div>
+        <h2 [style.color]="colorTitle">Certifications</h2>
+        <div *ngFor="let c of (certifications$ | async)?.certificationsArray">
+          <div class="article">
+            <span class="article-date"
+              >{{ c.period.startDate.getYear() }} -
+              {{ c.period.endDate.getYear() }}</span
+            ><br />
+            <span class="article-title">{{ c.label }}</span
+            ><br />
+            <span class="article-subtitle">{{ c.company }}</span>
+            <span class="article-text">{{ c.description }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sixteen wide column">
+      <div id="cv-creation" class="rubrique">
+        <div [routerLink]="['/editor/6']" routerLinkActive="router-link-active" class="edit-icon"><i class="pencil alternate icon"></i></div>
+        <h2 [style.color]="colorTitle">Réalisations</h2>
+        <p>{{ (creations$ | async)?.introduction }}</p>
+        <div
+          *ngFor="let image of (creations$ | async)?.imageList; let i = index"
+          class="creation-list"
+        >
+          <div *ngIf="image.type.split('/')[0] === 'video'">
+            <video width="320" height="240" controls>
+              <source [src]="image.url" type="video/mp4" />
+            </video>
+            <p>{{ image.description }}</p>
+          </div>
+          <div *ngIf="image.type.split('/')[0] === 'image'">
+            <div>
+              <img
+                class="ui medium rounded image creation"
+                [src]="image.url"
+                alt=""
+              />
+            </div>
+            <p>{{ image.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sixteen wide column">
+      <div id="cv-reference" class="rubrique">
+        <div [routerLink]="['/editor/7']" routerLinkActive="router-link-active" class="edit-icon"><i class="pencil alternate icon"></i></div>
+        <h2 [style.color]="colorTitle">Références</h2>
+        <div *ngFor="let c of (references$ | async)?.comments">
+          <!-- <h3>{{c.author}}</h3>
+                          <h4>{{c.company}}</h4>
+                          <p>{{c.value}}</p> -->
+          <div class="article">
+            <span class="article-title">{{ c.author }}</span
+            ><br />
+            <span class="article-subtitle">{{ c.company }}</span
+            ><br />
+            <span class="article-text">{{ c.value }}</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="body" [style.background]="colorBackground">
-    <div class="body-content ui stackable grid container">
-      <div class="sixteen wide column">
-        <div id="cv-header" class="rubrique">
-          <a href="#cv-profile"
-            ><h1>
-              {{ (profile$ | async)?.firstName }}
-              {{ (profile$ | async)?.lastName }}
-            </h1></a
-          >
-          <nav>
-            <!-- A faire dynamiquement -->
-            <a href="#cv-presentation">Présentation</a>
-            <a href="#cv-skills">Compétences</a>
-            <a href="#cv-experiences">Expérience</a>
-            <a href="#cv-training">Formations</a>
-            <a href="#cv-creation">Réalisations</a>
-            <a href="#cv-reference">Références</a>
-          </nav>
-        </div>
-      </div>
-      <div class="sixteen wide column">
-        <div id="cv-profile" class="rubrique">
-          <div class="edit-icon"><i class="pencil alternate icon"></i></div>
-          <div>
-            <p>Bienvenue !</p>
-            <p>
-              {{ (profile$ | async)?.firstName }}
-              {{ (profile$ | async)?.lastName }}
-            </p>
-            <div>
-              <p><i class="home icon"></i>{{ (profile$ | async)?.city }}</p>
-              <p><i class="phone icon"></i>{{ (contacts$ | async)?.phone }}</p>
-              <p>
-                <i class="envelope icon"></i
-                ><a href="{{ (contact$ | async)?.mail }}">{{
-                  (contact$ | async)?.mail
-                }}</a>
-              </p>
-            </div>
-            <div>
-              <i class="linkedin icon"></i>
-              <i class="facebook icon"></i>
-              <i class="twitter icon"></i>
-              <i class="instagram icon"></i>
-            </div>
-          </div>
-          <div>
-            <div class="profile-img">
-              <img
-                src="{{ (profile$ | async)?.imageUrl }}"
-                alt="profilePicture"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="six wide column">
-        <div id="cv-presentation" class="rubrique">
-          <div class="edit-icon"><i class="pencil alternate icon"></i></div>
-          <h2 [style.color]="colorTitle">Presentation</h2>
-          <p>
-            {{ (presentation$ | async)?.description }}
-          </p>
-        </div>
-      </div>
-      <div class="ten wide column">
-        <div id="cv-skills" class="rubrique">
-          <div class="edit-icon"><i class="pencil alternate icon"></i></div>
-          <h2 [style.color]="colorTitle">Compétences</h2>
-          <p>
-            {{ (skills$ | async)?.introduction }}
-          </p>
-          <div *ngFor="let s of (skills$ | async)?.skillsArray">
-            <div class="skill">
-              <span class="skill-label">{{ s.label }}</span>
-              <div class="progress">
-                <div class="progress-empty"></div>
-                <div class="progress-fill">{{ s.value }}%</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="eight wide column">
-        <div id="cv-experiences" class="rubrique">
-          <div class="edit-icon"><i class="pencil alternate icon"></i></div>
-          <h2 [style.color]="colorTitle">Expériences</h2>
-          <p>
-            {{ (experiences$ | async)?.introduction }}
-          </p>
-          <div *ngFor="let e of (experiences$ | async)?.experiencesArray">
-            <div class="article">
-              <span class="article-date"
-                >{{ e.period.startDate.getYear() }} -
-                {{ e.period.endDate.getYear() }}</span
-              ><br />
-              <span class="article-title">{{ e.label }}</span
-              ><br />
-              <span class="article-subtitle">{{ e.company }}</span
-              ><br />
-              <span class="article-text">
-                {{ e.description }}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="eight wide column">
-        <div id="cv-training" class="rubrique">
-          <div class="edit-icon"><i class="pencil alternate icon"></i></div>
-          <h2 [style.color]="colorTitle">Formations</h2>
-          <div *ngFor="let t of (trainings$ | async)?.trainingsArray">
-            <div class="article">
-              <span class="article-date"
-                >{{ t.period.startDate.getYear() }} -
-                {{ t.period.endDate.getYear() }}</span
-              ><br />
-              <span class="article-title">{{ t.label }}</span
-              ><br />
-              <span class="article-subtitle">{{ t.school }}</span>
-              <span class="article-text">
-                {{ t.description }}
-              </span>
-            </div>
-          </div>
-  
-          <h2 [style.color]="colorTitle">Certifications</h2>
-          <div *ngFor="let c of (certifications$ | async)?.certificationsArray">
-            <div class="article">
-              <span class="article-date"
-                >{{ c.period.startDate.getYear() }} -
-                {{ c.period.endDate.getYear() }}</span
-              ><br />
-              <span class="article-title">{{ c.label }}</span
-              ><br />
-              <span class="article-subtitle">{{ c.company }}</span>
-              <span class="article-text">{{ c.description }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="sixteen wide column">
-        <div id="cv-creation" class="rubrique">
-          <div class="edit-icon"><i class="pencil alternate icon"></i></div>
-          <h2 [style.color]="colorTitle">Réalisations</h2>
-          <p>{{ (creations$ | async)?.introduction }}</p>
-          <div
-            *ngFor="let image of (creations$ | async)?.imageList; let i = index"
-            class="creation-list"
-          >
-            <div *ngIf="image.type.split('/')[0] === 'video'">
-              <video width="320" height="240" controls>
-                <source [src]="image.url" type="video/mp4" />
-              </video>
-              <p>{{ image.description }}</p>
-            </div>
-            <div *ngIf="image.type.split('/')[0] === 'image'">
-              <div>
-                <img
-                  class="ui medium rounded image creation"
-                  [src]="image.url"
-                  alt=""
-                />
-              </div>
-              <p>{{ image.description }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="sixteen wide column">
-        <div id="cv-reference" class="rubrique">
-          <div class="edit-icon"><i class="pencil alternate icon"></i></div>
-          <h2 [style.color]="colorTitle">Références</h2>
-          <div *ngFor="let c of (references$ | async)?.comments">
-            <!-- <h3>{{c.author}}</h3>
-                            <h4>{{c.company}}</h4>
-                            <p>{{c.value}}</p> -->
-            <div class="article">
-              <span class="article-title">{{ c.author }}</span
-              ><br />
-              <span class="article-subtitle">{{ c.company }}</span
-              ><br />
-              <span class="article-text">{{ c.value }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>  
 </div>

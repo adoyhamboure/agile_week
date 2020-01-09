@@ -21,6 +21,7 @@ import { ReferenceComponent } from './reference/reference.component';
 import { ContactComponent } from './contact/contact.component';
 import { GeneratedCvComponent } from './generated-cv/generated-cv.component';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { EditOneComponentComponent } from './edit-one-component/edit-one-component.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ColorPickerModule } from 'ngx-color-picker';
     CreationComponent,
     ReferenceComponent,
     ContactComponent,
-    GeneratedCvComponent
+    GeneratedCvComponent,
+    EditOneComponentComponent
   ],
   imports: [
     BrowserModule,
