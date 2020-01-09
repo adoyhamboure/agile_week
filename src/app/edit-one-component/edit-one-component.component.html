@@ -17,6 +17,10 @@
         <app-contact class="component" [clickEvent]="clickEvent.asObservable()" *ngIf="appSelector === 8"></app-contact>
     </div>
     <div class="buttons">
+        <button *ngIf="appSelector === 0" (click)="updateDatas(); updateAppSelector(8);" [routerLink]="['/editor/8']"
+        routerLinkActive="router-link-active" class="ui black basic button">Modifier les Contacts</button>
+    <button *ngIf="appSelector === 8" (click)="updateDatas(); updateAppSelector(0);" [routerLink]="['/editor/0']"
+        routerLinkActive="router-link-active" class="ui black basic button">Modifier le Profil</button>
         <button *ngIf="appSelector === 4" (click)="updateDatas(); updateAppSelector(5);" [routerLink]="['/editor/5']"
             routerLinkActive="router-link-active" class="ui black basic button">Modifier les Certifications</button>
         <button *ngIf="appSelector === 5" (click)="updateDatas(); updateAppSelector(4);" [routerLink]="['/editor/4']"
