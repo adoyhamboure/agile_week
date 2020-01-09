@@ -49,6 +49,7 @@
         .left {
             position: absolute;
             left: 0;
+            cursor: pointer;
 
             &:hover {
                 color: grey;
@@ -64,6 +65,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 .step-item {
