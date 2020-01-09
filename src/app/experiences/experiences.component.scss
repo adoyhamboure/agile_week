@@ -29,3 +29,21 @@
     margin: auto;
 }
 
+.remove:hover{
+    background-color: red;
+    color: white;
+    transition: 0.7s;
+}
+
+.add, .add:focus{
+    border: 2px solid rgba(191,191,191,.87);
+    background-color: white;
+    color: rgba(191,191,191,.87);
+}
+
+.add:hover{
+    background-color: #064acb;
+    border-color: #064acb;
+    color: white;
+    transition: 0.7s;
+}

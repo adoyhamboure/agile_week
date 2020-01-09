@@ -44,14 +44,14 @@
                         <textarea [(ngModel)]="c.description" name="description_exp" [ngModelOptions]="{standalone: true}"
                             placeholder="Description de l'expérience" class="text"></textarea>
                     </div>
-                    <button *ngIf="certifications.certificationsArray.length > 1" (click)="removeCertification(i)" class="ui icon button">
-                        <i class="minus icon"></i>
-                    </button>
                 </div>
+                <button *ngIf="certifications.certificationsArray.length > 1" (click)="removeCertification(i)" class="ui icon button remove">
+                    <i class="trash icon"></i>
+                </button>
             </div>
         </div>
     </div>
-    <button (click)="addCertification()" class="ui icon button">
+    <button (click)="addCertification()" class="ui icon button add">
         <i class="plus icon"></i>
     </button>
 </form>
