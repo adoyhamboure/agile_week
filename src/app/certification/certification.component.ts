@@ -57,7 +57,7 @@ export class CertificationComponent implements OnInit {
     this.certifications.certificationsArray.push(line);
   }
 
-  removeCertification(): void {
-    this.certifications.certificationsArray.pop();
+  removeCertification(i: number): void {
+    this.certifications.certificationsArray.splice(i, 1);
   }
 }

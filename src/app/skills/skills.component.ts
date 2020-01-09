@@ -56,8 +56,8 @@ export class SkillsComponent implements OnInit {
     this.skills.skillsArray.push(line);
   }
 
-  removeSkill(): void {
-    this.skills.skillsArray.pop();
+  removeSkill(i: number): void {
+    this.skills.skillsArray.splice(i, 1);
   }
 
 }

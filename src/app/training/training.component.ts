@@ -57,8 +57,8 @@ export class TrainingComponent implements OnInit {
     this.trainings.trainingsArray.push(line);
   }
 
-  removeTraining(): void {
-    this.trainings.trainingsArray.pop();
+  removeTraining(i: number): void {
+    this.trainings.trainingsArray.splice(i, 1);
   }
 
 }
