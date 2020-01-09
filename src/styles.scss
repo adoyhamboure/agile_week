@@ -5,9 +5,11 @@
     font-family: "Abril Fatface";
     src: url("../src/assets/font/Abril_Fatface/AbrilFatface-Regular.ttf");
 }
-body,h2{
+
+body, h1, h2 {
     font-family: "Roboto", sans-serif !important;
 }
-h1{
+
+header h1{
     font-family: "Abril Fatface",cursive;
 }

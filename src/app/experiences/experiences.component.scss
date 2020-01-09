@@ -1,17 +1,27 @@
-.experiences{
-    margin-left: 50px;
-}
-
 .title{
     margin-bottom: 30px;
 }
 
+.modal{
+    margin-left: auto;
+    width: 85%;
+}
+
 .field .text{
     height: 15%;
-    width: 75%;
+    width: 80%;
+}
+
+.side{
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
 }
 
 .card{
-    width: 40%;
-    position: relative;
+    width: 90%;
+}
+
+.content{
+    width: 100%;
 }
