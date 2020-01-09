@@ -26,11 +26,9 @@ export class DataObservableService {
   private contacts$: BehaviorSubject<Contacts> = new BehaviorSubject<Contacts>(undefined);
   constructor() {}
 
-  setPresentation(interests: string, description: string, qualifications: string): void {
+  setPresentation(description: string): void {
     let presentation = new Presentation();
-    presentation.interests = interests;
     presentation.description = description;
-    presentation.qualifications = qualifications;
     this.presentation$.next(presentation);
   }
 

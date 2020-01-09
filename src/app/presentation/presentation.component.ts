@@ -25,7 +25,7 @@ export class PresentationComponent implements OnInit {
     this.presentation$ = this.dataObservableService.SubscribeToPresentation();
     this.fillInputs();
     this.eventsSubscription = this.clickEvent.subscribe(() => {
-      this.dataObservableService.setPresentation(this.presentation.interests, this.presentation.description, this.presentation.qualifications);
+      this.dataObservableService.setPresentation(this.presentation.description);
     });
   }
 
@@ -39,12 +39,6 @@ export class PresentationComponent implements OnInit {
         if (data !== undefined) {
           if (data.description !== undefined) {
             this.presentation.description = data.description;
-          }
-          if (data.qualifications !== undefined) {
-            this.presentation.qualifications = data.qualifications;
-          }
-          if (data.interests !== undefined) {
-            this.presentation.interests = data.interests;
           }
         }
       })

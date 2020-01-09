@@ -22,11 +22,6 @@ export class SkillsComponent implements OnInit {
   ngOnInit() {
     this.skills = new Skills();
     this.skills.skillsArray = [
-      { label: undefined, value: undefined },
-      { label: undefined, value: undefined },
-      { label: undefined, value: undefined },
-      { label: undefined, value: undefined },
-      { label: undefined, value: undefined },
       { label: undefined, value: undefined }
     ];
     this.skills$ = this.dataObservableService.SubscribeToSkills();

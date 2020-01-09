@@ -2,26 +2,30 @@
     margin-bottom: 30px;
 }
 
-.modal{
-    margin-left: auto;
-    width: 85%;
-}
-
 .field .text{
     height: 15%;
-    width: 80%;
-}
-
-.side{
-    display: flex;
-    flex-wrap: wrap;
-    padding-bottom: 30px;
 }
 
 .card{
-    width: 90%;
+    width: 100%;
+    height: 98%;
 }
 
-.content{
-    width: 100%;
+.content .input_field{
+    display: flex;
+    flex-wrap: wrap;
 }
+
+.content .field{
+    margin: 15px;
+}
+
+.ui.card:last-child {
+    margin-bottom: 20px;
+}
+
+.content .input_field .field{
+    width: 45%;
+    margin: auto;
+}
+

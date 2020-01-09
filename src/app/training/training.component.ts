@@ -24,7 +24,6 @@ export class TrainingComponent implements OnInit {
     this.mode = "month";
     this.trainings = new Trainings;
     this.trainings.trainingsArray = [
-      { period: { startDate: undefined, endDate: undefined }, label: undefined, school: undefined, description: undefined },
       { period: { startDate: undefined, endDate: undefined }, label: undefined, school: undefined, description: undefined }
     ];
     this.trainings$ = this.dataObservableService.SubscribeToTrainings();

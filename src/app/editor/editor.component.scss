@@ -23,9 +23,9 @@
         border-radius: 10px;
         overflow-y: auto;
         overflow-x: hidden;
-        -webkit-box-shadow: 0px 0px 16px -4px rgba(125,125,125,1);
-        -moz-box-shadow: 0px 0px 16px -4px rgba(125,125,125,1);
-        box-shadow: 0px 0px 16px -4px rgba(125,125,125,1);
+        -webkit-box-shadow: 0px 0px 16px -4px rgba(125,125,125,0.2);
+        -moz-box-shadow: 0px 0px 16px -4px rgba(125,125,125,0.2);
+        box-shadow: 0px 0px 16px -4px rgba(125,125,125,0.2);
     }
 
     .btn-group{
@@ -49,6 +49,7 @@
         .left {
             position: absolute;
             left: 0;
+            cursor: pointer;
 
             &:hover {
                 color: grey;
@@ -64,6 +65,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 .step-item {
