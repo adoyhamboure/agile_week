@@ -34,7 +34,7 @@ const upload = multer({
 
 app.get("/", (req, res) => {
   res.send(
-    `API is working on port 3000`
+    `API is working on port ` + port
   );
 });
 
@@ -42,9 +42,10 @@ app.post("/generate", (req, res) => {
   function readWriteSync() {
     var data = fs.readFileSync(__dirname + '/export/template.html', 'utf-8');
     
-    console.log(decodeURI(req.body.content))
     var newValue = data.replace('[[BODY]]', decodeURI(req.body.content));
-  
+
+    newValue = newValue.replace(/http:\/\/localhost:3000\/export\//g, './');
+
     fs.writeFileSync(__dirname + '/export/index.html', newValue, 'utf-8');
   
     console.log('readFileSync complete');
