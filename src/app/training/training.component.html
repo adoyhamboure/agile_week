@@ -44,10 +44,10 @@
                         <textarea [(ngModel)]="t.description" name="description_exp" [ngModelOptions]="{standalone: true}"
                             placeholder="Description de la formation" class="text"></textarea>
                     </div>
-                    <button *ngIf="trainings.trainingsArray.length > 1" (click)="removeTraining(i)" class="ui icon button">
-                        <i class="minus icon"></i>
-                    </button>
                 </div>
+                <button *ngIf="trainings.trainingsArray.length > 1" (click)="removeTraining(i)" class="ui icon button">
+                    <i class="minus icon"></i>
+                </button>
             </div>
         </div>
     </div>
