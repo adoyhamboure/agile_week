@@ -2,9 +2,15 @@
     <div class="title"><h1>PROFIL</h1></div>
     <div class="field">
       <label>PHOTO DE PROFIL</label>
-      <img class="img" [src]="profile.imageUrl" alt=""><br/>
-      <input (change)="uploadImage($event)" type="file" accept="image/png, image/jpeg">  
-    </div>
+        <div>
+            <img class="img" [src]="profile.imageUrl" alt=""><br/>
+            <label for="file" class="ui icon button">
+                <i class="plus icon"></i>
+            </label>
+            <input id="file" style="display:none" (change)="uploadImage($event)" type="file" name="image" accept="video/*|image/*" multiple/>
+        </div>
+    </div>   
+      
     <div class="field">
       <label>PRENOM</label>
       <input [(ngModel)]="profile.firstName" type="text" name="first-name" placeholder="Prénom">
