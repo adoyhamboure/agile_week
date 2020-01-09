@@ -81,10 +81,16 @@ export class DataObservableService {
     this.references$.next(references);
   }
 
-  setContacts(phone: string, mail: string): void {
+  setContacts(phone: string, mail: string, linkedin: string, facebook: string, twitter: string, youtube: string, instagram: string, website: string): void {
     let contacts = new Contacts();
     contacts.phone = phone;
     contacts.mail = mail;
+    contacts.linkedin = linkedin;
+    contacts.facebook = facebook;
+    contacts.twitter = twitter;
+    contacts.youtube = youtube;
+    contacts.instagram = instagram;
+    contacts.website = website;
     this.contacts$.next(contacts);
   }
 
