@@ -17,7 +17,9 @@
                 <div class="remove">
                     <input [(ngModel)]="image.description" type="text" [ngModelOptions]="{standalone: true}" placeholder="Légende de la création" class="text">
                 </div>
-                <button class="ui icon button" (click)="removeImage(image.name)"><i class="minus icon minus_button"></i></button>
+                <div class=" minus_button">
+                    <button class="ui icon button" (click)="removeImage(image.name)"><i class="minus icon"></i></button>
+                </div>
             </div>
         </div>
     </div>
