@@ -56,7 +56,9 @@ export class GeneratedCvComponent implements OnInit {
 
   export() {
     const content: string = this.document.body.innerHTML;
-    this.exportService.export(content);
+    this.exportService.export(content).then((data) => {
+      window.open(data['url']);
+    })
   }
 
 }
