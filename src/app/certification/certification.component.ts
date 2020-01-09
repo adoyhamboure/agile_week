@@ -24,7 +24,6 @@ export class CertificationComponent implements OnInit {
     this.mode = "month";
     this.certifications = new Certifications;
     this.certifications.certificationsArray = [
-      { period: { startDate: undefined, endDate: undefined }, label: undefined, company: undefined, description: undefined },
       { period: { startDate: undefined, endDate: undefined }, label: undefined, company: undefined, description: undefined }
     ];
     this.certifications$ = this.dataObservableService.SubscribeToCertifications();

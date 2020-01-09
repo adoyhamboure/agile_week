@@ -24,7 +24,6 @@ export class ExperiencesComponent implements OnInit {
     this.mode = "month";
     this.experiences = new Experiences();
     this.experiences.experiencesArray = [
-      { period: { startDate: undefined, endDate: undefined }, label: undefined, company: undefined, description: undefined },
       { period: { startDate: undefined, endDate: undefined }, label: undefined, company: undefined, description: undefined }
     ];
     this.experiences$ = this.dataObservableService.SubscribeToExperiences();

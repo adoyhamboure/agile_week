@@ -1,9 +1,8 @@
 <form class="ui form">
-  <div class="modal">
     <div class="title"><h1>PROFIL</h1></div>
     <div class="field">
       <label>PHOTO DE PROFIL</label>
-      <img [src]="profile.imageUrl" alt=""><br/>
+      <img [src]="profile.imageUrl" alt="" id="profil_pic">
       <input (change)="uploadImage($event)" type="file" accept="image/png, image/jpeg">
     </div>
     <div class="field">
@@ -14,5 +13,4 @@
       <label>NOM</label>
       <input [(ngModel)]="profile.lastName" type="text" name="last-name" placeholder="Nom">
     </div>
-  </div>
 </form>
