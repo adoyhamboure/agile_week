@@ -9,7 +9,7 @@
                   <img *ngIf="profile.imageUrl === undefined" class="img" src="./assets/img/placeholder.jpg" alt=""><br/> 
                   <img *ngIf="profile.imageUrl !== undefined" class="img" [src]="profile.imageUrl" alt=""><br/>
                 </div>
-                <div class="overlay"></div>
+                <div class="overlay">+</div>
               </div>
             </label>
             <input id="file" style="display:none" (change)="uploadImage($event)" type="file" name="image" accept="video/*|image/*" multiple/>
@@ -23,5 +23,13 @@
     <div class="field">
       <label>NOM</label>
       <input [(ngModel)]="profile.lastName" type="text" name="last-name" placeholder="Nom">
+    </div>
+    <div class="field">
+      <label>VILLE</label>
+      <input [(ngModel)]="profile.city" type="text" name="city" placeholder="Ville">
+    </div>
+    <div class="field">
+      <label>METIER</label>
+      <input [(ngModel)]="profile.job" type="text" name="job" placeholder="Métier">
     </div>
 </form>

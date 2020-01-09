@@ -29,3 +29,20 @@
     margin: auto;
 }
 
+.remove:hover{
+    background-color: red;
+    color: white;
+    transition: 0.7s;
+}
+
+.add, .add:focus{
+    border: 3px solid #064acb;
+    background-color: white;
+    color: #064acb;
+}
+
+.add:hover{
+    background-color: #064acb;
+    color: white;
+    transition: 0.7s;
+}

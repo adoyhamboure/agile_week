@@ -32,11 +32,13 @@ export class DataObservableService {
     this.presentation$.next(presentation);
   }
 
-  setProfile(lastName: string, firstName: string, imageUrl: string): void {
+  setProfile(lastName: string, firstName: string, imageUrl: string, city: string, job: string): void {
     let profile = new Profile();
     profile.lastName = lastName;
     profile.firstName = firstName;
     profile.imageUrl = imageUrl;
+    profile.city = city;
+    profile.job = job;
     this.profile$.next(profile);
   }
 
