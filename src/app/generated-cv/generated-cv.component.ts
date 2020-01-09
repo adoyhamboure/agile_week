@@ -12,7 +12,7 @@ import { Skills } from 'src/models/Skills';
 import { Trainings } from 'src/models/Trainings';
 import { DOCUMENT } from '@angular/common';
 import { ExportService } from '../export.service';
-
+declare function showDivs(n:any):any;
 @Component({
   selector: 'app-generated-cv',
   templateUrl: './generated-cv.component.html',
@@ -40,6 +40,7 @@ export class GeneratedCvComponent implements OnInit {
     this.colorBackground = '#D9D9D9';
     this.colorTitle = '#434343'
     this.initObservables();
+    setTimeout(() => showDivs(1),1);
   }
 
   initObservables() {
