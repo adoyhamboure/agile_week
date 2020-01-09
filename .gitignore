@@ -45,13 +45,4 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-api/export/assets/shrekTpose.png
-api/export/assets/file_example_MP4_480_1_5MG.mp4
-api/export/assets/0fc.jpg
-api/export/assets/7ac49d1fcd3bcf31f77547e3ac088be6.png
-api/export/assets/7b1.jpeg
-api/export/assets/110-1108032_download-zip-archive-melee-luigi-t-pose.png
-api/export/assets/203-2031906_download-zip-archive-carl-wheezer-t-pose.png
-api/export/assets/452-4521436_shrek-png-image-shrek-t-pose-transparent.png
-api/export/assets/1200px-Logo_Porsche.svg.png
-api/export/assets/30249-0w345h345_Oranges_Fraiches_Variete_Navel_Lane_Late_Portugal.jpg
+api/export/Ressources/*

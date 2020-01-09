@@ -18,7 +18,7 @@ app.use('/export', express.static('export'))
 
 const storage = multer.diskStorage({
   destination: (req, file, callBack) => {
-    callBack(null, 'export/assets')
+    callBack(null, 'export/Ressources')
   },
   filename: (req, file, callBack) => {
     callBack(null, `${file.originalname}`)
@@ -35,6 +35,12 @@ app.get("/", (req, res) => {
   res.send(
     `API is working on port 3000`
   );
+});
+
+app.get("/export", (req, res) => { 
+  res.send(
+    ``
+  )
 });
 
 app.post('/file', upload.single('file'), (req, res, next) => {
