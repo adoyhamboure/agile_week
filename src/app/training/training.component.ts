@@ -23,9 +23,7 @@ export class TrainingComponent implements OnInit {
   ngOnInit() {
     this.mode = "month";
     this.trainings = new Trainings;
-    this.trainings.trainingsArray = [
-      { period: { startDate: undefined, endDate: undefined }, label: undefined, school: undefined, description: undefined }
-    ];
+    this.trainings.trainingsArray = [];
     this.trainings$ = this.dataObservableService.SubscribeToTrainings();
     this.fillInputs();
     this.eventsSubscription = this.clickEvent.subscribe(() => {

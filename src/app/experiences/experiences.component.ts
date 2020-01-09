@@ -23,9 +23,7 @@ export class ExperiencesComponent implements OnInit {
   ngOnInit() {
     this.mode = "month";
     this.experiences = new Experiences();
-    this.experiences.experiencesArray = [
-      { period: { startDate: undefined, endDate: undefined }, label: undefined, company: undefined, description: undefined }
-    ];
+    this.experiences.experiencesArray = [];
     this.experiences$ = this.dataObservableService.SubscribeToExperiences();
     this.fillInputs();
     this.eventsSubscription = this.clickEvent.subscribe(() => {

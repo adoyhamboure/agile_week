@@ -23,9 +23,7 @@ export class CertificationComponent implements OnInit {
   ngOnInit() {
     this.mode = "month";
     this.certifications = new Certifications;
-    this.certifications.certificationsArray = [
-      { period: { startDate: undefined, endDate: undefined }, label: undefined, company: undefined, description: undefined }
-    ];
+    this.certifications.certificationsArray = [];
     this.certifications$ = this.dataObservableService.SubscribeToCertifications();
     this.fillInputs();
     this.eventsSubscription = this.clickEvent.subscribe(() => {

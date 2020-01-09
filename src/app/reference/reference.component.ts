@@ -20,9 +20,7 @@ export class ReferenceComponent implements OnInit {
 
   ngOnInit() {
     this.references = new References();
-    this.references.comments = [
-      { author: undefined, company: undefined, value: undefined }
-    ];
+    this.references.comments = [];
     this.references$ = this.dataObservableService.SubscribeToReferences();
     this.fillInputs();
     this.eventsSubscription = this.clickEvent.subscribe(() => {
