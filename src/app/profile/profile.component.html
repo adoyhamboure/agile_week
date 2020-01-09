@@ -3,8 +3,8 @@
     <div class="title"><h1>PROFIL</h1></div>
     <div class="field">
       <label>PHOTO DE PROFIL</label>
-      <img [src]="profile.imageUrl" alt=""><br/>
-      <input (change)="uploadImage($event)" type="file" accept="image/png, image/jpeg">
+      <img class="img" [src]="profile.imageUrl" alt=""><br/>
+      <input (change)="uploadImage($event)" type="file" accept="image/png, image/jpeg">  
     </div>
     <div class="field">
       <label>PRENOM</label>
