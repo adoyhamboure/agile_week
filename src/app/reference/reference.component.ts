@@ -46,8 +46,8 @@ export class ReferenceComponent implements OnInit {
     ).subscribe();
   }
 
-  removeComment(): void {
-    this.references.comments.pop();
+  removeComment(i: number): void {
+    this.references.comments.splice(i, 1);
   }
 
   addComment(): void {

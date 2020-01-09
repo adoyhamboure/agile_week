@@ -52,12 +52,12 @@ export class ExperiencesComponent implements OnInit {
     ).subscribe();
   }
 
-  removeExperience(): void {
-    this.experiences.experiencesArray.pop();
+  removeExperience(i: number): void {
+    this.experiences.experiencesArray.splice(i, 1);
   }
 
   addExperience(): void {
-    const line =  { period: { startDate: undefined, endDate: undefined }, label: undefined, company: undefined, description: undefined };
+    const line = { period: { startDate: undefined, endDate: undefined }, label: undefined, company: undefined, description: undefined };
     this.experiences.experiencesArray.push(line);
   }
 }

@@ -1,5 +1,5 @@
 <form class="ui form">
-    <div *ngFor="let c of references.comments">
+    <div *ngFor="let c of references.comments; let i = index">
         <div class="field">
             <label>Auteur</label>
             <input [(ngModel)]="c.author" type="text" [ngModelOptions]="{standalone: true}" placeholder="Auteur">
@@ -13,10 +13,10 @@
             <textarea [(ngModel)]="c.value" [ngModelOptions]="{standalone: true}"
             placeholder="Entrez le commentaire de votre ancien collègue ou patron !"></textarea>
         </div>
+        <button *ngIf="references.comments.length > 1" (click)="removeComment(i)" class="ui icon button">
+            <i class="minus icon"></i>
+        </button>
     </div>
-    <button *ngIf="references.comments.length > 1" (click)="removeComment()" class="ui icon button">
-        <i class="minus icon"></i>
-    </button>
     <button (click)="addComment()" class="ui icon button">
         <i class="plus icon"></i>
     </button>

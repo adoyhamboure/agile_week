@@ -6,7 +6,7 @@
             placeholder="Décrivez vos formations et comment vous les avez obtenues (court paragraphe)" class="text"></textarea>
     </div>
     <div class="side">
-        <div *ngFor="let t of trainings.trainingsArray">
+        <div *ngFor="let t of trainings.trainingsArray; let i = index">
             <div class="ui card">
                 <div class="content">
                     <div class="input_field">
@@ -44,13 +44,13 @@
                         <textarea [(ngModel)]="t.description" name="description_exp" [ngModelOptions]="{standalone: true}"
                             placeholder="Description de la formation" class="text"></textarea>
                     </div>
+                    <button *ngIf="trainings.trainingsArray.length > 1" (click)="removeTraining(i)" class="ui icon button">
+                        <i class="minus icon"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
-    <button *ngIf="trainings.trainingsArray.length > 1" (click)="removeTraining()" class="ui icon button">
-        <i class="minus icon"></i>
-    </button>
     <button (click)="addTraining()" class="ui icon button">
         <i class="plus icon"></i>
     </button>

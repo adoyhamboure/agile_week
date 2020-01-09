@@ -6,7 +6,7 @@
             placeholder="Décrivez vos expériences et comment vous les avez obtenues (court paragraphe)" class="text"></textarea>
     </div>
     <div class="side">
-        <div *ngFor="let e of experiences.experiencesArray">
+        <div *ngFor="let e of experiences.experiencesArray; let i = index">
             <div class="ui card">
                 <div class="content">
                     <div class="input_field">
@@ -44,13 +44,13 @@
                         <textarea [(ngModel)]="e.description" name="description_exp" [ngModelOptions]="{standalone: true}"
                             placeholder="Description de l'expérience" class="text"></textarea>
                     </div>
+                    <button *ngIf="experiences.experiencesArray.length > 1" (click)="removeExperience(i)" class="ui icon button">
+                        <i class="minus icon"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
-    <button *ngIf="experiences.experiencesArray.length > 1" (click)="removeExperience()" class="ui icon button">
-        <i class="minus icon"></i>
-    </button>
     <button (click)="addExperience()" class="ui icon button">
         <i class="plus icon"></i>
     </button>
