@@ -1,3 +1,27 @@
 .title{
     margin-bottom: 30px;
 }
+
+.card{
+    width: 100%;
+    padding: 20px;
+}
+
+.ui.card:last-child {
+    margin-bottom: 20px;
+}
+
+.media img{
+    width: 200px;
+    height: auto;
+    border-radius: .28571429rem;
+}
+
+.remove{
+    width: 100%;
+}
+
+.minus_button{
+    position: absolute;
+    margin-top: 10px;
+}
