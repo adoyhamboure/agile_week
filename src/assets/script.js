@@ -12,7 +12,6 @@ function setActiveStep(id){
 //Ajoute la class css active pour savoir sur quel page on se trouve
 //Remarque : n = 1 pour suivant et n = -1 pour precedent
 function setActivePastille(n){
-    console.log("setActivePastille");
     let activeElement;
     let allDiv = document.getElementsByTagName("div");
     for (var i = 0; i < allDiv.length; i++) {
@@ -21,19 +20,27 @@ function setActivePastille(n){
             break;
         }
     }
-    if(n==1){
-        activeElement.classList.remove("active");
-        activeElement.nextSibling.classList.add("active");
-    }
-    else if(n==-1){
-        activeElement.classList.remove("active");
-        activeElement.previousSibling.classList.add("active");
+    if(activeElement !== 'undefined'){
+        if(n==1){
+            activeElement.classList.remove("active");
+            let nextElement = activeElement.nextSibling;
+            if(nextElement != null){
+                nextElement.classList.add("active");
+            }
+        }
+        else if(n==-1){
+            activeElement.classList.remove("active");
+            let prevElement = activeElement.previousSibling;
+            if(prevElement != null){
+                prevElement.classList.add("active");
+            }
+        }
     }
 }
 
 //Caroussel pour les References dans le résultat final
 var slideIndex = 1;
-showDivs(slideIndex);
+//showDivs(slideIndex);
 
 function plusDivs(n) {
   showDivs(slideIndex += n);
@@ -47,6 +54,7 @@ function showDivs(n) {
   for (i = 0; i < x.length; i++) {
     x[i].style.display = "none";  
   }
-  x[slideIndex-1].style.display = "block";  
+  x[slideIndex-1].style.display = "block";
+  //setTimeout(showDivs(slideIndex+1), 2000); // Change de div toutes les 2 seconds
 }
 //Fin caroussel
