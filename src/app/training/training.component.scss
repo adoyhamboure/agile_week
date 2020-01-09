@@ -11,16 +11,20 @@
     height: 98%;
 }
 
-.content{
+.content .input_field{
     display: flex;
     flex-wrap: wrap;
+}
+
+.content .field {
+    margin: 15px;
 }
 
 .ui.card:last-child {
     margin-bottom: 20px;
 }
 
-.content .field{
+.content .input_field .field{
     width: 45%;
     margin: auto;
 }
