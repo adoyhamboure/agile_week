@@ -1,11 +1,16 @@
 <form class="ui form">
+    <div class="title"><h1>CONTACTS</h1></div>
     <div class="field">
-        <label>Téléphone</label>
-        <input [(ngModel)]="contacts.phone" type="text" [ngModelOptions]="{standalone: true}" placeholder="Téléphone">
+        <div class="ui left icon input">
+            <input [(ngModel)]="contacts.phone" type="text" [ngModelOptions]="{standalone: true}" placeholder="Téléphone">
+            <i class="phone icon"></i>
+        </div>
     </div>
     <div class="field">
-        <label>E-Mail</label>
-        <input [(ngModel)]="contacts.mail" type="text" [ngModelOptions]="{standalone: true}" placeholder="E-Mail">
+        <div class="ui left icon input">
+            <input [(ngModel)]="contacts.mail" type="text" [ngModelOptions]="{standalone: true}" placeholder="E-Mail">
+            <i class="envelope icon"></i>
+        </div>
     </div>
     <div class="field">
         <div class="ui left icon input">
@@ -40,7 +45,7 @@
     <div class="field">
         <div class="ui left icon input">
             <input [(ngModel)]="contacts.website" [ngModelOptions]="{standalone: true}" type="text" placeholder="Site Personnel URL">
-            <i class="user icon"></i>
+            <i class="at icon"></i>
         </div>
     </div>
 </form>
