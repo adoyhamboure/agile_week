@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Courier+Prime|Gelasio|Pacifico|Space+Mono&display=swap');
+
 body {
   height: auto;
   font-family: "Roboto", sans-serif;
@@ -13,6 +15,34 @@ a {
 }
 a:hover {
   color: inherit;
+}
+
+.roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+.abril-sc {
+  font-family: 'Abril Fatface', cursive;
+}
+
+.amatic-sc {
+  font-family: 'Amatic SC', cursive;
+}
+
+.courrier-prime {
+  font-family: 'Courier Prime', monospace;
+}
+
+.gelasio {
+  font-family: 'Gelasio', serif;
+}
+
+.pacifico {
+  font-family: 'Pacifico', cursive;
+}
+
+.space-mono {
+  font-family: 'Space Mono', monospace;
 }
 
 .top-container {
