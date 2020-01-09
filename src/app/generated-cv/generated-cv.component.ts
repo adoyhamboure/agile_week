@@ -12,14 +12,14 @@ import { Skills } from 'src/models/Skills';
 import { Trainings } from 'src/models/Trainings';
 import { DOCUMENT } from '@angular/common';
 import { ExportService } from '../export.service';
-declare function showDivs(n:any):any;
+declare function showDivs(n: any): any;
 @Component({
   selector: 'app-generated-cv',
   templateUrl: './generated-cv.component.html',
   styleUrls: ['./generated-cv.component.scss']
 })
 export class GeneratedCvComponent implements OnInit {
-  certifications$: Observable<Certifications>
+  certifications$: Observable<Certifications>;
   profile$: Observable<Profile>;
   contacts$: Observable<Contacts>;
   creations$: Observable<Creations>;
@@ -34,13 +34,13 @@ export class GeneratedCvComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     private exportService: ExportService,
     private dataObservableService: DataObservableService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.colorBackground = '#D9D9D9';
-    this.colorTitle = '#434343'
+    this.colorTitle = '#434343';
     this.initObservables();
-    setTimeout(() => showDivs(1),1);
+    setTimeout(() => showDivs(1), 1);
   }
 
   initObservables() {
@@ -57,9 +57,8 @@ export class GeneratedCvComponent implements OnInit {
 
   export() {
     const content: string = this.document.body.innerHTML;
-    this.exportService.export(content).then((data) => {
+    this.exportService.export(content).then(data => {
       window.open(data['url']);
-    })
+    });
   }
-
 }
