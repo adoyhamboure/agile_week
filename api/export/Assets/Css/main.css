@@ -1,14 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-@font-face {
+@font-face{
   font-family: "Roboto";
-  src: url("../Webfonts/Roboto/Roboto-Regular.ttf");
+  src: url("./Webfonts/Roboto/Roboto-Regular.ttf");
   font-family: "Abril Fatface";
-  src: url("../Webfonts/Abril_Fatface/AbrilFatface-Regular.ttf");
-}
-body, h1, h2 {
-  font-family: "Roboto", sans-serif !important;
-}
-
-header h1 {
-  font-family: "Abril Fatface", cursive;
+  src: url("./Webfonts/Abril_Fatface/AbrilFatface-Regular.ttf");
+  font-family: "Amatic SC";
+  src: url("./Webfonts/Amatic_SC/AmaticSC-Regular.ttf");
+  font-family: "Courier Prime";
+  src: url("./Webfonts/Courier_Prime/CourierPrime-Regular.ttf");
+  font-family: "Gelasio";
+  src: url("./Webfonts/Gelasio/Gelasio-Regular.ttf");
+  font-family: "Pacifico";
+  src: url("./Webfonts/Pacifico/Pacifico-Regular.ttf");
+  font-family: "Space Mono";
+  src: url("./Webfonts/Space_Mono/SpaceMono-Regular.ttf");
 }
