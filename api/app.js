@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const multer = require('multer');
+var fs = require('fs');
 
 const app = express();
 app.use(cors({
@@ -37,9 +38,25 @@ app.get("/", (req, res) => {
   );
 });
 
-app.get("/export", (req, res) => { 
+app.post("/generate", (req, res) => {
+  function readWriteSync() {
+    var data = fs.readFileSync(__dirname + '/export/template.html', 'utf-8');
+    
+    console.log(decodeURI(req.body.content))
+    var newValue = data.replace('[[BODY]]', decodeURI(req.body.content));
+  
+    fs.writeFileSync(__dirname + '/export/index.html', newValue, 'utf-8');
+  
+    console.log('readFileSync complete');
+  }
+  
+  readWriteSync();
+
   res.send(
-    ``
+    {
+      status: 'index.html successfully generated.',
+      url: "localhost:"+port+'/export/index.html'
+    }
   )
 });
 

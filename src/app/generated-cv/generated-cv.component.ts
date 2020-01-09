@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DataObservableService } from '../data-observable.service';
 import { Certifications } from 'src/models/Certifications';
@@ -10,6 +10,8 @@ import { Presentation } from 'src/models/Presentation';
 import { References } from 'src/models/References';
 import { Skills } from 'src/models/Skills';
 import { Trainings } from 'src/models/Trainings';
+import { DOCUMENT } from '@angular/common';
+import { ExportService } from '../export.service';
 
 @Component({
   selector: 'app-generated-cv',
@@ -29,6 +31,8 @@ export class GeneratedCvComponent implements OnInit {
   colorBackground: string;
   colorTitle: string;
   constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private exportService: ExportService,
     private dataObservableService: DataObservableService
   ) { }
 
@@ -48,6 +52,11 @@ export class GeneratedCvComponent implements OnInit {
     this.references$ = this.dataObservableService.SubscribeToReferences();
     this.skills$ = this.dataObservableService.SubscribeToSkills();
     this.trainings$ = this.dataObservableService.SubscribeToTrainings();
+  }
+
+  export() {
+    const content: string = this.document.body.innerHTML;
+    this.exportService.export(content);
   }
 
 }
