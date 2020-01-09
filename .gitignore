@@ -45,4 +45,9 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-api/export/Ressources/*
+api/export/Ressources/*.jpg
+api/export/Ressources/*.jpeg
+api/export/Ressources/*.png
+api/export/Ressources/*.wav
+api/export/Ressources/*.mp4
+api/export/Ressources/*.ts
