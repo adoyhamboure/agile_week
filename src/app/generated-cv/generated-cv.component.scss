@@ -82,6 +82,7 @@ a:hover {
 }
 
 .rubrique {
+  position: relative;
   height: 100%;
   padding: 2rem;
   background-color: #ffffff;
@@ -90,6 +91,19 @@ a:hover {
   -webkit-box-shadow: 0px 0px 16px -4px rgba(125, 125, 125, 0.2);
   -moz-box-shadow: 0px 0px 16px -4px rgba(125, 125, 125, 0.2);
   box-shadow: 0px 0px 16px -4px rgba(125, 125, 125, 0.2);
+}
+
+.edit-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #dddddd;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.edit-icon:hover {
+  color: #666666;
 }
 
 .article {

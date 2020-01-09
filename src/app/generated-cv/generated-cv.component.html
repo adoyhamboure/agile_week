@@ -47,6 +47,7 @@
     </div>
     <div class="sixteen wide column">
       <div id="cv-profile" class="rubrique">
+        <div class="edit-icon"><i class="pencil alternate icon"></i></div>
         <div>
           <p>Bienvenue !</p>
           <p>
@@ -82,6 +83,7 @@
     </div>
     <div class="six wide column">
       <div id="cv-presentation" class="rubrique">
+        <div class="edit-icon"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Presentation</h2>
         <p>
           {{ (presentation$ | async)?.description }}
@@ -90,6 +92,7 @@
     </div>
     <div class="ten wide column">
       <div id="cv-skills" class="rubrique">
+        <div class="edit-icon"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Compétences</h2>
         <p>
           {{ (skills$ | async)?.introduction }}
@@ -107,6 +110,7 @@
     </div>
     <div class="eight wide column">
       <div id="cv-experiences" class="rubrique">
+        <div class="edit-icon"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Expériences</h2>
         <p>
           {{ (experiences$ | async)?.introduction }}
@@ -130,6 +134,7 @@
     </div>
     <div class="eight wide column">
       <div id="cv-training" class="rubrique">
+        <div class="edit-icon"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Formations</h2>
         <div *ngFor="let t of (trainings$ | async)?.trainingsArray">
           <div class="article">
@@ -163,6 +168,7 @@
     </div>
     <div class="sixteen wide column">
       <div id="cv-creation" class="rubrique">
+        <div class="edit-icon"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Réalisations</h2>
         <p>{{ (creations$ | async)?.introduction }}</p>
         <div
@@ -190,6 +196,7 @@
     </div>
     <div class="sixteen wide column">
       <div id="cv-reference" class="rubrique">
+        <div class="edit-icon"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Références</h2>
         <div *ngFor="let c of (references$ | async)?.comments">
           <!-- <h3>{{c.author}}</h3>
