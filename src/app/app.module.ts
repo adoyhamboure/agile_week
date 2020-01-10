@@ -22,6 +22,7 @@ import { ContactComponent } from './contact/contact.component';
 import { GeneratedCvComponent } from './generated-cv/generated-cv.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { EditOneComponentComponent } from './edit-one-component/edit-one-component.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { EditOneComponentComponent } from './edit-one-component/edit-one-compone
     ReferenceComponent,
     ContactComponent,
     GeneratedCvComponent,
-    EditOneComponentComponent
+    EditOneComponentComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
