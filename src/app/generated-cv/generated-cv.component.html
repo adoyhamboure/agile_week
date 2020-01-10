@@ -46,12 +46,15 @@
   <div class="body-content ui stackable grid container">
     <div class="sixteen wide column" [class.no-export]="(profile$ | async) === undefined">
       <div id="cv-header" class="rubrique">
-        <a href="#cv-profile"
-          ><h1 [style.color]="colorTitle">
+        <div class="bg-circle">
+          <img src="../../assets/img/black-circle.svg" alt="">
+        </div>
+        <a href="#cv-profile">
+          <h1 [style.color]="colorTitle">
             {{ (profile$ | async)?.firstName }}
             {{ (profile$ | async)?.lastName }}
-          </h1></a
-        >
+          </h1>
+        </a>
         <nav>
           <!-- A faire dynamiquement -->
           <a [class.no-export]="(profile$ | async) === undefined" href="#cv-presentation">Présentation</a>
@@ -66,7 +69,25 @@
     <div class="sixteen wide column" [class.no-export]="(profile$ | async) === undefined">
       <div id="cv-profile" class="rubrique">
         <div [routerLink]="['/editor/0']" routerLinkActive="router-link-active" class="edit-icon no-export"><i class="pencil alternate icon"></i></div>
+        <div class="bg-circle">
+          <img src="../../assets/img/black-circle.svg" alt="">
+        </div>
         <div>
+          <p><span class="profile-name">{{ (profile$ | async)?.firstName }} {{ (profile$ | async)?.lastName }}</span><br>
+            {{ (profile$ | async)?.city }}<br>
+            {{ (contacts$ | async)?.phone }}<br>
+              <a href="{{(contact$ | async)?.mail}}">{{ (contact$ | async)?.mail }}</a>
+          </p>
+          <!-- A gérer dynamiquement -->
+          <p class="profile-job">{{ (profile$ | async)?.job }}</p>
+          <div class="profile-link">
+              <a href=""><i class="linkedin icon"></i></a>
+              <a href=""><i class="facebook icon"></i></a>
+              <a href=""><i class="twitter icon"></i></a>
+              <a href=""><i class="instagram icon"></i></a>
+          </div>
+        </div>
+        <!-- <div>
           <p>Bienvenue !</p>
           <p>
             {{ (profile$ | async)?.firstName }}
@@ -88,7 +109,7 @@
             <i class="twitter icon"></i>
             <i class="instagram icon"></i>
           </div>
-        </div>
+        </div> -->
         <div>
           <div class="profile-img">
             <img
@@ -117,6 +138,7 @@
         </p>
         <div *ngFor="let s of (skills$ | async)?.skillsArray">
           <div class="skill">
+            <!-- A finir -->
               <sui-progress [value]="s.value" [showProgress]="false" [maximum]="5" [precision]="0" [autoSuccess]="false">
                 {{ s.label }}
               </sui-progress>
@@ -131,19 +153,27 @@
         <p>
           {{ (experiences$ | async)?.introduction }}
         </p>
-        <div *ngFor="let e of (experiences$ | async)?.experiencesArray">
-          <div class="article">
-            <span class="article-date"
-              >{{ e.period.startDate.getFullYear() }} -
-              {{ e.period.endDate.getFullYear() }}</span
-            ><br />
-            <span class="article-title">{{ e.label }}</span
-            ><br />
-            <span class="article-subtitle">{{ e.company }}</span
-            ><br />
-            <span class="article-text">
-              {{ e.description }}
-            </span>
+        <div class="article-container">
+          <div *ngFor="let e of (experiences$ | async)?.experiencesArray">
+            <div class="grey-bar"></div>
+            <div class="article">
+              <div>
+                <div class="grey-circle"></div>
+              </div>
+              <div>
+                <span class="article-date"
+                >{{ e.period.startDate.getFullYear() }} -
+                {{ e.period.endDate.getFullYear() }}</span
+                ><br />
+                <span class="article-title">{{ e.label }}</span
+                ><br />
+                <span class="article-subtitle">{{ e.company }}</span
+                ><br />
+                <span class="article-text">
+                  {{ e.description }}
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -152,31 +182,49 @@
       <div id="cv-training" class="rubrique">
         <div [routerLink]="['/editor/4']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [class.no-export]="(trainings$ | async) === undefined"[style.color]="colorTitle">Formations</h2>
-        <div *ngFor="let t of (trainings$ | async)?.trainingsArray">
-          <div class="article">
-            <span class="article-date"
-              >{{ t.period.startDate.getFullYear() }} -
-              {{ t.period.endDate.getFullYear() }}</span
-            ><br />
-            <span class="article-title">{{ t.label }}</span
-            ><br />
-            <span class="article-subtitle">{{ t.school }}</span>
-            <span class="article-text">
-              {{ t.description }}
-            </span>
+        <div class="article-container">
+          <div *ngFor="let t of (trainings$ | async)?.trainingsArray">
+            <div class="grey-bar"></div>
+            <div class="article">
+              <div>
+                <div class="grey-circle"></div>
+              </div>
+              <div>
+                <span class="article-date"
+                >{{ t.period.startDate.getFullYear() }} -
+                {{ t.period.endDate.getFullYear() }}</span
+                ><br />
+                <span class="article-title">{{ t.label }}</span
+                ><br />
+                <span class="article-subtitle">{{ t.school }}</span>
+                <span class="article-text">
+                  {{ t.description }}
+                </span>
+              </div>
+            </div>
           </div>
         </div>
+        
         <h2 [class.no-export]="(certifications$ | async) === undefined" [style.color]="colorTitle">Certifications</h2>
-        <div *ngFor="let c of (certifications$ | async)?.certificationsArray">
-          <div class="article">
-            <span class="article-date"
-              >{{ c.period.startDate.getFullYear() }} -
-              {{ c.period.endDate.getFullYear() }}</span
-            ><br />
-            <span class="article-title">{{ c.label }}</span
-            ><br />
-            <span class="article-subtitle">{{ c.company }}</span>
-            <span class="article-text">{{ c.description }}</span>
+        <div class="article-container">
+          <div *ngFor="let c of (certifications$ | async)?.certificationsArray">
+            <div class="grey-bar"></div>
+            <div class="article">
+              <div>
+                <div class="grey-circle"></div>
+              </div>
+              <div>
+                <span class="article-date"
+                >{{ c.period.startDate.getFullYear() }} -
+                {{ c.period.endDate.getFullYear() }}</span
+                ><br />
+                <span class="article-title">{{ c.label }}</span
+                ><br />
+                <span class="article-subtitle">{{ c.company }}</span>
+                <span class="article-text">{{ c.description }}</span>
+              </div>
+              
+            </div>
           </div>
         </div>
       </div>
