@@ -1,10 +1,18 @@
-@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Courier+Prime|Gelasio|Pacifico|Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Amatic+SC|Courier+Prime|Gelasio|Pacifico|Roboto:300,400,500,500i,700|Space+Mono&display=swap');
 
 a {
   color: inherit;
 }
 a:hover {
   color: inherit;
+}
+
+.height300{
+  height: 300px;
+}
+.center{
+  text-align: center;
+  margin: auto;
 }
 
 .enforce-font {
@@ -14,6 +22,7 @@ a:hover {
   
   .abril-sc {
     font-family: 'Abril Fatface', cursive;
+    font-weight: 100;
   }
   
   .amatic-sc {
@@ -43,6 +52,7 @@ a:hover {
 
 .abril-sc h1, .abril-sc h2 {
   font-family: 'Abril Fatface', cursive;
+  font-weight: 100;
 }
 
 .amatic-sc h1, .amatic-sc h2 {

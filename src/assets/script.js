@@ -40,7 +40,6 @@ function setActivePastille(n){
 
 //Caroussel pour les References dans le résultat final
 var slideIndex = 1;
-//showDivs(slideIndex);
 
 function plusDivs(n) {
   showDivs(slideIndex += n);
@@ -55,9 +54,27 @@ function showDivs(n) {
     x[i].style.display = "none";  
   }
   x[slideIndex-1].style.display = "block";
-  //setTimeout(showDivs(slideIndex+1), 2000); // Change de div toutes les 2 seconds
 }
 //Fin caroussel
+
+//Caroussel pour les creation
+var slideIndex = 1;
+
+function changeCreation(n) {
+  showCreation(slideIndex += n);
+}
+
+function showCreation(n) {
+  var i;
+  var x = document.getElementsByClassName("myCreations");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";
+  //setTimeout(showDivs(slideIndex+1), 2000); // Change de div toutes les 2 seconds
+}
 
 // Export PDF
 

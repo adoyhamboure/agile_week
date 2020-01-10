@@ -230,32 +230,37 @@
         <p>{{ (creations$ | async)?.introduction }}</p>
         <div
           *ngFor="let image of (creations$ | async)?.imageList; let i = index"
-          class="creation-list"
+          class="creation-list myCreations"
         >
-        <div *ngIf="image.type.split('/')[0] === 'audio'">
-          <audio controls>
+        <div  *ngIf="image.type.split('/')[0] === 'audio'">
+          <audio controls class="center">
             <source [src]="image.url" type="audio/mpeg">
           </audio>
-          <p>{{ image.description }}</p>
-        </div>
+          <p class="center">{{ image.description }}</p>
+        </div >
           
           <div *ngIf="image.type.split('/')[0] === 'video'">
-            <video width="320" height="240" controls>
+            <video width="320" height="240" controls class="height300 center">
               <source [src]="image.url" type="video/mp4" />
             </video>
-            <p>{{ image.description }}</p>
+            <p class="center">{{ image.description }}</p>
           </div>
           <div *ngIf="image.type.split('/')[0] === 'image'">
             <div>
               <img
-                class="ui medium rounded image creation"
+                class="ui medium rounded image creation height300 center"
                 [src]="image.url"
                 alt=""
               />
             </div>
-            <p>{{ image.description }}</p>
+            <p class="center">{{ image.description }}</p>
           </div>
         </div>
+        <div *ngIf="(creations$ | async) !== undefined && (creations$ | async)?.imageList.length > 1" class="center">
+          <button class="ui button" onclick="changeCreation(-1)">&#10094;</button>
+          <button class="ui button" onclick="changeCreation(1)">&#10095;</button>
+        </div>
+        
       </div>
     </div>
     <div [style.color]="colorTitle" class="sixteen wide column" [class.no-export]="(references$ | async)?.comments === null || (references$ | async)?.comments.length === 0">
