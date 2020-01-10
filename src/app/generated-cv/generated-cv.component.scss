@@ -351,6 +351,11 @@ a:hover {
   margin: 20px auto;
 }
 
+.scrollMenu{
+  overflow: auto;
+  white-space: nowrap;
+}
+
 @media screen and (max-width: 680px) {
   #cv-profile .bg-circle {
       display: none;

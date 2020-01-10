@@ -55,7 +55,7 @@
             {{ (profile$ | async)?.lastName }}
           </h1>
         </a>
-        <nav>
+        <nav class="scrollMenu">
           <!--( A faire dynamiquement -->
           <a [class.no-export]="((profile$ | async) | json) === '{}'" href="#cv-presentation">Présentation</a>
           <a [class.no-export]="(skills$ | async)?.skillsArray === null || (skills$ | async)?.skillsArray.length === 0" href="#cv-skills">Compétences</a>

@@ -51,7 +51,7 @@ export class CertificationComponent implements OnInit {
   }
 
   addCertification(): void {
-    const line = { period: { startDate: undefined, endDate: undefined }, label: undefined, company: undefined, description: undefined };
+    const line = { period: { startDate: undefined }, label: undefined, company: undefined, description: undefined };
     this.certifications.certificationsArray.push(line);
   }
 

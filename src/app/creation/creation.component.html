@@ -24,7 +24,7 @@
         </div>
     </div>
     <div>
-        <label for="file" class="ui icon button add">
+        <label for="file" class="ui icon button add" data-tooltip="Ajouter une création">
             <i class="plus icon"></i>
         </label>
         <input id="file" style="display:none" *ngIf="creations.imageList.length < 5" (change)="uploadImages($event)" type="file" name="images" accept="video/*|image/*" multiple/>

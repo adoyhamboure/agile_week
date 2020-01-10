@@ -4,7 +4,7 @@
       <label>PHOTO DE PROFIL</label>
         <div>
             <label for="file" class="ui">
-              <div class="container">
+              <div class="container" data-tooltip="Ajouter votre photo de profil">
                 <div>
                   <img *ngIf="profile.imageUrl === undefined" class="img" src="./assets/img/placeholder.jpg" alt=""><br/> 
                   <img *ngIf="profile.imageUrl !== undefined" class="img" [src]="profile.imageUrl" alt=""><br/>
@@ -25,11 +25,16 @@
       <input [(ngModel)]="profile.lastName" type="text" name="last-name" placeholder="Nom">
     </div>
     <div class="field">
-      <label>VILLE</label>
+      <label>ADRESSE / VILLE</label>
       <input [(ngModel)]="profile.city" type="text" name="city" placeholder="Ville">
     </div>
     <div class="field">
-      <label>METIER</label>
+      <label>FONCTION / POSTE</label>
       <input [(ngModel)]="profile.job" type="text" name="job" placeholder="Métier">
+    </div>    
+    <div class="field">
+      <label>NOMBRE D'ANNEE D'EXPERIENCE</label>
+      <input [(ngModel)]="profile.experience" type="text" name="experience" placeholder="Années d'experience">
     </div>
+    
 </form>
