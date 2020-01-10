@@ -154,8 +154,8 @@
               </div>
               <div>
                 <span *ngIf="e.period.startDate !== undefined && e.period.endDate !== undefined" class="article-date"
-                >{{ e.period.startDate.getFullYear() }} -
-                {{ e.period.endDate.getFullYear() }}</span
+                >{{ e.period.startDate | date: 'MMM - yyyy'  }} -
+                {{ e.period.endDate | date: 'MMM - yyyy'  }}</span
                 ><br />
                 <span class="article-title">{{ e.label }}</span
                 ><br />
@@ -184,8 +184,8 @@
               </div>
               <div>
                 <span *ngIf="t.period.startDate !== undefined && t.period.endDate !== undefined" class="article-date"
-                >{{ t.period.startDate.getFullYear() }} -
-                {{ t.period.endDate.getFullYear() }}</span
+                >{{ t.period.startDate | date: 'MMM - yyyy' }} -
+                {{ t.period.endDate | date: 'MMM - yyyy'  }}</span
                 ><br />
                 <span class="article-title">{{ t.label }}</span
                 ><br />
