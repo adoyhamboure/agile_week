@@ -368,3 +368,26 @@ a:hover {
   }
   
 }
+
+@media print {
+  .no-export {
+    display: none !important;
+  }
+  .body-content {
+    margin: 20px;
+    padding: 20px;
+  }
+  #cv-header .bg-circle {
+    width: 550px;
+    height: 550px;
+  }
+  #cv-header {
+    // justify-content: center;
+  }
+  nav {
+    display: none !important;
+  }
+  #cv-creation, #cv-reference {
+    display: none;
+  }
+}
