@@ -76,10 +76,10 @@
           <p><span class="profile-name">{{ (profile$ | async)?.firstName }} {{ (profile$ | async)?.lastName }}</span><br>
             {{ (profile$ | async)?.city }}<br>
             {{ (contacts$ | async)?.phone }}<br>
-              <a href="{{(contact$ | async)?.mail}}">{{ (contact$ | async)?.mail }}</a>
+              <a href="mailto:{{(contacts$ | async)?.mail}}">{{ (contacts$ | async)?.mail }}</a>
           </p>
           <!-- A gérer dynamiquement -->
-          <p class="profile-job">{{ (profile$ | async)?.job }}</p>
+          <h2 class="profile-job">{{ (profile$ | async)?.job }}</h2>
           <div class="profile-link">
               <a href=""><i class="linkedin icon"></i></a>
               <a href=""><i class="facebook icon"></i></a>
