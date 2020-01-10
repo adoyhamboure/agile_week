@@ -14,6 +14,7 @@ import { DOCUMENT } from '@angular/common';
 import { ExportService } from '../export.service';
 import { tap } from 'rxjs/operators';
 declare function showDivs(n: any): any;
+declare function showCreation(n: any): any;
 @Component({
   selector: 'app-generated-cv',
   templateUrl: './generated-cv.component.html',
@@ -59,6 +60,7 @@ export class GeneratedCvComponent implements OnInit {
     this.fillPickers();
     this.initObservables();
     setTimeout(() => showDivs(1), 1);
+    setTimeout(() => showCreation(1), 1);
   }
 
   fillPickers() {
