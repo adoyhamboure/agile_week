@@ -130,11 +130,6 @@ a:hover {
   margin-top: 0 !important;
   padding-top: 1rem !important;
   padding-bottom: 1rem !important;
-  /* width: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: auto; */
 }
 
 .rubrique {
@@ -356,6 +351,11 @@ a:hover {
   margin: 20px auto;
 }
 
+.scrollMenu{
+  overflow: auto;
+  white-space: nowrap;
+}
+
 @media screen and (max-width: 680px) {
   #cv-profile .bg-circle {
       display: none;
@@ -371,37 +371,5 @@ a:hover {
       position: relative;
       padding: 0;
   }
-
-  // .article-container {
-  //     position: relative;
-  // }
-
-  // .article-container>* {
-  //     z-index: 2;
-  // }
-
-  // .grey-bar {
-  //     position: absolute;
-  //     background-color: #f3f3f3;
-  //     width: 12px;
-  //     height: 100%;
-  //     border-radius: 20px;
-  // }
-
-  // .article {
-  //     display: flex;
-  //     align-items: center;
-  // }
-
-  // .grey-circle {
-  //     position: relative;
-  //     background-color: #dddddd;
-  //     width: 12px;
-  //     height: 12px;
-  //     margin: auto 0;
-  //     margin-right: 2rem;
-  //     border-radius: 20px;
-  //     z-index: 3;
-  // }
   
 }

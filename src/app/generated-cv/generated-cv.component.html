@@ -49,7 +49,7 @@
     <div class="sixteen wide column" [class.no-export]="((profile$ | async) | json) === '{}'">
       <div id="cv-header" class="rubrique">
         <div class="bg-circle">
-          <img src="../../assets/img/black-circle.svg" alt="">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><title>black-circle</title><g id="Calque_2" data-name="Calque 2"><g id="Desktop"><circle cx="50" cy="50" r="50"/></g></g></svg>
         </div>
         <a href="#cv-profile">
           <h1 [style.color]="colorTitle">
@@ -57,7 +57,7 @@
             {{ (profile$ | async)?.lastName }}
           </h1>
         </a>
-        <nav>
+        <nav class="scrollMenu">
           <!--( A faire dynamiquement -->
           <a [class.no-export]="((profile$ | async) | json) === '{}'" href="#cv-presentation">Présentation</a>
           <a [class.no-export]="(skills$ | async)?.skillsArray === null || (skills$ | async)?.skillsArray.length === 0" href="#cv-skills">Compétences</a>
@@ -72,16 +72,16 @@
       <div id="cv-profile" class="rubrique">
         <div [routerLink]="['/editor/0']" routerLinkActive="router-link-active" class="edit-icon no-export"><i class="pencil alternate icon"></i></div>
         <div class="bg-circle">
-          <img src="../../assets/img/black-circle.svg" alt="">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><title>black-circle</title><g id="Calque_2" data-name="Calque 2"><g id="Desktop"><circle cx="50" cy="50" r="50"/></g></g></svg>
         </div>
         <div>
           <p><span class="profile-name">{{ (profile$ | async)?.firstName }} {{ (profile$ | async)?.lastName }}</span><br>
             {{ (profile$ | async)?.city }}<br>
             {{ (contacts$ | async)?.phone }}<br>
-              <a href="{{(contact$ | async)?.mail}}">{{ (contact$ | async)?.mail }}</a>
+              <a href="mailto:{{(contacts$ | async)?.mail}}">{{ (contacts$ | async)?.mail }}</a>
           </p>
           <!-- A gérer dynamiquement -->
-          <p class="profile-job">{{ (profile$ | async)?.job }}</p>
+          <h2 class="profile-job">{{ (profile$ | async)?.job }}</h2>
           <div class="profile-link">
               <a href=""><i class="linkedin icon"></i></a>
               <a href=""><i class="facebook icon"></i></a>
@@ -140,11 +140,12 @@
         </p>
         <div *ngFor="let s of (skills$ | async)?.skillsArray">
           <div class="skill">
-            <!-- A finir -->
-              <sui-progress [value]="s.value" [showProgress]="false" [maximum]="5" [precision]="0" [autoSuccess]="false">
-                {{ s.label }}
-              </sui-progress>
-          </div>
+            <span class="skill-label">{{ s.label }}</span>
+            <div class="progress">
+                <div class="progress-empty"></div>
+                <div class="progress-fill" [style.width]="(s.value * 20).toString() + '%'"></div>
+            </div>
+        </div>
         </div>
       </div>
     </div>
@@ -183,7 +184,7 @@
     <div class="eight wide column" [class.no-export]="(trainings$ | async)?.trainingsArray === null || (trainings$ | async)?.trainingsArray.length === 0 && (certifications$ | async)?.certificationsArray === null || (certifications$ | async)?.certificationsArray.length === 0">
       <div id="cv-training" class="rubrique">
         <div [routerLink]="['/editor/4']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
-<h2 [class.no-export]="(trainings$ | async)?.trainingsArray === null || (trainings$ | async)?.trainingsArray.length === 0"[style.color]="colorTitle">Formations</h2>
+        <h2 [class.no-export]="(trainings$ | async)?.trainingsArray === null || (trainings$ | async)?.trainingsArray.length === 0"[style.color]="colorTitle">Formations</h2>
         <div class="article-container">
           <div *ngFor="let t of (trainings$ | async)?.trainingsArray">
             <div class="grey-bar"></div>
