@@ -232,8 +232,8 @@
           *ngFor="let image of (creations$ | async)?.imageList; let i = index"
           class="creation-list myCreations"
         >
-        <div  *ngIf="image.type.split('/')[0] === 'audio'">
-          <audio controls class="center">
+        <div class="center" *ngIf="image.type.split('/')[0] === 'audio'">
+          <audio controls >
             <source [src]="image.url" type="audio/mpeg">
           </audio>
           <p class="center">{{ image.description }}</p>
