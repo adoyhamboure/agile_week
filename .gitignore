@@ -51,3 +51,4 @@ api/export/Ressources/*.png
 api/export/Ressources/*.wav
 api/export/Ressources/*.mp4
 api/export/Ressources/*.ts
+api/export/index.html
