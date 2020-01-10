@@ -4,4 +4,5 @@ export class Profile{
     imageUrl: string;
     city: string;
     job: string;
+    experience: number;
 }

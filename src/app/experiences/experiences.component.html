@@ -11,7 +11,7 @@
                 <div class="content">
                     <div class="input_field">
                         <div class="field">
-                            <label>TITRE DE L'EXPERIENCE</label>
+                            <label>POSTE / FONCTION</label>
                             <input [(ngModel)]="e.label" type="text" [ngModelOptions]="{standalone: true}"
                                 placeholder="Titre de l'expérience">
                         </div>
@@ -51,7 +51,7 @@
             </div>
         </div>
     </div>
-    <button (click)="addExperience()" class="ui icon button add">
+    <button (click)="addExperience()" class="ui icon button add" data-tooltip="Ajouter une expérience">
         <i class="plus icon"></i>
     </button>
 </form>

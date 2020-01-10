@@ -3,7 +3,6 @@ export class Certifications {
     certificationsArray: {
         period: {
             startDate: Date;
-            endDate: Date;
         },
         label: string;
         company: string;
