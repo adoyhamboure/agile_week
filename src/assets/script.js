@@ -58,3 +58,9 @@ function showDivs(n) {
   //setTimeout(showDivs(slideIndex+1), 2000); // Change de div toutes les 2 seconds
 }
 //Fin caroussel
+
+// Export PDF
+
+function printPage() {
+    window.print();
+}
