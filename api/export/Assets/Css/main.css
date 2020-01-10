@@ -1,31 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC|Courier+Prime|Gelasio|Pacifico|Space+Mono&display=swap');
 
-/* You can add global styles to this file, and also import other style files */
-@font-face{
-  font-family: "Roboto";
-  src: url("./Webfonts/Roboto/Roboto-Regular.ttf");
-  font-family: "Abril Fatface";
-  src: url("./Webfonts/Abril_Fatface/AbrilFatface-Regular.ttf");
-  font-family: "Amatic SC";
-  src: url("./Webfonts/Amatic_SC/AmaticSC-Regular.ttf");
-  font-family: "Courier Prime";
-  src: url("./Webfonts/Courier_Prime/CourierPrime-Regular.ttf");
-  font-family: "Gelasio";
-  src: url("./Webfonts/Gelasio/Gelasio-Regular.ttf");
-  font-family: "Pacifico";
-  src: url("./Webfonts/Pacifico/Pacifico-Regular.ttf");
-  font-family: "Space Mono";
-  src: url("./Webfonts/Space_Mono/SpaceMono-Regular.ttf");
-}
-
-body {
-  height: auto;
-}
-
-h1, h2, h3, h4, h5 {
-  font-family: unset !important;
-}
-
 a {
   color: inherit;
 }
@@ -33,41 +7,69 @@ a:hover {
   color: inherit;
 }
 
-.roboto {
+.enforce-font .roboto {
   font-family: 'Roboto', sans-serif;
 }
 
-.abril-sc {
+.enforce-font .abril-sc {
   font-family: 'Abril Fatface', cursive;
 }
 
-.amatic-sc {
+.enforce-font .amatic-sc {
   font-family: 'Amatic SC', cursive;
 }
 
-.courrier-prime {
+.enforce-font .courrier-prime {
   font-family: 'Courier Prime', monospace;
 }
 
-.gelasio {
+.enforce-font .gelasio {
   font-family: 'Gelasio', serif;
 }
 
-.pacifico {
+.enforce-font .pacifico {
   font-family: 'Pacifico', cursive;
 }
 
-.space-mono {
+.enforce-font .space-mono {
   font-family: 'Space Mono', monospace;
 }
 
-.no-export {
-  display: none !important;
+.roboto h1, .roboto h2 {
+  font-family: 'Roboto', sans-serif;
+}
+
+.abril-sc h1, .abril-sc h2 {
+  font-family: 'Abril Fatface', cursive;
+}
+
+.amatic-sc h1, .amatic-sc h2 {
+  font-family: 'Amatic SC', cursive;
+}
+
+.courrier-prime h1, .courrier-prime h2 {
+  font-family: 'Courier Prime', monospace;
+}
+
+.gelasio h1, .gelasio h2 {
+  font-family: 'Gelasio', serif;
+}
+
+.pacifico h1, .pacifico h2 {
+  font-family: 'Pacifico', cursive;
+}
+
+.space-mono h1, .space-mono h2 {
+  font-family: 'Space Mono', monospace;
 }
 
 .center {
   margin: auto;
   width: fit-content;
+}
+
+.no-export {
+  display: none !important;
 }
 
 .top-container {
@@ -115,6 +117,7 @@ a:hover {
 
 .colorpicker {
   width: 25px;
+  cursor: pointer;
 }
 
 .pickers {
@@ -129,11 +132,6 @@ a:hover {
   margin-top: 0 !important;
   padding-top: 1rem !important;
   padding-bottom: 1rem !important;
-  /* width: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: auto; */
 }
 
 .rubrique {
@@ -161,8 +159,35 @@ a:hover {
   color: #666666;
 }
 
+.article-container {
+  position: relative;
+  overflow: hidden;
+}
+.article-container>* {
+  z-index: 2;
+}
+.grey-bar {
+  position: absolute;
+  background-color: #f3f3f3;
+  width: 12px;
+  height: 100%;
+  border-radius: 20px;
+}
+.grey-circle {
+  position: relative;
+  background-color: #dddddd;
+  width: 12px;
+  height: 12px;
+  margin: auto 0;
+  margin-right: 2rem;
+  border-radius: 20px;
+  z-index: 3;
+}
+
 .article {
   margin: 2rem 0;
+  display: flex;
+  align-items: center;
 }
 .article:last-child {
   margin-bottom: 0;
@@ -187,6 +212,22 @@ a:hover {
   display: flex;
   justify-content: space-between;
 }
+#cv-header>* {
+  z-index: 3;
+}
+#cv-header .bg-circle {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 450px;
+  opacity: 5%;
+  z-index: 2;
+}
+#cv-header .bg-circle img {
+  width: 100%;
+  height: 100%;
+}
 #cv-header h1 {
   margin: 0;
 }
@@ -208,6 +249,21 @@ a:hover {
 }
 #cv-profile > * {
   flex-grow: 2;
+  z-index: 3;
+}
+#cv-profile .bg-circle {
+  position: absolute;
+  top: 50%;
+  right: -50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: auto;
+  opacity: 5%;
+  z-index: 2;
+}
+#cv-profile .bg-circle img {
+  width: 100%;
+  height: 100%;
 }
 #cv-profile .profile-img {
   width: 200px;
@@ -220,9 +276,32 @@ a:hover {
 #cv-profile .profile-img img {
   width: 200px;
   height: 200px;
+  border: 8px solid rgba(0,0,0,0.1);
   border-radius: 100px;
   -o-object-fit: cover;
   object-fit: cover;
+}
+#cv-profile .profile-welcome {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#cv-profile .profile-name {
+  font-weight: 700;
+}
+
+#cv-profile .profile-job {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+#cv-profile .profile-link {
+  font-size: 1.2rem;
+  position: absolute;
+  bottom: 0;
+  padding: 2rem 0;
 }
 
 /* SKILLS */
@@ -272,4 +351,22 @@ a:hover {
 #cv-reference .article {
   max-width: fit-content;
   margin: 20px auto;
+}
+
+@media screen and (max-width: 680px) {
+  #cv-profile .bg-circle {
+      display: none;
+  }
+  #cv-profile {
+      flex-direction: column;
+  }
+  #cv-profile>div:last-child {
+      order: -1;
+      margin-bottom: 2rem;
+  }
+  #cv-profile .profile-link {
+      position: relative;
+      padding: 0;
+  }
+  
 }
