@@ -41,6 +41,12 @@ nav {
     text-transform: uppercase;
     font-weight: 300;
     color: #B3B3B3;
+
+    .home-nav:hover{
+        color: #064ACB;
+        font-weight: bold;
+    }
+
 }
 
 .main-container {

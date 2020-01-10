@@ -98,6 +98,7 @@ a:hover {
   display: inline;
   font-size: 12px;
   border-radius: 100px;
+  cursor: pointer;
 }
 
 .top-buttons .btn-full {
@@ -111,6 +112,7 @@ a:hover {
   display: inline;
   font-size: 12px;
   border-radius: 100px;
+  cursor: pointer;
 }
 
 .colorpicker {
@@ -349,6 +351,11 @@ a:hover {
 #cv-reference .article {
   max-width: fit-content;
   margin: 20px auto;
+}
+
+.scrollMenu{
+  overflow: auto;
+  white-space: nowrap;
 }
 
 @media screen and (max-width: 680px) {

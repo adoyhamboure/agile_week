@@ -45,7 +45,7 @@
                             placeholder="Description de la formation" class="text"></textarea>
                     </div>
                 </div>
-                <button *ngIf="trainings.trainingsArray.length > 1" (click)="removeTraining(i)" class="ui icon button remove">
+                <button (click)="removeTraining(i)" class="ui icon button remove">
                     <i class="trash icon"></i>
                 </button>
             </div>
