@@ -23,7 +23,9 @@
 // header h1{
 //     font-family: "Abril Fatface",cursive;
 // }
-
+    html{
+        scroll-behavior: smooth;
+    }
     a {
         color: inherit;
     }

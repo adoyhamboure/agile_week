@@ -45,7 +45,7 @@
                             placeholder="Description de l'expérience" class="text"></textarea>
                     </div>
                 </div>
-                <button *ngIf="experiences.experiencesArray.length > 1" (click)="removeExperience(i)" class="ui icon button remove">
+                <button (click)="removeExperience(i)" class="ui icon button remove">
                     <i class="trash icon"></i>
                 </button>
             </div>
