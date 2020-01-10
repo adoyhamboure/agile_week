@@ -7,35 +7,61 @@ a:hover {
   color: inherit;
 }
 
-h1, h2, h3, h4, h5 {
-  font-family:unset !important;
+.enforce-font {
+  .roboto {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .abril-sc {
+    font-family: 'Abril Fatface', cursive;
+  }
+  
+  .amatic-sc {
+    font-family: 'Amatic SC', cursive;
+  }
+  
+  .courrier-prime {
+    font-family: 'Courier Prime', monospace;
+  }
+  
+  .gelasio {
+    font-family: 'Gelasio', serif;
+  }
+  
+  .pacifico {
+    font-family: 'Pacifico', cursive;
+  }
+  
+  .space-mono {
+    font-family: 'Space Mono', monospace;
+  }
 }
 
-.roboto {
+.roboto h1, .roboto h2 {
   font-family: 'Roboto', sans-serif;
 }
 
-.abril-sc {
+.abril-sc h1, .abril-sc h2 {
   font-family: 'Abril Fatface', cursive;
 }
 
-.amatic-sc {
+.amatic-sc h1, .amatic-sc h2 {
   font-family: 'Amatic SC', cursive;
 }
 
-.courrier-prime {
+.courrier-prime h1, .courrier-prime h2 {
   font-family: 'Courier Prime', monospace;
 }
 
-.gelasio {
+.gelasio h1, .gelasio h2 {
   font-family: 'Gelasio', serif;
 }
 
-.pacifico {
+.pacifico h1, .pacifico h2 {
   font-family: 'Pacifico', cursive;
 }
 
-.space-mono {
+.space-mono h1, .space-mono h2 {
   font-family: 'Space Mono', monospace;
 }
 
