@@ -130,11 +130,6 @@ a:hover {
   margin-top: 0 !important;
   padding-top: 1rem !important;
   padding-bottom: 1rem !important;
-  /* width: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: auto; */
 }
 
 .rubrique {
@@ -162,8 +157,35 @@ a:hover {
   color: #666666;
 }
 
+.article-container {
+  position: relative;
+  overflow: hidden;
+}
+.article-container>* {
+  z-index: 2;
+}
+.grey-bar {
+  position: absolute;
+  background-color: #f3f3f3;
+  width: 12px;
+  height: 100%;
+  border-radius: 20px;
+}
+.grey-circle {
+  position: relative;
+  background-color: #dddddd;
+  width: 12px;
+  height: 12px;
+  margin: auto 0;
+  margin-right: 2rem;
+  border-radius: 20px;
+  z-index: 3;
+}
+
 .article {
   margin: 2rem 0;
+  display: flex;
+  align-items: center;
 }
 .article:last-child {
   margin-bottom: 0;
@@ -188,6 +210,22 @@ a:hover {
   display: flex;
   justify-content: space-between;
 }
+#cv-header>* {
+  z-index: 3;
+}
+#cv-header .bg-circle {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 450px;
+  opacity: 5%;
+  z-index: 2;
+}
+#cv-header .bg-circle img {
+  width: 100%;
+  height: 100%;
+}
 #cv-header h1 {
   margin: 0;
 }
@@ -209,6 +247,21 @@ a:hover {
 }
 #cv-profile > * {
   flex-grow: 2;
+  z-index: 3;
+}
+#cv-profile .bg-circle {
+  position: absolute;
+  top: 50%;
+  right: -50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: auto;
+  opacity: 5%;
+  z-index: 2;
+}
+#cv-profile .bg-circle img {
+  width: 100%;
+  height: 100%;
 }
 #cv-profile .profile-img {
   width: 200px;
@@ -221,9 +274,32 @@ a:hover {
 #cv-profile .profile-img img {
   width: 200px;
   height: 200px;
+  border: 8px solid rgba(0,0,0,0.1);
   border-radius: 100px;
   -o-object-fit: cover;
   object-fit: cover;
+}
+#cv-profile .profile-welcome {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#cv-profile .profile-name {
+  font-weight: 700;
+}
+
+#cv-profile .profile-job {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+#cv-profile .profile-link {
+  font-size: 1.2rem;
+  position: absolute;
+  bottom: 0;
+  padding: 2rem 0;
 }
 
 /* SKILLS */
@@ -273,4 +349,22 @@ a:hover {
 #cv-reference .article {
   max-width: fit-content;
   margin: 20px auto;
+}
+
+@media screen and (max-width: 680px) {
+  #cv-profile .bg-circle {
+      display: none;
+  }
+  #cv-profile {
+      flex-direction: column;
+  }
+  #cv-profile>div:last-child {
+      order: -1;
+      margin-bottom: 2rem;
+  }
+  #cv-profile .profile-link {
+      position: relative;
+      padding: 0;
+  }
+  
 }
