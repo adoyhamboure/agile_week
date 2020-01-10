@@ -51,5 +51,5 @@ api/export/Ressources/*.png
 api/export/Ressources/*.wav
 api/export/Ressources/*.mp4
 api/export/Ressources/*.ts
-api/export/Ressources/*/mp3
+api/export/Ressources/*.mp3
 api/export/index.html
