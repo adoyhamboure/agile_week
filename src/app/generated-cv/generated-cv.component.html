@@ -44,7 +44,7 @@
 </div>
 <div class="body" [style.background]="colorBackground">
   <div class="body-content ui stackable grid container">
-    <div class="sixteen wide column" [class.no-export]="(profile$ | async) === undefined">
+    <div class="sixteen wide column" [class.no-export]="((profile$ | async) | json) === '{}'">
       <div id="cv-header" class="rubrique">
         <div class="bg-circle">
           <img src="../../assets/img/black-circle.svg" alt="">
@@ -56,17 +56,17 @@
           </h1>
         </a>
         <nav>
-          <!-- A faire dynamiquement -->
-          <a [class.no-export]="(profile$ | async) === undefined" href="#cv-presentation">Présentation</a>
-          <a [class.no-export]="(skills$ | async) === undefined" href="#cv-skills">Compétences</a>
-          <a [class.no-export]="(experiences$ | async) === undefined" href="#cv-experiences">Expérience</a>
-          <a [class.no-export]="(trainings$ | async) === undefined" href="#cv-training">Formations</a>
-          <a [class.no-export]="(creations$ | async) === undefined" href="#cv-creation">Réalisations</a>
-          <a [class.no-export]="(references$ | async) === undefined" href="#cv-reference">Références</a>
+          <!--( A faire dynamiquement -->
+          <a [class.no-export]="((profile$ | async) | json) === '{}'" href="#cv-presentation">Présentation</a>
+          <a [class.no-export]="(skills$ | async)?.skillsArray === null || (skills$ | async)?.skillsArray.length === 0" href="#cv-skills">Compétences</a>
+          <a [class.no-export]="(experiences$ | async)?.experiencesArray === null || (experiences$ | async)?.experiencesArray.length === 0" href="#cv-experiences">Expérience</a>
+          <a [class.no-export]="(trainings$ | async)?.trainingsArray === null || (trainings$ | async)?.trainingsArray.length === 0" href="#cv-training">Formations</a>
+          <a [class.no-export]="(creations$ | async)?.imageList === null || (creations$ | async)?.imageList.length === 0" href="#cv-creation">Réalisations</a>
+          <a [class.no-export]="(references$ | async)?.comments === null || (references$ | async)?.comments.length === 0" href="#cv-reference">Références</a>
         </nav>
       </div>
     </div>
-    <div class="sixteen wide column" [class.no-export]="(profile$ | async) === undefined">
+    <div class="sixteen wide column" [class.no-export]="((profile$ | async) | json) === '{}'">
       <div id="cv-profile" class="rubrique">
         <div [routerLink]="['/editor/0']" routerLinkActive="router-link-active" class="edit-icon no-export"><i class="pencil alternate icon"></i></div>
         <div class="bg-circle">
@@ -120,7 +120,7 @@
         </div>
       </div>
     </div>
-    <div class="six wide column" [class.no-export]="(presentation$ | async) === undefined">
+    <div class="six wide column" [class.no-export]="((presentation$ | async) | json) === '{}'">
       <div id="cv-presentation" class="rubrique">
         <div [routerLink]="['/editor/1']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Presentation</h2>
@@ -129,7 +129,7 @@
         </p>
       </div>
     </div>
-    <div class="ten wide column" [class.no-export]="(skills$ | async) === undefined">
+    <div class="ten wide column" [class.no-export]="(skills$ | async)?.skillsArray === null || (skills$ | async)?.skillsArray.length === 0">
       <div id="cv-skills" class="rubrique">
         <div [routerLink]="['/editor/2']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Compétences</h2>
@@ -146,7 +146,7 @@
         </div>
       </div>
     </div>
-    <div class="eight wide column" [class.no-export]="(experiences$ | async) === undefined">
+    <div class="eight wide column" [class.no-export]="(experiences$ | async)?.experiencesArray === null || (experiences$ | async)?.experiencesArray.length === 0">
       <div id="cv-experiences" class="rubrique">
         <div [routerLink]="['/editor/3']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Expériences</h2>
@@ -161,7 +161,7 @@
                 <div class="grey-circle"></div>
               </div>
               <div>
-                <span class="article-date"
+                <span *ngIf="e.period.startDate !== undefined && e.period.endDate !== undefined" class="article-date"
                 >{{ e.period.startDate.getFullYear() }} -
                 {{ e.period.endDate.getFullYear() }}</span
                 ><br />
@@ -178,10 +178,10 @@
         </div>
       </div>
     </div>
-    <div class="eight wide column" [class.no-export]="(trainings$ | async) === undefined && (certifications$ | async) === undefined">
+    <div class="eight wide column" [class.no-export]="(trainings$ | async)?.trainingsArray === null || (trainings$ | async)?.trainingsArray.length === 0 && (certifications$ | async)?.certificationsArray === null || (certifications$ | async)?.certificationsArray.length === 0">
       <div id="cv-training" class="rubrique">
         <div [routerLink]="['/editor/4']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
-        <h2 [class.no-export]="(trainings$ | async) === undefined"[style.color]="colorTitle">Formations</h2>
+<h2 [class.no-export]="(trainings$ | async)?.trainingsArray === null || (trainings$ | async)?.trainingsArray.length === 0"[style.color]="colorTitle">Formations</h2>
         <div class="article-container">
           <div *ngFor="let t of (trainings$ | async)?.trainingsArray">
             <div class="grey-bar"></div>
@@ -190,7 +190,7 @@
                 <div class="grey-circle"></div>
               </div>
               <div>
-                <span class="article-date"
+                <span *ngIf="t.period.startDate !== undefined && t.period.endDate !== undefined" class="article-date"
                 >{{ t.period.startDate.getFullYear() }} -
                 {{ t.period.endDate.getFullYear() }}</span
                 ><br />
@@ -205,7 +205,7 @@
           </div>
         </div>
         
-        <h2 [class.no-export]="(certifications$ | async) === undefined" [style.color]="colorTitle">Certifications</h2>
+        <h2 [class.no-export]="(certifications$ | async)?.certificationsArray === null || (certifications$ | async)?.certificationsArray.length === 0" [style.color]="colorTitle">Certifications</h2>
         <div class="article-container">
           <div *ngFor="let c of (certifications$ | async)?.certificationsArray">
             <div class="grey-bar"></div>
@@ -214,7 +214,7 @@
                 <div class="grey-circle"></div>
               </div>
               <div>
-                <span class="article-date"
+                <span *ngIf="c.period.startDate !== undefined && c.period.endDate !== undefined" class="article-date"
                 >{{ c.period.startDate.getFullYear() }} -
                 {{ c.period.endDate.getFullYear() }}</span
                 ><br />
@@ -229,7 +229,7 @@
         </div>
       </div>
     </div>
-    <div class="sixteen wide column" [class.no-export]="(creations$ | async) === undefined">
+    <div class="sixteen wide column" [class.no-export]="(creations$ | async)?.imageList === null || (creations$ | async)?.imageList.length === 0">
       <div id="cv-creation" class="rubrique">
         <div [routerLink]="['/editor/6']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Réalisations</h2>
@@ -257,7 +257,7 @@
         </div>
       </div>
     </div>
-    <div class="sixteen wide column" [class.no-export]="(references$ | async) === undefined">
+    <div class="sixteen wide column" [class.no-export]="(references$ | async)?.comments === null || (references$ | async)?.comments.length === 0">
       <div id="cv-reference" class="rubrique">
         <div [routerLink]="['/editor/7']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Références</h2>
