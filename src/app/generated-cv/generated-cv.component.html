@@ -33,7 +33,7 @@
         <sui-select-option class="space-mono" value="Space_Mono">Space Mono</sui-select-option>
       </sui-select>
     <div class="top-buttons">
-      <button class="btn-light">
+      <button class="btn-light" onclick="printPage()">
         Exporter en PDF
       </button>
       <button class="btn-full" (click)="export()">
@@ -133,7 +133,7 @@
         </p>
         <div *ngFor="let e of (experiences$ | async)?.experiencesArray">
           <div class="article">
-            <span class="article-date"
+            <span *ngIf="e.period.startDate !== undefined && e.period.endDate !== undefined" class="article-date"
               >{{ e.period.startDate.getFullYear() }} -
               {{ e.period.endDate.getFullYear() }}</span
             ><br />
@@ -154,7 +154,7 @@
         <h2 [class.no-export]="(trainings$ | async)?.trainingsArray === null || (trainings$ | async)?.trainingsArray.length === 0"[style.color]="colorTitle">Formations</h2>
         <div *ngFor="let t of (trainings$ | async)?.trainingsArray">
           <div class="article">
-            <span class="article-date"
+            <span *ngIf="t.period.startDate !== undefined && t.period.endDate !== undefined" class="article-date"
               >{{ t.period.startDate.getFullYear() }} -
               {{ t.period.endDate.getFullYear() }}</span
             ><br />
@@ -169,7 +169,7 @@
         <h2 [class.no-export]="(certifications$ | async)?.certificationsArray === null || (certifications$ | async)?.certificationsArray.length === 0" [style.color]="colorTitle">Certifications</h2>
         <div *ngFor="let c of (certifications$ | async)?.certificationsArray">
           <div class="article">
-            <span class="article-date"
+            <span *ngIf="c.period.startDate !== undefined && c.period.endDate !== undefined" class="article-date"
               >{{ c.period.startDate.getFullYear() }} -
               {{ c.period.endDate.getFullYear() }}</span
             ><br />
