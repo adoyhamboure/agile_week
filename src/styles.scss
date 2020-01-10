@@ -1,20 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
-@font-face{
-    font-family: "Roboto";
-    src: url("./assets/font/Roboto/Roboto-Regular.ttf");
-    font-family: "Abril Fatface";
-    src: url("./assets/font/Abril_Fatface/AbrilFatface-Regular.ttf");
-    font-family: "Amatic SC";
-    src: url("./assets/font/Amatic_SC/AmaticSC-Regular.ttf");
-    font-family: "Courier Prime";
-    src: url("./assets/font/Courier_Prime/CourierPrime-Regular.ttf");
-    font-family: "Gelasio";
-    src: url("./assets/font/Gelasio/Gelasio-Regular.ttf");
-    font-family: "Pacifico";
-    src: url("./assets/font/Pacifico/Pacifico-Regular.ttf");
-    font-family: "Space Mono";
-    src: url("./assets/font/Space_Mono/SpaceMono-Regular.ttf");
-}
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Amatic+SC|Courier+Prime|Gelasio|Pacifico|Roboto:300,400,500,500i,700|Space+Mono&display=swap');
+
 
 // body, h1, h2 {
 //     font-family: "Roboto", sans-serif !important;
