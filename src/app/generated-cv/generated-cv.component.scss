@@ -120,6 +120,15 @@ a:hover {
 .colorpicker {
   width: 25px;
   cursor: pointer;
+  border-radius: 5px;
+    height: 25px;
+    border: 1px solid;
+    border-color: #F3F3F3;
+}
+
+.pickerLabel {
+  height: 25px;
+  margin: 0 28px 0 5px;
 }
 
 .pickers {
