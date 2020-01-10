@@ -44,26 +44,26 @@
 </div>
 <div class="body" [style.background]="colorBackground">
   <div class="body-content ui stackable grid container">
-    <div class="sixteen wide column">
+    <div class="sixteen wide column" [class.no-export]="(profile$ | async) === undefined">
       <div id="cv-header" class="rubrique">
         <a href="#cv-profile"
-          ><h1>
+          ><h1 [style.color]="colorTitle">
             {{ (profile$ | async)?.firstName }}
             {{ (profile$ | async)?.lastName }}
           </h1></a
         >
         <nav>
           <!-- A faire dynamiquement -->
-          <a href="#cv-presentation">Présentation</a>
-          <a href="#cv-skills">Compétences</a>
-          <a href="#cv-experiences">Expérience</a>
-          <a href="#cv-training">Formations</a>
-          <a href="#cv-creation">Réalisations</a>
-          <a href="#cv-reference">Références</a>
+          <a [class.no-export]="(profile$ | async) === undefined" href="#cv-presentation">Présentation</a>
+          <a [class.no-export]="(skills$ | async) === undefined" href="#cv-skills">Compétences</a>
+          <a [class.no-export]="(experiences$ | async) === undefined" href="#cv-experiences">Expérience</a>
+          <a [class.no-export]="(trainings$ | async) === undefined" href="#cv-training">Formations</a>
+          <a [class.no-export]="(creations$ | async) === undefined" href="#cv-creation">Réalisations</a>
+          <a [class.no-export]="(references$ | async) === undefined" href="#cv-reference">Références</a>
         </nav>
       </div>
     </div>
-    <div class="sixteen wide column">
+    <div class="sixteen wide column" [class.no-export]="(profile$ | async) === undefined">
       <div id="cv-profile" class="rubrique">
         <div [routerLink]="['/editor/0']" routerLinkActive="router-link-active" class="edit-icon no-export"><i class="pencil alternate icon"></i></div>
         <div>
@@ -99,7 +99,7 @@
         </div>
       </div>
     </div>
-    <div class="six wide column">
+    <div class="six wide column" [class.no-export]="(presentation$ | async) === undefined">
       <div id="cv-presentation" class="rubrique">
         <div [routerLink]="['/editor/1']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Presentation</h2>
@@ -108,7 +108,7 @@
         </p>
       </div>
     </div>
-    <div class="ten wide column">
+    <div class="ten wide column" [class.no-export]="(skills$ | async) === undefined">
       <div id="cv-skills" class="rubrique">
         <div [routerLink]="['/editor/2']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Compétences</h2>
@@ -124,7 +124,7 @@
         </div>
       </div>
     </div>
-    <div class="eight wide column">
+    <div class="eight wide column" [class.no-export]="(experiences$ | async) === undefined">
       <div id="cv-experiences" class="rubrique">
         <div [routerLink]="['/editor/3']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Expériences</h2>
@@ -134,8 +134,8 @@
         <div *ngFor="let e of (experiences$ | async)?.experiencesArray">
           <div class="article">
             <span class="article-date"
-              >{{ e.period.startDate.getYear() }} -
-              {{ e.period.endDate.getYear() }}</span
+              >{{ e.period.startDate.getFullYear() }} -
+              {{ e.period.endDate.getFullYear() }}</span
             ><br />
             <span class="article-title">{{ e.label }}</span
             ><br />
@@ -148,15 +148,15 @@
         </div>
       </div>
     </div>
-    <div class="eight wide column">
+    <div class="eight wide column" [class.no-export]="(trainings$ | async) === undefined && (certifications$ | async) === undefined">
       <div id="cv-training" class="rubrique">
         <div [routerLink]="['/editor/4']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
-        <h2 [style.color]="colorTitle">Formations</h2>
+        <h2 [class.no-export]="(trainings$ | async) === undefined"[style.color]="colorTitle">Formations</h2>
         <div *ngFor="let t of (trainings$ | async)?.trainingsArray">
           <div class="article">
             <span class="article-date"
-              >{{ t.period.startDate.getYear() }} -
-              {{ t.period.endDate.getYear() }}</span
+              >{{ t.period.startDate.getFullYear() }} -
+              {{ t.period.endDate.getFullYear() }}</span
             ><br />
             <span class="article-title">{{ t.label }}</span
             ><br />
@@ -166,12 +166,12 @@
             </span>
           </div>
         </div>
-        <h2 [style.color]="colorTitle">Certifications</h2>
+        <h2 [class.no-export]="(certifications$ | async) === undefined" [style.color]="colorTitle">Certifications</h2>
         <div *ngFor="let c of (certifications$ | async)?.certificationsArray">
           <div class="article">
             <span class="article-date"
-              >{{ c.period.startDate.getYear() }} -
-              {{ c.period.endDate.getYear() }}</span
+              >{{ c.period.startDate.getFullYear() }} -
+              {{ c.period.endDate.getFullYear() }}</span
             ><br />
             <span class="article-title">{{ c.label }}</span
             ><br />
@@ -181,7 +181,7 @@
         </div>
       </div>
     </div>
-    <div class="sixteen wide column">
+    <div class="sixteen wide column" [class.no-export]="(creations$ | async) === undefined">
       <div id="cv-creation" class="rubrique">
         <div [routerLink]="['/editor/6']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Réalisations</h2>
@@ -209,7 +209,7 @@
         </div>
       </div>
     </div>
-    <div class="sixteen wide column">
+    <div class="sixteen wide column" [class.no-export]="(references$ | async) === undefined">
       <div id="cv-reference" class="rubrique">
         <div [routerLink]="['/editor/7']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Références</h2>
@@ -217,13 +217,17 @@
           <!-- <h3>{{c.author}}</h3>
                           <h4>{{c.company}}</h4>
                           <p>{{c.value}}</p> -->
-          <div class="article">
-            <span class="article-title">{{ c.author }}</span
-            ><br />
-            <span class="article-subtitle">{{ c.company }}</span
-            ><br />
+          <div class="mySlides article" *ngFor="let c of (references$ | async)?.comments">
+            <span class="article-title">{{ c.author }}</span>
+            <br />
+            <span class="article-subtitle">{{ c.company }}</span>
+            <br />
             <span class="article-text">{{ c.value }}</span>
           </div>
+        </div>
+        <div *ngIf="(references$ | async) !== undefined && (references$ | async).comments.length > 1" class="center">
+          <button class="ui button" onclick="plusDivs(-1)">&#10094;</button>
+          <button class="ui button" onclick="plusDivs(1)">&#10095;</button>
         </div>
       </div>
     </div>

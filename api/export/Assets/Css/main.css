@@ -20,12 +20,10 @@
 
 body {
   height: auto;
-  font-family: "Roboto", sans-serif;
 }
 
-h1,
-h2 {
-  font-family: "Roboto", sans-serif;
+h1, h2, h3, h4, h5 {
+  font-family: unset !important;
 }
 
 a {
@@ -64,7 +62,12 @@ a:hover {
 }
 
 .no-export {
-  display: none;
+  display: none !important;
+}
+
+.center {
+  margin: auto;
+  width: fit-content;
 }
 
 .top-container {
@@ -267,6 +270,6 @@ a:hover {
 /* REFERENCE */
 
 #cv-reference .article {
-  max-width: 400px;
-  margin: 0 auto;
+  max-width: fit-content;
+  margin: 20px auto;
 }

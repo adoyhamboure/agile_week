@@ -39,6 +39,11 @@ h1, h2, h3, h4, h5 {
   font-family: 'Space Mono', monospace;
 }
 
+.center {
+  margin: auto;
+  width: fit-content;
+}
+
 .top-container {
   height: 50px;
   background-color: #ffffff;
@@ -84,6 +89,7 @@ h1, h2, h3, h4, h5 {
 
 .colorpicker {
   width: 25px;
+  cursor: pointer;
 }
 
 .pickers {
@@ -239,6 +245,6 @@ h1, h2, h3, h4, h5 {
 /* REFERENCE */
 
 #cv-reference .article {
-  max-width: 400px;
-  margin: 0 auto;
+  max-width: fit-content;
+  margin: 20px auto;
 }
