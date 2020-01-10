@@ -98,6 +98,7 @@ a:hover {
   display: inline;
   font-size: 12px;
   border-radius: 100px;
+  cursor: pointer;
 }
 
 .top-buttons .btn-full {
@@ -111,6 +112,7 @@ a:hover {
   display: inline;
   font-size: 12px;
   border-radius: 100px;
+  cursor: pointer;
 }
 
 .colorpicker {
@@ -291,7 +293,7 @@ a:hover {
 #cv-profile .profile-job {
   font-weight: 700;
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   text-transform: uppercase;
 }
 
@@ -372,4 +374,27 @@ a:hover {
       padding: 0;
   }
   
+}
+
+@media print {
+  .no-export {
+    display: none !important;
+  }
+  .body-content {
+    margin: 20px;
+    padding: 20px;
+  }
+  #cv-header .bg-circle {
+    width: 550px;
+    height: 550px;
+  }
+  #cv-header {
+    // justify-content: center;
+  }
+  nav {
+    display: none !important;
+  }
+  #cv-creation, #cv-reference {
+    display: none;
+  }
 }
