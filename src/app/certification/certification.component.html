@@ -16,7 +16,7 @@
                                 placeholder="Titre de la formation">
                         </div>
                         <div class="field">
-                            <label>DATE DE DEBUT</label>
+                            <label>DATE D'OBTENTION</label>
                             <div class="ui left icon input">
                                 <i class="calendar icon"></i>
                                 <input suiDatepicker [ngModelOptions]="{standalone: true}" [(ngModel)]=" c.period.startDate"
@@ -28,15 +28,6 @@
                             <label>NOM DE L'ENTREPRISE</label>
                             <input [(ngModel)]="c.company" type="text" [ngModelOptions]="{standalone: true}"
                                 placeholder="Nom de l'école">
-                        </div>
-                        <div class="field">
-                            <label>DATE DE FIN</label>
-                            <div class="ui left icon input">
-                                <i class="calendar icon"></i>
-                                <input suiDatepicker [ngModelOptions]="{standalone: true}" [(ngModel)]=" c.period.endDate"
-                                    [pickerMode]="mode" [pickerFirstDayOfWeek]="firstDayOfWeek"
-                                    [pickerUseNativeOnMobile]="false">
-                            </div>
                         </div>
                     </div>
                     <div class="field">
@@ -51,7 +42,7 @@
             </div>
         </div>
     </div>
-    <button (click)="addCertification()" class="ui icon button add">
+    <button (click)="addCertification()" class="ui icon button add" data-tooltip="Ajouter une compétence">
         <i class="plus icon"></i>
     </button>
 </form>
