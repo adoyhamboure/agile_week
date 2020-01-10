@@ -9,6 +9,9 @@
         <div class="ui card">
             <div class="field">
                 <div class="media">
+                    <audio *ngIf="image.type.split('/')[0] === 'audio'" controls>
+                        <source [src]="image.url" type="audio/mpeg">
+                    </audio>
                     <video *ngIf="image.type.split('/')[0] === 'video'" width="320" height="240" controls>
                         <source [src]="image.url" type="video/mp4">
                     </video>
@@ -23,10 +26,10 @@
             </div>
         </div>
     </div>
-    <div>
+    <div *ngIf="creations.imageList.length < 5">
         <label for="file" class="ui icon button add" data-tooltip="Ajouter une création">
             <i class="plus icon"></i>
         </label>
-        <input id="file" style="display:none" *ngIf="creations.imageList.length < 5" (change)="uploadImages($event)" type="file" name="images" accept="video/*|image/*" multiple/>
+        <input id="file" style="display:none" (change)="uploadImages($event)" type="file" name="images" accept="video/*|image/*|audio/*" multiple/>
     </div>
 </form>
