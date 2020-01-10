@@ -14,16 +14,25 @@
           class="colorpicker"
           [(colorPicker)]="colorBackground"
           [style.background]="colorBackground"
+          (colorPickerChange)="setColorBackgroundObservable()"
         />
         <label class="ui label pickerLabel">Fond</label>
         <input
           class="colorpicker margin"
           [(colorPicker)]="colorTitle"
           [style.background]="colorTitle"
+          (colorPickerChange)="setColorTitleObservable()"
         />
         <label class="ui label pickerLabel">Titre</label>
+        <input
+        class="colorpicker margin"
+        [(colorPicker)]="colorDiv"
+        [style.background]="colorDiv"
+        (colorPickerChange)="setColorDivObservable()"
+      />
+      <label class="ui label pickerLabel">Rubriques</label>
       </div>
-      <sui-select class="enforce-font" placeholder="Choose" [(ngModel)]="font">
+      <sui-select (selectedOptionChange)="setFontObservable()" class="enforce-font" placeholder="Choose" [(ngModel)]="font">
         <sui-select-option class="roboto" value="Roboto">Roboto</sui-select-option>
         <sui-select-option class="abril-sc" value="Abril_SC">Abril SC</sui-select-option>
         <sui-select-option class="amatic-sc" value="Amatic_SC">Amatic SC</sui-select-option>
@@ -45,7 +54,7 @@
 <div class="body" [style.background]="colorBackground">
   <div class="body-content ui stackable grid container">
     <div class="sixteen wide column" [class.no-export]="((profile$ | async) | json) === '{}'">
-      <div id="cv-header" class="rubrique">
+      <div id="cv-header" [style.background]="colorDiv" class="rubrique">
         <div class="bg-circle">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><title>black-circle</title><g id="Calque_2" data-name="Calque 2"><g id="Desktop"><circle cx="50" cy="50" r="50"/></g></g></svg>
         </div>
@@ -56,7 +65,6 @@
           </h1>
         </a>
         <nav class="scrollMenu">
-          <!--( A faire dynamiquement -->
           <a [class.no-export]="((profile$ | async) | json) === '{}'" href="#cv-presentation">Présentation</a>
           <a [class.no-export]="(skills$ | async)?.skillsArray === null || (skills$ | async)?.skillsArray.length === 0" href="#cv-skills">Compétences</a>
           <a [class.no-export]="(experiences$ | async)?.experiencesArray === null || (experiences$ | async)?.experiencesArray.length === 0" href="#cv-experiences">Expérience</a>
@@ -67,7 +75,7 @@
       </div>
     </div>
     <div class="sixteen wide column" [class.no-export]="((profile$ | async) | json) === '{}'">
-      <div id="cv-profile" class="rubrique">
+      <div id="cv-profile" [style.background]="colorHeader" [style.color]="headerFontColor" class="rubrique">
         <div [routerLink]="['/editor/0']" routerLinkActive="router-link-active" class="edit-icon no-export"><i class="pencil alternate icon"></i></div>
         <div class="bg-circle">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><title>black-circle</title><g id="Calque_2" data-name="Calque 2"><g id="Desktop"><circle cx="50" cy="50" r="50"/></g></g></svg>
@@ -76,52 +84,35 @@
           <p><span class="profile-name">{{ (profile$ | async)?.firstName }} {{ (profile$ | async)?.lastName }}</span><br>
             {{ (profile$ | async)?.city }}<br>
             {{ (contacts$ | async)?.phone }}<br>
-              <a href="{{(contact$ | async)?.mail}}">{{ (contact$ | async)?.mail }}</a>
+              <a href="mailto:{{(contacts$ | async)?.mail}}">{{ (contacts$ | async)?.mail }}</a>
           </p>
-          <!-- A gérer dynamiquement -->
-          <p class="profile-job">{{ (profile$ | async)?.job }}</p>
+          <h2 class="profile-job">{{ (profile$ | async)?.job }}</h2>
+          <span class="article-subtitle" *ngIf="(profile$ | async)?.experience !== undefined">Depuis {{ (profile$ | async)?.experience }} {{ ((profile$ | async)?.experience == 1) ? 'an' : 'ans' }} </span>
           <div class="profile-link">
-              <a href=""><i class="linkedin icon"></i></a>
-              <a href=""><i class="facebook icon"></i></a>
-              <a href=""><i class="twitter icon"></i></a>
-              <a href=""><i class="instagram icon"></i></a>
+              <a *ngIf="(contacts$ | async)?.facebook !== undefined" href="{{ (contacts$ | async)?.facebook }}"><i class="facebook icon"></i></a>
+              <a *ngIf="(contacts$ | async)?.youtube !== undefined" href="{{ (contacts$ | async)?.youtube }}"><i class="youtube icon"></i></a>
+              <a *ngIf="(contacts$ | async)?.linkedin !== undefined" href="{{ (contacts$ | async)?.linkedin }}"><i class="linkedin icon"></i></a>
+              <a *ngIf="(contacts$ | async)?.instagram !== undefined" href="{{ (contacts$ | async)?.instagram }}"><i class="instagram icon"></i></a>
+              <a *ngIf="(contacts$ | async)?.twitter !== undefined" href="{{ (contacts$ | async)?.twitter }}"><i class="twitter icon"></i></a>
+              <a *ngIf="(contacts$ | async)?.website !== undefined" href="{{ (contacts$ | async)?.website }}"><i class="globe icon"></i></a>
           </div>
         </div>
-        <!-- <div>
-          <p>Bienvenue !</p>
-          <p>
-            {{ (profile$ | async)?.firstName }}
-            {{ (profile$ | async)?.lastName }}
-          </p>
-          <div>
-            <p><i class="home icon"></i>{{ (profile$ | async)?.city }}</p>
-            <p><i class="phone icon"></i>{{ (contacts$ | async)?.phone }}</p>
-            <p>
-              <i class="envelope icon"></i
-              ><a href="{{ (contact$ | async)?.mail }}">{{
-                (contact$ | async)?.mail
-              }}</a>
-            </p>
-          </div>
-          <div>
-            <i class="linkedin icon"></i>
-            <i class="facebook icon"></i>
-            <i class="twitter icon"></i>
-            <i class="instagram icon"></i>
-          </div>
-        </div> -->
         <div>
           <div class="profile-img">
-            <img
-              src="{{ (profile$ | async)?.imageUrl }}"
-              alt="profilePicture"
+            <img *ngIf="(profile$ | async)?.imageUrl !== null && (profile$ | async)?.imageUrl !== undefined"
+              [src]="(profile$ | async)?.imageUrl"
+              alt=""
             />
+            <img
+            *ngIf="(profile$ | async)?.imageUrl === null || (profile$ | async)?.imageUrl === undefined"
+            src="./assets/img/placeholder.jpg"
+            alt="">
           </div>
         </div>
       </div>
     </div>
     <div class="six wide column" [class.no-export]="((presentation$ | async) | json) === '{}'">
-      <div id="cv-presentation" class="rubrique">
+      <div id="cv-presentation" [style.background]="colorDiv" class="rubrique">
         <div [routerLink]="['/editor/1']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Presentation</h2>
         <p>
@@ -130,7 +121,7 @@
       </div>
     </div>
     <div class="ten wide column" [class.no-export]="(skills$ | async)?.skillsArray === null || (skills$ | async)?.skillsArray.length === 0">
-      <div id="cv-skills" class="rubrique">
+      <div id="cv-skills" [style.background]="colorDiv" class="rubrique">
         <div [routerLink]="['/editor/2']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Compétences</h2>
         <p>
@@ -148,7 +139,7 @@
       </div>
     </div>
     <div class="eight wide column" [class.no-export]="(experiences$ | async)?.experiencesArray === null || (experiences$ | async)?.experiencesArray.length === 0">
-      <div id="cv-experiences" class="rubrique">
+      <div id="cv-experiences" [style.background]="colorDiv" class="rubrique">
         <div [routerLink]="['/editor/3']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Expériences</h2>
         <p>
@@ -180,7 +171,7 @@
       </div>
     </div>
     <div class="eight wide column" [class.no-export]="(trainings$ | async)?.trainingsArray === null || (trainings$ | async)?.trainingsArray.length === 0 && (certifications$ | async)?.certificationsArray === null || (certifications$ | async)?.certificationsArray.length === 0">
-      <div id="cv-training" class="rubrique">
+      <div id="cv-training" [style.background]="colorDiv" class="rubrique">
         <div [routerLink]="['/editor/4']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [class.no-export]="(trainings$ | async)?.trainingsArray === null || (trainings$ | async)?.trainingsArray.length === 0"[style.color]="colorTitle">Formations</h2>
         <div class="article-container">
@@ -231,7 +222,7 @@
       </div>
     </div>
     <div class="sixteen wide column" [class.no-export]="(creations$ | async)?.imageList === null || (creations$ | async)?.imageList.length === 0">
-      <div id="cv-creation" class="rubrique">
+      <div id="cv-creation" [style.background]="colorDiv" class="rubrique">
         <div [routerLink]="['/editor/6']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Réalisations</h2>
         <p>{{ (creations$ | async)?.introduction }}</p>
@@ -259,7 +250,7 @@
       </div>
     </div>
     <div class="sixteen wide column" [class.no-export]="(references$ | async)?.comments === null || (references$ | async)?.comments.length === 0">
-      <div id="cv-reference" class="rubrique">
+      <div id="cv-reference" [style.background]="colorDiv" class="rubrique">
         <div [routerLink]="['/editor/7']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Références</h2>
         <div *ngFor="let c of (references$ | async)?.comments">
