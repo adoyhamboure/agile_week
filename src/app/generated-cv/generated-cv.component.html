@@ -23,7 +23,7 @@
           [style.background]="colorTitle"
           (colorPickerChange)="setColorTitleObservable()"
         />
-        <label class="ui label pickerLabel">Titre</label>
+        <label class="ui label pickerLabel">Couleur de police</label>
         <input
         class="colorpicker margin"
         [(colorPicker)]="colorDiv"
@@ -81,7 +81,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><title>black-circle</title><g id="Calque_2" data-name="Calque 2"><g id="Desktop"><circle cx="50" cy="50" r="50"/></g></g></svg>
         </div>
         <div>
-          <p><span class="profile-name">{{ (profile$ | async)?.firstName }} {{ (profile$ | async)?.lastName }}</span><br>
+          <p><span class="profile-name">{{ (profile$ | async)?.firstName }} {{ (profile$ | async)?.lastName }}</span ><br>
             {{ (profile$ | async)?.city }}<br>
             {{ (contacts$ | async)?.phone }}<br>
               <a href="mailto:{{(contacts$ | async)?.mail}}">{{ (contacts$ | async)?.mail }}</a>
@@ -115,7 +115,7 @@
       <div id="cv-presentation" [style.background]="colorDiv" class="rubrique">
         <div [routerLink]="['/editor/1']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Presentation</h2>
-        <p>
+        <p [style.color]="colorTitle">
           {{ (presentation$ | async)?.description }}
         </p>
       </div>
@@ -124,11 +124,11 @@
       <div id="cv-skills" [style.background]="colorDiv" class="rubrique">
         <div [routerLink]="['/editor/2']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Compétences</h2>
-        <p>
+        <p [style.color]="colorTitle">
           {{ (skills$ | async)?.introduction }}
         </p>
         <div *ngFor="let s of (skills$ | async)?.skillsArray">
-          <div class="skill">
+          <div [style.color]="colorTitle" class="skill">
             <span class="skill-label">{{ s.label }}</span>
             <div class="progress">
                 <div class="progress-empty"></div>
@@ -139,13 +139,13 @@
       </div>
     </div>
     <div class="eight wide column" [class.no-export]="(experiences$ | async)?.experiencesArray === null || (experiences$ | async)?.experiencesArray.length === 0">
-      <div id="cv-experiences" [style.background]="colorDiv" class="rubrique">
+      <div id="cv-experiences" [style.color]="colorTitle" [style.background]="colorDiv" class="rubrique">
         <div [routerLink]="['/editor/3']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Expériences</h2>
         <p>
           {{ (experiences$ | async)?.introduction }}
         </p>
-        <div class="article-container">
+        <div [style.color]="colorTitle" class="article-container">
           <div *ngFor="let e of (experiences$ | async)?.experiencesArray">
             <div class="grey-bar"></div>
             <div class="article">
@@ -223,7 +223,7 @@
         </div>
       </div>
     </div>
-    <div class="sixteen wide column" [class.no-export]="(creations$ | async)?.imageList === null || (creations$ | async)?.imageList.length === 0">
+    <div [style.color]="colorTitle" class="sixteen wide column" [class.no-export]="(creations$ | async)?.imageList === null || (creations$ | async)?.imageList.length === 0">
       <div id="cv-creation" [style.background]="colorDiv" class="rubrique">
         <div [routerLink]="['/editor/6']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Réalisations</h2>
@@ -258,7 +258,7 @@
         </div>
       </div>
     </div>
-    <div class="sixteen wide column" [class.no-export]="(references$ | async)?.comments === null || (references$ | async)?.comments.length === 0">
+    <div [style.color]="colorTitle" class="sixteen wide column" [class.no-export]="(references$ | async)?.comments === null || (references$ | async)?.comments.length === 0">
       <div id="cv-reference" [style.background]="colorDiv" class="rubrique">
         <div [routerLink]="['/editor/7']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [style.color]="colorTitle">Références</h2>
@@ -266,7 +266,7 @@
           <!-- <h3>{{c.author}}</h3>
                           <h4>{{c.company}}</h4>
                           <p>{{c.value}}</p> -->
-          <div class="mySlides article" *ngFor="let c of (references$ | async)?.comments">
+          <div [style.color]="colorTitle" class="mySlides article" *ngFor="let c of (references$ | async)?.comments">
             <span class="article-title">{{ c.author }}</span>
             <br />
             <span class="article-subtitle">{{ c.company }}</span>
