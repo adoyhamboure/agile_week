@@ -27,6 +27,7 @@ export class DataObservableService {
   private colorBackground$: BehaviorSubject<string> = new BehaviorSubject<string>(undefined);
   private colorTitle$: BehaviorSubject<string> = new BehaviorSubject<string>(undefined);
   private font$: BehaviorSubject<string> = new BehaviorSubject<string>(undefined);
+  private colorDiv$: BehaviorSubject<string> = new BehaviorSubject<string>(undefined);
   constructor() { }
 
   setPresentation(description: string): void {
@@ -112,6 +113,10 @@ export class DataObservableService {
     this.font$.next(fontName);
   }
 
+  setColorDiv(colorDiv: string): void {
+    this.colorDiv$.next(colorDiv);
+  }
+
   SubscribeToPresentation(): Observable<Presentation> {
     return this.presentation$.asObservable();
   }
@@ -158,6 +163,10 @@ export class DataObservableService {
 
   SubscribeToFont(): Observable<string> {
     return this.font$.asObservable();
+  }
+
+  SuscribeToColorDiv(): Observable<string> {
+    return this.colorDiv$.asObservable();
   }
 
 }

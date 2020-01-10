@@ -32,8 +32,10 @@ export class GeneratedCvComponent implements OnInit {
   colorBackground$: Observable<string>;
   colorTitle$: Observable<string>;
   font$: Observable<string>;
+  colorDiv$: Observable<string>;
   colorBackground: string;
   colorTitle: string;
+  colorDiv: string;
   font: string;
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -44,10 +46,12 @@ export class GeneratedCvComponent implements OnInit {
   ngOnInit() {
     this.colorBackground = '#D9D9D9';
     this.colorTitle = '#434343';
+    this.colorDiv= '#FFFFFF'
     this.font = "Roboto";
     this.colorBackground$ = this.dataObservableService.SubscribeToColorBackground();
     this.colorTitle$ = this.dataObservableService.SubscribeToColorTitle();
     this.font$ = this.dataObservableService.SubscribeToFont();
+    this.colorDiv$ = this.dataObservableService.SuscribeToColorDiv();
     this.fillPickers();
     this.initObservables();
     setTimeout(() => showDivs(1), 1);
@@ -74,6 +78,14 @@ export class GeneratedCvComponent implements OnInit {
       tap(data => {
         if (data != undefined) {
           this.font = data;
+        }
+      })
+    ).subscribe();
+
+    this.colorDiv$.pipe(
+      tap(data => {
+        if (data != undefined) {
+          this.colorDiv = data;
         }
       })
     ).subscribe();
@@ -108,5 +120,9 @@ export class GeneratedCvComponent implements OnInit {
  
   setFontObservable(): void {
     this.dataObservableService.setFont(this.font);
+  }
+
+  setColorDivObservable(): void {
+    this.dataObservableService.setColorDiv(this.colorDiv);
   }
 }
