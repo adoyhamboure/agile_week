@@ -56,7 +56,6 @@
           </h1>
         </a>
         <nav class="scrollMenu">
-          <!--( A faire dynamiquement -->
           <a [class.no-export]="((profile$ | async) | json) === '{}'" href="#cv-presentation">Présentation</a>
           <a [class.no-export]="(skills$ | async)?.skillsArray === null || (skills$ | async)?.skillsArray.length === 0" href="#cv-skills">Compétences</a>
           <a [class.no-export]="(experiences$ | async)?.experiencesArray === null || (experiences$ | async)?.experiencesArray.length === 0" href="#cv-experiences">Expérience</a>
@@ -78,44 +77,27 @@
             {{ (contacts$ | async)?.phone }}<br>
               <a href="mailto:{{(contacts$ | async)?.mail}}">{{ (contacts$ | async)?.mail }}</a>
           </p>
-          <!-- A gérer dynamiquement -->
           <h2 class="profile-job">{{ (profile$ | async)?.job }}</h2>
+          <span class="article-subtitle" *ngIf="(profile$ | async)?.experience !== undefined">Depuis {{ (profile$ | async)?.experience }} {{ ((profile$ | async)?.experience == 1) ? 'an' : 'ans' }} </span>
           <div class="profile-link">
-              <a href=""><i class="linkedin icon"></i></a>
-              <a href=""><i class="facebook icon"></i></a>
-              <a href=""><i class="twitter icon"></i></a>
-              <a href=""><i class="instagram icon"></i></a>
+              <a *ngIf="(contacts$ | async)?.facebook !== undefined" href="{{ (contacts$ | async)?.facebook }}"><i class="facebook icon"></i></a>
+              <a *ngIf="(contacts$ | async)?.youtube !== undefined" href="{{ (contacts$ | async)?.youtube }}"><i class="youtube icon"></i></a>
+              <a *ngIf="(contacts$ | async)?.linkedin !== undefined" href="{{ (contacts$ | async)?.linkedin }}"><i class="linkedin icon"></i></a>
+              <a *ngIf="(contacts$ | async)?.instagram !== undefined" href="{{ (contacts$ | async)?.instagram }}"><i class="instagram icon"></i></a>
+              <a *ngIf="(contacts$ | async)?.twitter !== undefined" href="{{ (contacts$ | async)?.twitter }}"><i class="twitter icon"></i></a>
+              <a *ngIf="(contacts$ | async)?.website !== undefined" href="{{ (contacts$ | async)?.website }}"><i class="globe icon"></i></a>
           </div>
         </div>
-        <!-- <div>
-          <p>Bienvenue !</p>
-          <p>
-            {{ (profile$ | async)?.firstName }}
-            {{ (profile$ | async)?.lastName }}
-          </p>
-          <div>
-            <p><i class="home icon"></i>{{ (profile$ | async)?.city }}</p>
-            <p><i class="phone icon"></i>{{ (contacts$ | async)?.phone }}</p>
-            <p>
-              <i class="envelope icon"></i
-              ><a href="{{ (contact$ | async)?.mail }}">{{
-                (contact$ | async)?.mail
-              }}</a>
-            </p>
-          </div>
-          <div>
-            <i class="linkedin icon"></i>
-            <i class="facebook icon"></i>
-            <i class="twitter icon"></i>
-            <i class="instagram icon"></i>
-          </div>
-        </div> -->
         <div>
           <div class="profile-img">
-            <img
-              src="{{ (profile$ | async)?.imageUrl }}"
-              alt="profilePicture"
+            <img *ngIf="(profile$ | async)?.imageUrl !== null && (profile$ | async)?.imageUrl !== undefined"
+              [src]="(profile$ | async)?.imageUrl"
+              alt=""
             />
+            <img
+            *ngIf="(profile$ | async)?.imageUrl === null || (profile$ | async)?.imageUrl === undefined"
+            src="./assets/img/placeholder.jpg"
+            alt="">
           </div>
         </div>
       </div>
