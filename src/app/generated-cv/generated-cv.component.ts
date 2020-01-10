@@ -36,6 +36,8 @@ export class GeneratedCvComponent implements OnInit {
   colorBackground: string;
   colorTitle: string;
   colorDiv: string;
+  colorHeader: string;
+  headerFontColor: string;
   font: string;
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -46,7 +48,9 @@ export class GeneratedCvComponent implements OnInit {
   ngOnInit() {
     this.colorBackground = '#D9D9D9';
     this.colorTitle = '#434343';
+    this.headerFontColor = '#F3F3F3';
     this.colorDiv= '#FFFFFF'
+    this.colorHeader = '#434343';
     this.font = "Roboto";
     this.colorBackground$ = this.dataObservableService.SubscribeToColorBackground();
     this.colorTitle$ = this.dataObservableService.SubscribeToColorTitle();
