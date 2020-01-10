@@ -89,12 +89,12 @@
           <h2 class="profile-job">{{ (profile$ | async)?.job }}</h2>
           <span class="article-subtitle" *ngIf="(profile$ | async)?.experience !== undefined">Depuis {{ (profile$ | async)?.experience }} {{ ((profile$ | async)?.experience == 1) ? 'an' : 'ans' }} </span>
           <div class="profile-link">
-              <a *ngIf="(contacts$ | async)?.facebook !== undefined" href="{{ (contacts$ | async)?.facebook }}"><i class="facebook icon"></i></a>
-              <a *ngIf="(contacts$ | async)?.youtube !== undefined" href="{{ (contacts$ | async)?.youtube }}"><i class="youtube icon"></i></a>
-              <a *ngIf="(contacts$ | async)?.linkedin !== undefined" href="{{ (contacts$ | async)?.linkedin }}"><i class="linkedin icon"></i></a>
-              <a *ngIf="(contacts$ | async)?.instagram !== undefined" href="{{ (contacts$ | async)?.instagram }}"><i class="instagram icon"></i></a>
-              <a *ngIf="(contacts$ | async)?.twitter !== undefined" href="{{ (contacts$ | async)?.twitter }}"><i class="twitter icon"></i></a>
-              <a *ngIf="(contacts$ | async)?.website !== undefined" href="{{ (contacts$ | async)?.website }}"><i class="globe icon"></i></a>
+              <a target="_blank" *ngIf="(contacts$ | async)?.facebook !== undefined" href="{{ (contacts$ | async)?.facebook }}"><i class="facebook icon"></i></a>
+              <a target="_blank" *ngIf="(contacts$ | async)?.youtube !== undefined" href="{{ (contacts$ | async)?.youtube }}"><i class="youtube icon"></i></a>
+              <a target="_blank" *ngIf="(contacts$ | async)?.linkedin !== undefined" href="{{ (contacts$ | async)?.linkedin }}"><i class="linkedin icon"></i></a>
+              <a target="_blank" *ngIf="(contacts$ | async)?.instagram !== undefined" href="{{ (contacts$ | async)?.instagram }}"><i class="instagram icon"></i></a>
+              <a target="_blank" *ngIf="(contacts$ | async)?.twitter !== undefined" href="{{ (contacts$ | async)?.twitter }}"><i class="twitter icon"></i></a>
+              <a target="_blank" *ngIf="(contacts$ | async)?.website !== undefined" href="{{ (contacts$ | async)?.website }}"><i class="globe icon"></i></a>
           </div>
         </div>
         <div>
@@ -170,8 +170,8 @@
         </div>
       </div>
     </div>
-    <div class="eight wide column" [class.no-export]="(trainings$ | async)?.trainingsArray === null || (trainings$ | async)?.trainingsArray.length === 0 && (certifications$ | async)?.certificationsArray === null || (certifications$ | async)?.certificationsArray.length === 0">
-      <div id="cv-training" [style.color]="colorTitle" [style.background]="colorDiv" class="rubrique">
+    <div class="eight wide column" [class.no-export]="((trainings$ | async)?.trainingsArray === null || (trainings$ | async)?.trainingsArray.length === 0) && ((certifications$ | async)?.certificationsArray === null || (certifications$ | async)?.certificationsArray.length === 0)">
+      <div id="cv-training" [style.background]="colorDiv" class="rubrique">
         <div [routerLink]="['/editor/4']" routerLinkActive="router-link-active" class="edit-icon  no-export"><i class="pencil alternate icon"></i></div>
         <h2 [class.no-export]="(trainings$ | async)?.trainingsArray === null || (trainings$ | async)?.trainingsArray.length === 0"[style.color]="colorTitle">Formations</h2>
         <p *ngIf="(trainings$ | async)?.introduction">{{ (trainings$ | async)?.introduction }}</p>
@@ -232,6 +232,13 @@
           *ngFor="let image of (creations$ | async)?.imageList; let i = index"
           class="creation-list"
         >
+        <div *ngIf="image.type.split('/')[0] === 'audio'">
+          <audio controls>
+            <source [src]="image.url" type="audio/mpeg">
+          </audio>
+          <p>{{ image.description }}</p>
+        </div>
+          
           <div *ngIf="image.type.split('/')[0] === 'video'">
             <video width="320" height="240" controls>
               <source [src]="image.url" type="video/mp4" />
