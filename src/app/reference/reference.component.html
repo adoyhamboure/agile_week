@@ -15,7 +15,7 @@
                 <textarea [(ngModel)]="c.value" [ngModelOptions]="{standalone: true}"
                 placeholder="Entrez le commentaire de votre ancien collègue ou patron !"></textarea>
             </div>
-            <button *ngIf="references.comments.length > 1" (click)="removeComment(i)" class="ui icon button remove">
+            <button (click)="removeComment(i)" class="ui icon button remove">
                 <i class="trash icon"></i>
             </button>
         </div>
