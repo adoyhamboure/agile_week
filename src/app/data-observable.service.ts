@@ -24,7 +24,10 @@ export class DataObservableService {
   private creations$: BehaviorSubject<Creations> = new BehaviorSubject<Creations>(undefined);
   private references$: BehaviorSubject<References> = new BehaviorSubject<References>(undefined);
   private contacts$: BehaviorSubject<Contacts> = new BehaviorSubject<Contacts>(undefined);
-  constructor() {}
+  private colorBackground$: BehaviorSubject<string> = new BehaviorSubject<string>(undefined);
+  private colorTitle$: BehaviorSubject<string> = new BehaviorSubject<string>(undefined);
+  private font$: BehaviorSubject<string> = new BehaviorSubject<string>(undefined);
+  constructor() { }
 
   setPresentation(description: string): void {
     let presentation = new Presentation();
@@ -96,6 +99,18 @@ export class DataObservableService {
     this.contacts$.next(contacts);
   }
 
+  setColorBackground(background: string): void {
+    this.colorBackground$.next(background);
+  }
+
+  setColorTitle(title: string): void {
+    this.colorTitle$.next(title);
+  }
+
+  setFont(fontName: string): void {
+    this.font$.next(fontName);
+  }
+
   SubscribeToPresentation(): Observable<Presentation> {
     return this.presentation$.asObservable();
   }
@@ -132,5 +147,16 @@ export class DataObservableService {
     return this.contacts$.asObservable();
   }
 
+  SubscribeToColorBackground(): Observable<string> {
+    return this.colorBackground$.asObservable();
+  }
+
+  SubscribeToColorTitle(): Observable<string> {
+    return this.colorTitle$.asObservable();
+  }
+
+  SubscribeToFont(): Observable<string> {
+    return this.font$.asObservable();
+  }
 
 }

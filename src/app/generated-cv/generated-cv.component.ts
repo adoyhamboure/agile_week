@@ -12,6 +12,7 @@ import { Skills } from 'src/models/Skills';
 import { Trainings } from 'src/models/Trainings';
 import { DOCUMENT } from '@angular/common';
 import { ExportService } from '../export.service';
+import { tap } from 'rxjs/operators';
 declare function showDivs(n: any): any;
 @Component({
   selector: 'app-generated-cv',
@@ -28,6 +29,9 @@ export class GeneratedCvComponent implements OnInit {
   references$: Observable<References>;
   skills$: Observable<Skills>;
   trainings$: Observable<Trainings>;
+  colorBackground$: Observable<string>;
+  colorTitle$: Observable<string>;
+  font$: Observable<string>;
   colorBackground: string;
   colorTitle: string;
   font: string;
@@ -35,14 +39,44 @@ export class GeneratedCvComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     private exportService: ExportService,
     private dataObservableService: DataObservableService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.colorBackground = '#D9D9D9';
     this.colorTitle = '#434343';
+    this.font = "Roboto";
+    this.colorBackground$ = this.dataObservableService.SubscribeToColorBackground();
+    this.colorTitle$ = this.dataObservableService.SubscribeToColorTitle();
+    this.font$ = this.dataObservableService.SubscribeToFont();
+    this.fillPickers();
     this.initObservables();
     setTimeout(() => showDivs(1), 1);
-    this.font = "Roboto";
+  }
+
+  fillPickers() {
+    this.colorBackground$.pipe(
+      tap(data => {
+        if (data != undefined) {
+          this.colorBackground = data;
+        }
+      })
+    ).subscribe();
+
+    this.colorTitle$.pipe(
+      tap(data => {
+        if (data != undefined) {
+          this.colorTitle = data;
+        }
+      })
+    ).subscribe();
+
+    this.font$.pipe(
+      tap(data => {
+        if (data != undefined) {
+          this.font = data;
+        }
+      })
+    ).subscribe();
   }
 
   initObservables() {
@@ -62,5 +96,17 @@ export class GeneratedCvComponent implements OnInit {
     this.exportService.export(content).then(data => {
       window.open(data['url']);
     });
+  }
+
+  setColorBackgroundObservable(): void {
+    this.dataObservableService.setColorBackground(this.colorBackground);
+  }
+
+  setColorTitleObservable(): void {
+    this.dataObservableService.setColorTitle(this.colorTitle);
+  }
+ 
+  setFontObservable(): void {
+    this.dataObservableService.setFont(this.font);
   }
 }

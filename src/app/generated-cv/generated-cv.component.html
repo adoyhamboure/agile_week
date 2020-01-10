@@ -14,16 +14,18 @@
           class="colorpicker"
           [(colorPicker)]="colorBackground"
           [style.background]="colorBackground"
+          (colorPickerChange)="setColorBackgroundObservable()"
         />
         <label class="ui label pickerLabel">Fond</label>
         <input
           class="colorpicker margin"
           [(colorPicker)]="colorTitle"
           [style.background]="colorTitle"
+          (colorPickerChange)="setColorTitleObservable()"
         />
         <label class="ui label pickerLabel">Titre</label>
       </div>
-      <sui-select class="enforce-font" placeholder="Choose" [(ngModel)]="font">
+      <sui-select (selectedOptionChange)="setFontObservable()" class="enforce-font" placeholder="Choose" [(ngModel)]="font">
         <sui-select-option class="roboto" value="Roboto">Roboto</sui-select-option>
         <sui-select-option class="abril-sc" value="Abril_SC">Abril SC</sui-select-option>
         <sui-select-option class="amatic-sc" value="Amatic_SC">Amatic SC</sui-select-option>
