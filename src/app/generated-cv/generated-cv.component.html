@@ -138,11 +138,12 @@
         </p>
         <div *ngFor="let s of (skills$ | async)?.skillsArray">
           <div class="skill">
-            <!-- A finir -->
-              <sui-progress [value]="s.value" [showProgress]="false" [maximum]="5" [precision]="0" [autoSuccess]="false">
-                {{ s.label }}
-              </sui-progress>
-          </div>
+            <span class="skill-label">{{ s.label }}</span>
+            <div class="progress">
+                <div class="progress-empty"></div>
+                <div class="progress-fill" [style.width]="(s.value * 20).toString() + '%'"></div>
+            </div>
+        </div>
         </div>
       </div>
     </div>
