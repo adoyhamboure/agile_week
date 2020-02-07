@@ -260,6 +260,7 @@ a:hover {
 }
 #cv-header nav a {
   margin-left: 10px;
+  pointer-events: none;
 }
 
 /* PROFILE */
@@ -379,6 +380,40 @@ a:hover {
 }
 
 @media screen and (max-width: 680px) {
+
+  /* Edit bar */
+  
+  .top-container {
+    height: 120px;
+    position: relative;
+    top: 1rem;
+  }
+  .top-content {
+    justify-content: center;
+    height: 120px;
+  }
+  .pickers {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 2;
+  }
+  .pickerLabel {
+    margin: 0;
+  }
+  .top-buttons {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  /* Content */
+
+  #cv-header {
+    flex-direction: column;
+  }
+  #cv-header>a {
+    margin-bottom: 1rem;
+  }
   #cv-profile .bg-circle {
       display: none;
   }
@@ -407,9 +442,6 @@ a:hover {
   #cv-header .bg-circle {
     width: 550px;
     height: 550px;
-  }
-  #cv-header {
-    // justify-content: center;
   }
   nav {
     display: none !important;

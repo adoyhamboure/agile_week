@@ -73,11 +73,9 @@ a:hover {
   margin: auto;
   width: fit-content;
 }
-
 .no-export {
   display: none !important;
 }
-
 .top-container {
   height: 50px;
   background-color: #ffffff;
@@ -106,6 +104,7 @@ a:hover {
   display: inline;
   font-size: 12px;
   border-radius: 100px;
+  cursor: pointer;
 }
 
 .top-buttons .btn-full {
@@ -119,11 +118,21 @@ a:hover {
   display: inline;
   font-size: 12px;
   border-radius: 100px;
+  cursor: pointer;
 }
 
 .colorpicker {
   width: 25px;
   cursor: pointer;
+  border-radius: 5px;
+    height: 25px;
+    border: 1px solid;
+    border-color: #F3F3F3;
+}
+
+.pickerLabel {
+  height: 25px;
+  margin: 0 28px 0 5px;
 }
 
 .pickers {
@@ -214,6 +223,12 @@ a:hover {
 
 /* HEADER */
 
+.body-content>div:first-child {
+  position: sticky !important;
+  top: -24px;
+  z-index: 100;
+}
+
 #cv-header {
   display: flex;
   justify-content: space-between;
@@ -299,7 +314,7 @@ a:hover {
 #cv-profile .profile-job {
   font-weight: 700;
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   text-transform: uppercase;
 }
 
@@ -359,7 +374,21 @@ a:hover {
   margin: 20px auto;
 }
 
+.scrollMenu{
+  overflow: auto;
+  white-space: nowrap;
+}
+
 @media screen and (max-width: 680px) {
+
+  /* Content */
+
+  #cv-header {
+    flex-direction: column;
+  }
+  #cv-header>a {
+    margin-bottom: 1rem;
+  }
   #cv-profile .bg-circle {
       display: none;
   }
@@ -375,4 +404,24 @@ a:hover {
       padding: 0;
   }
   
+}
+
+@media print {
+  .no-export {
+    display: none !important;
+  }
+  .body-content {
+    margin: 20px;
+    padding: 20px;
+  }
+  #cv-header .bg-circle {
+    width: 550px;
+    height: 550px;
+  }
+  nav {
+    display: none !important;
+  }
+  #cv-creation, #cv-reference {
+    display: none;
+  }
 }
